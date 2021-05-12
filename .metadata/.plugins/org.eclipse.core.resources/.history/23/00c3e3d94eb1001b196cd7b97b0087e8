@@ -1,0 +1,26 @@
+package com.springstudy.shop;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class OracleConnectionTest {
+	private static final String DRIVER="oracle.jdbc.driver.OracleDriver";
+	private static final String URL = "jdbc:oracle:thin:@192.168.4.140:1521:xe";
+    private static final String USER = "scott";
+    private static final String PW = "1234";
+    
+    static {
+    	try {
+			Class.forName(DRIVER);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+    
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}
