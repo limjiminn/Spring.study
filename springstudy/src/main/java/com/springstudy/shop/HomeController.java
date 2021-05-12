@@ -31,10 +31,10 @@ public class HomeController {
 		
 		String formattedDate = dateFormat.format(date);
 		
-		model.addAttribute("serverTime", formattedDate );
+		model.addAttribute("serverTime", formattedDate ); //식별자를 받아서 
 		
 		//응답 페이지 호출
-		return "home"; 
+		return "home";  //home.jsp로 간다
 	}
 	
 }
