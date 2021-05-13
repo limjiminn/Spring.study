@@ -2,11 +2,15 @@ package com.springstudy.shop;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springstudy.shop.domain.SampleDTO;
@@ -42,14 +47,14 @@ public class SampleController {
 		log.info("basic4.................");
 	}
 	
-	@RequestMapping(value = "/basic", method = {RequestMethod.POST})
+	@RequestMapping(value = "/basic", method = RequestMethod.GET)
 	public void basicGet() {
 		logger.info("basicGet1.................");
 		log.info("basicGet2....................");
 	}
 	
 	//get방식으로 사용됨
-	@RequestMapping(value = "/basic1", method = {RequestMethod.GET})
+	@RequestMapping(value = "/basic1", method = RequestMethod.POST)
 	public void basicPost() {
 		logger.info("basicPost1.................");
 		log.info("basicPost2....................");
@@ -88,7 +93,9 @@ public class SampleController {
 					   @RequestParam("age") int superAge) {
 		log.info("superName :" + superName);
 		log.info("superAge :" + (superAge + 1));
+		
 		SampleDTO sDto = new SampleDTO();
+		
 		sDto.setSuperName(superName);
 		sDto.setAge(superAge);
 		log.info(sDto.toString());
@@ -102,6 +109,14 @@ public class SampleController {
 		for(String id : ids) {
 			log.info("ids : " + id);
 		}
+		log.info("=================================");
+		for(String idStr : ids) {
+			log.info(idStr);
+		}
+		
+		log.info(">=========람다 출력 ================");
+		//컬렉션개체들은 스트링개체가 있다.. 변수 ->
+		ids.forEach(idsStr -> {log.info(idsStr);});
 		return "ex02List";
 	}
 	
@@ -217,7 +232,44 @@ public class SampleController {
 		
 		map.put("info", list);
 		
-		return map;
+		return map;	
+	}
+	//responseEntity: 타입지정,메시지 전달 헤더정보나 데이터를 전달
+	@RequestMapping("/ex07")
+	public ResponseEntity<String> ex07(){
 		
+		String msg = "{\"name\":\"홍길동\"}";
+		
+		HttpHeaders header = new HttpHeaders();
+		header.add("Content-type", "application/json;charset=UTF-8");
+		//HttpStatus.OK : 200
+		return new ResponseEntity<String>(msg,header,HttpStatus.OK);
+	}
+	
+	//파일업로드
+	@RequestMapping(value = "/exFileUpload", method = RequestMethod.GET)
+	public void exFileUpload() {
+		log.info("/exFileUpload...............");
+		
+	}
+	
+	@RequestMapping(value = "/exUploadPost",method = RequestMethod.POST)
+	public void exUploadPost(ArrayList<MultipartFile> files) throws Exception {
+		//ArrayList<MultipartFile> files : 배열로 받아오기 (어레이리스트배열을 향상시킨것
+		log.info("/exUploadPost...............");
+		
+		for(MultipartFile multipartFile : files) {
+			
+		}
+		
+		//files를 통해서 foreach안에들어오는데
+		//file 실행영역에서 갖고오는 임의의 데이터(MultipartFile 타입)
+		log.info(">=========람다 출력 ================");
+		files.forEach(file -> {
+			log.info("------------------------------");
+			//파일네임갖고올때 쓰는거
+			log.info("fileName : " + file.getOriginalFilename());
+			log.info("fileSize : " + file.getSize());
+		});
 	}
 }

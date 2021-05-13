@@ -1,0 +1,29 @@
+package com.springstudy.shop.exception;
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+@Controller
+public class CommonExceptionAdvice {
+	private static final Logger logger = LoggerFactory.getLogger(CommonExceptionAdvice.class);
+	
+	
+	//다른컨트롤에서 나오는에러 처리 
+	@ExceptionHandler(Exception.class)
+	public String except(Exception ex, Model model) {
+		
+		//{}안으로 ex객체가 전달된다.
+		logger.error("Exception.....{}", ex);
+		
+		//키값이 필요할땐 이렇게
+		model.addAttribute("exception", ex); 
+		
+		logger.error("model.....{}", model);
+		
+		return "error_page";
+	}
+}
