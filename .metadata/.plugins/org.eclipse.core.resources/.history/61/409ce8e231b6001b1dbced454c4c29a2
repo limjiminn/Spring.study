@@ -1,0 +1,5 @@
+package com.springstudy.shop.persistence.impl;
+
+public class BoardDAOImpl {
+
+}
