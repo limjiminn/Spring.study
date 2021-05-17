@@ -32,7 +32,7 @@
   		WHERE userpw=#{userpw}
   	</update>
   	
-  	<delete id="deMember">
+  	<delete id="DeMember">
   		DELETE FROM tbl_member
   		WHERE userpw=#{userpw}
   	</delete>

@@ -25,4 +25,16 @@
   		WHERE userid = #{userid}
   		AND userpw = #{userpw}
   	</select>
+  	
+  	<update id="modifyMember">
+  		UPDATE tbl_member
+  		SET userpw=#{userpw}, username=#{username}, email=#{email}
+  		WHERE userpw=#{userpw}
+  	</update>
+  	
+  	<delete id="deMember">
+  		DELETE FROM tbl_member
+  		WHERE userpw=#{userpw}
+  	</delete>
+  	
   </mapper>

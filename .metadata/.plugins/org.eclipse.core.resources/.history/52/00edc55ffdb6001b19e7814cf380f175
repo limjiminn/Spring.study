@@ -9,5 +9,5 @@ public interface IMemberDAO {
 	public MemberDTO selMember(String userid) throws Exception;
 	public MemberDTO selLoginInfo(String userid, String userpw) throws Exception;
 	public int update(MemberDTO mDto) throws Exception;
-	public int delete(String userpw) throws Exception;
+	public int dalete(MemberDTO mDto) throws Exception;
 }

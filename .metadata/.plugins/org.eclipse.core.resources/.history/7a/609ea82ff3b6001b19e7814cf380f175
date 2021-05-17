@@ -24,18 +24,18 @@ private static final Logger logger = LoggerFactory.getLogger(IMemberDAOTest.clas
 	public void testTime() throws Exception{
 		logger.info("mDao.getTime() ===> " + mDao.getTime());
 	}
-	//회원 가입
-	@Test
-	public void testInsetMember() throws Exception{
-		MemberDTO mDto = new MemberDTO();
-		mDto.setUserid("user03");
-		mDto.setUserpw("user03");
-		mDto.setUsername("USER03");
-		mDto.setEmail("user03@naver.com");
-		
-		mDao.insertMember(mDto);
-	}
-	//회원 조회
+	
+//	@Test
+//	public void testInsetMember() throws Exception{
+//		MemberDTO mDto = new MemberDTO();
+//		mDto.setUserid("user03");
+//		mDto.setUserpw("user03");
+//		mDto.setUsername("USER03");
+//		mDto.setEmail("user03@naver.com");
+//		
+//		mDao.insertMember(mDto);
+//	}
+	
 	@Test
 	public void selMember() throws Exception {
 		MemberDTO mDto = mDao.selMember("user03");
@@ -47,9 +47,6 @@ private static final Logger logger = LoggerFactory.getLogger(IMemberDAOTest.clas
 		MemberDTO mDto = mDao.selLoginInfo("user03", "user03");
 		logger.info(mDto.toString()); 
 	}
-	
-	@Test
-	public void 
-	
+
 
 }

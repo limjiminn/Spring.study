@@ -39,10 +39,10 @@ public class MemberDAOImpl implements IMemberDAO{
 		paramMap.put("userpw", userpw);
 		return sqlSession.selectOne(namespace + ".selLoginfo", paramMap);
 	}
-	public int update(MemberDTO mDto) throws Exception {
-		return sqlSession.update(namespace + ".modifyMember", mDto);
+	public int update(MemberDTO mDto ) throws Exception {
+		return sqlSession.update(namespace);
 	}
-	public int delete(String userpw) throws Exception {
-		return sqlSession.delete(namespace + ".deMember", userpw);
+	public int delete(MemberDTO mDto) throws Exception {
+		return sqlSession.delete(namespace);
 	}
 }
