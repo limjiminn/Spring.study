@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.springstudy.shop.domain.BoardDTO;
 import com.springstudy.shop.persistence.IBoardDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -47,8 +48,8 @@ public class IBoardDAOTest {
 //		bDao.delete(1);
 //	}
 	
-	@Test
-	public void testlistAll() throws Exception{
-		logger.info(bDao.listAll().toString());
-	}
+//	@Test
+//	public void testlistAll() throws Exception{
+//		logger.info(bDao.listAll().toString());
+//	}
 }

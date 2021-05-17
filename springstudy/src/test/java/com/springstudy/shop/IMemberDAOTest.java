@@ -38,13 +38,13 @@ private static final Logger logger = LoggerFactory.getLogger(IMemberDAOTest.clas
 	
 	@Test
 	public void selMember() throws Exception {
-		MemberDTO mDto = mDao.selMember("user01");
+		MemberDTO mDto = mDao.selMember("user03");
 		logger.info(mDto.toString());
 	}
-	
+	//회원정보 수정 삭제 
 	@Test
 	public void selLoginInfo() throws Exception{
-		MemberDTO mDto = mDao.selLoginInfo("user02", "user02");
+		MemberDTO mDto = mDao.selLoginInfo("user03", "user03");
 		logger.info(mDto.toString()); 
 	}
 

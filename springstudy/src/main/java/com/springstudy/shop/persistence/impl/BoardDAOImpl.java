@@ -9,10 +9,10 @@ import org.springframework.stereotype.Repository;
 import com.springstudy.shop.domain.BoardDTO;
 import com.springstudy.shop.persistence.IBoardDAO;
 
-@Repository
+@Repository  //구현체라는걸 알리기위해 사용
 public class BoardDAOImpl implements IBoardDAO{
 	
-	@Autowired
+	@Autowired  //sqlSession 사용을 위해 사용 / 필요한 의존 객체의 타입에 해당하는 Bean을 찾아 주입
 	private SqlSession sqlSession;
 
 	@Override

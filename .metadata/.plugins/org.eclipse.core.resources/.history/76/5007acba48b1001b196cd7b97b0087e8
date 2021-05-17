@@ -1,9 +1,0 @@
-package com.springstudy.shop.lombok;
-
-public class LombokTestClassMain {
-
-	public static void main(String[] args) {
-		
-		LombokTestClass ltc01 = new LombokTestClass();
-	}
-}
