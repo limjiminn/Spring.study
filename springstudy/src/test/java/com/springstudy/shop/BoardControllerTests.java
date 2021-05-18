@@ -2,6 +2,8 @@ package com.springstudy.shop;
 
 import static org.junit.Assert.*;
 
+import java.util.Iterator;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -44,17 +46,20 @@ public class BoardControllerTests {
 	}
 	 //게시물 등록
 	@Test
-	public void testResister() throws Exception {						
-		String resultPage = mockMvc
-								.perform(MockMvcRequestBuilders
-								.post("/board/register")  //가상으로 실행할 URI(빌더패턴)
-								.param("title", "테스트 새글 제목")    //하나씩 파라미터로 지정
-								.param("content", "테스트 새글 내용 입니다")
-								.param("writer", "user01"))
-								.andReturn()
-								.getModelAndView()
-								.getViewName();
-		logger.info(resultPage);
+	public void testResister() throws Exception {
+		for(int i = 6; i < 100; i++) {
+			String resultPage = mockMvc
+					.perform(MockMvcRequestBuilders
+							.post("/board/register")  //가상으로 실행할 URI(빌더패턴)
+							.param("title", "테스트 새글 제목" + i)    //하나씩 파라미터로 지정
+							.param("content", "테스트 새글 내용 입니다")
+							.param("writer", "user01"))
+					.andReturn()
+					.getModelAndView()
+					.getViewName();
+			
+			logger.info(resultPage);
+		}
 	}
 	//게시물 조회
 	@Test

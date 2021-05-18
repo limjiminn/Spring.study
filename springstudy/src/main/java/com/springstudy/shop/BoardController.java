@@ -14,7 +14,7 @@ import com.springstudy.shop.domain.BoardDTO;
 import com.springstudy.shop.service.IBoardService;
 
 @Controller  //어노테이션을 붙여줘야 컨트롤러로 인식한다.
-@RequestMapping ("/board/")  //클래스영역과 메소드 영역에 
+@RequestMapping ("/board")  //클래스영역과 메소드 영역에 
 public class BoardController {
 
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
@@ -36,7 +36,7 @@ public class BoardController {
 	
 	//경로는 똑같아도 전혀 다른 기능이 된다.,.
 	//한두개 받을땐  @param 사용하자
-	//게시물 저장
+	//게시물 등록
 	@RequestMapping(value = "/register" , method = RequestMethod.POST)
 	public String regitsterPOST(BoardDTO bDto, RedirectAttributes rttr) throws Exception{
 		logger.info("register POST.........");  //redirectAttributes 는 POST방식으로 전달
@@ -48,7 +48,7 @@ public class BoardController {
 		//F5 누르면 똑같은거 계속진행 방지(화면전환)
 		return "redirect:/board/list";
 	}
-	//게시물 등록
+	//게시물 조회
 	@RequestMapping(value = "/read", method = RequestMethod.GET )
 	public void read(@RequestParam("bno") int bno, Model model) throws Exception {
 		model.addAttribute("board",service.read(bno));

@@ -28,7 +28,7 @@
   	
   	<update id="modifyMember">
   		UPDATE tbl_member
-  		SET userpw=#{userpw}, username=#{username}, email=#{email}
+  		SET userpw=#{userpw}, email=#{email}
   		WHERE userid=#{userid}
   	</update>
   	

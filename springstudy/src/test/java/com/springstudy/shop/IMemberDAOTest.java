@@ -54,7 +54,6 @@ private static final Logger logger = LoggerFactory.getLogger(IMemberDAOTest.clas
 		MemberDTO mDto = new MemberDTO();
 		mDto.setUserid("user04");
 		mDto.setUserpw("1234");
-		mDto.setUsername("공룡");
 		mDto.setEmail("hhh@naver.com");
 		
 		mDao.update(mDto);
