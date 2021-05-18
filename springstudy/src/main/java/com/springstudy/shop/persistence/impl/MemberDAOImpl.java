@@ -42,7 +42,8 @@ public class MemberDAOImpl implements IMemberDAO{
 	public int update(MemberDTO mDto) throws Exception {
 		return sqlSession.update(namespace + ".modifyMember", mDto);
 	}
-	public int delete(String userpw) throws Exception {
-		return sqlSession.delete(namespace + ".deMember", userpw);
+	public int delete(String userid) throws Exception {
+		
+		return sqlSession.delete(namespace + ".deMember", userid);
 	}
 }
