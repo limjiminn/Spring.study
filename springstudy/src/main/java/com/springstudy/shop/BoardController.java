@@ -39,13 +39,17 @@ public class BoardController {
 	//게시물 등록
 	@RequestMapping(value = "/register" , method = RequestMethod.POST)
 	public String regitsterPOST(BoardDTO bDto, RedirectAttributes rttr) throws Exception{
-		logger.info("register POST.........");  //redirectAttributes 는 POST방식으로 전달
+		logger.info("register POST.........");  //redirectAttributes : redirect를 처리할때 사용(일회성)
 		logger.info("/register====> " + bDto);	
 		
 		service.register(bDto);
 		//addFlashAttribute: 리다이렉트 직전 플래시에 저장하는 메소드(리다이렉트 이후 소멸)
+		//내부적으로 HttpSession을 이용해 처리
 		rttr.addFlashAttribute("result" , bDto.getBno());
 		//F5 누르면 똑같은거 계속진행 방지(화면전환)
+		//재전송 처리 : redirect
+		//redirect를 사용하지않으면 처리가 완료된 후 다시 동일 내용 전송이 된다.
+		//그래서 브라우저의 URL을 이동하는 방식을 이용한다.
 		return "redirect:/board/list";
 	}
 	//게시물 조회

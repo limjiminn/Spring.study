@@ -43,7 +43,7 @@
                                 	</c:forEach>
                                 </tbody>
                             </table>
-                            	<!-- Modal 추가 ----------집가서 공부-->
+                            	<!-- Modal 추가 : 활성화된 div를 선택하지 않고선 다시 원래 화면을 볼수 없도록 막기때문에 메세지를 보여주는데 효과적-->
                             	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             		<div class="modal-dialog">
                             			<div class="modal-content">
