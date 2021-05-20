@@ -29,12 +29,31 @@
   		WHERE bno = #{bno}
   	</delete>
   	
-  	<select id="listAll" resultType="com.springstudy.shop.domain.BoardDTO">
+  	<select id="getListWithPaging" resultType="com.springstudy.shop.domain.BoardDTO">
   		<![CDATA[
-	  		SELECT *
-	  		FROM tbl_board
-	  		WHERE bno > 0
-	  		ORDER BY bno DESC, regdate DESC
+	  		SELECT bno,
+	  			   title,
+	  			   content,
+	  			   writer,
+	  			   regdate,
+	  			   viewcnt
+	  		FROM (      		
+	  				SELECT /*+ INDEX_DESC(tbl_board IDX_TBL_BOARD_PK)*/
+	  						rownum rn,
+	  						bno,
+	  						title,
+	  						content,
+	  						writer,
+	  						regdate,
+	  						viewcnt
+	  				FROM 	tbl_board
+	  				WHERE	rownum <= #{pageNum} * #{amount})
+	  		WHERE rn > (#{pageNum} - 1) * #{amount}
   		]]>
+  	</select>
+  	<select id="getTotalCnt" resultType="int">
+  		SELECT COUNT(*)
+  		FROM	tbl_board
+  		WHERE bno > 0
   	</select>
   </mapper>

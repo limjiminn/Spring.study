@@ -1,4 +1,4 @@
-package com.springstudy.shop.persistence.impl;
+package com.springstudy.shop.persistence.Impl;
 
 import java.util.HashMap;
 import java.util.Map;

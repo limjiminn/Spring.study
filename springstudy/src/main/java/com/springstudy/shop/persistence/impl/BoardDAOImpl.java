@@ -1,4 +1,4 @@
-package com.springstudy.shop.persistence.impl;
+package com.springstudy.shop.persistence.Impl;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.springstudy.shop.domain.BoardDTO;
+import com.springstudy.shop.domain.Criteria;
 import com.springstudy.shop.persistence.IBoardDAO;
 
 @Repository  //구현체라는걸 알리기위해 사용
@@ -36,7 +37,14 @@ public class BoardDAOImpl implements IBoardDAO{
 	}
 
 	@Override
-	public List<BoardDTO> listAll() throws Exception {
-		return sqlSession.selectList("BoardMapper.listAll");
+	public List<BoardDTO> listAll(Criteria cri) throws Exception {
+		return sqlSession.selectList("BoardMapper.getListWithPaging", cri);
 	}
+
+	@Override
+	public int getTotalCnt(Criteria cri) throws Exception {
+		return sqlSession.selectOne("BoardMapper.getTotalCnt", cri);
+	}
+	
+	
 }

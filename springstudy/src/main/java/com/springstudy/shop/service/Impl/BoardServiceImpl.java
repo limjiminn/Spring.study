@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.springstudy.shop.domain.BoardDTO;
+import com.springstudy.shop.domain.Criteria;
 import com.springstudy.shop.persistence.IBoardDAO;
 import com.springstudy.shop.service.IBoardService;
 
@@ -36,8 +37,13 @@ public class BoardServiceImpl implements IBoardService{
 	}
 
 	@Override
-	public List<BoardDTO> listAll() throws Exception {
-		return bDao.listAll();
+	public List<BoardDTO> listAll(Criteria cri) throws Exception {
+		return bDao.listAll(cri);
+	}
+
+	@Override
+	public int getTotalCnt(Criteria cri) throws Exception {
+		return bDao.getTotalCnt(cri);
 	}
 
 }

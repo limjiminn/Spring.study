@@ -5,12 +5,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springstudy.shop.domain.BoardDTO;
+import com.springstudy.shop.domain.Criteria;
+import com.springstudy.shop.domain.PageDTO;
 import com.springstudy.shop.service.IBoardService;
 
 @Controller  //어노테이션을 붙여줘야 컨트롤러로 인식한다.
@@ -23,10 +26,15 @@ public class BoardController {
 	private IBoardService service;
 	
 	@RequestMapping("/list")
-	public void listAll(Model model) throws Exception {
-		logger.info("show all list ........");
+	public void listAll(Criteria cri, Model model) throws Exception {
+		logger.info("show all list ........" + cri);
 		
-		model.addAttribute("list", service.listAll());
+		model.addAttribute("list", service.listAll(cri));
+		
+		int total = service.getTotalCnt(cri);
+		logger.info("total : " + total);
+		
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 	//등록부분은 폼이 보여야한다.
 	@RequestMapping(value ="/register", method = RequestMethod.GET)
@@ -53,33 +61,63 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	//게시물 조회
-	@RequestMapping(value = "/read", method = RequestMethod.GET )
-	public void read(@RequestParam("bno") int bno, Model model) throws Exception {
+//	@RequestMapping(value = "/read", method = RequestMethod.GET )
+//	public void read(@RequestParam("bno") int bno, Model model) throws Exception {
+//		model.addAttribute("board",service.read(bno));
+//		
+//	}
+//	
+//	//게시물 수정
+//	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+//	public String modifyPOST(BoardDTO bDto, RedirectAttributes rttr) throws Exception{
+//		logger.info("modify post ...........");
+//		
+//		if (service.modify(bDto)) {
+//			rttr.addFlashAttribute("result", "success");
+//		}
+//		
+//		return "redirect:/board/list";
+//	}
+	//조회랑 수정 통합
+	@RequestMapping(value = {"/read", "/modify"}, method = RequestMethod.GET)
+	public void modifyGET(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri,  Model model) throws Exception{
+		logger.info("/read or /modify....................");
+		
+		
 		model.addAttribute("board",service.read(bno));
+		model.addAttribute("pageNum", cri.getPageNum());
+		model.addAttribute("amount", cri.getAmount());
+		
+		logger.info("pageNum1 : " + cri.getPageNum());
 		
 	}
 	
-	//게시물 수정
-	@RequestMapping(value = "/modify", method = RequestMethod.POST)
-	public String modifyPOST(BoardDTO bDto, RedirectAttributes rttr) throws Exception{
-		logger.info("modify post ...........");
+	//게시물 삭제
+	@RequestMapping(value = "/remove", method = RequestMethod.POST)
+	public String remove(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) throws Exception {
+		logger.info("remove...............");
 		
-		if (service.modify(bDto)) {
+		if (service.remove(bno)) 
 			rttr.addFlashAttribute("result", "success");
-		}
+			
+			rttr.addAttribute("pageNum", cri.getPageNum());
+			rttr.addAttribute("amount", cri.getAmount());
 		
 		return "redirect:/board/list";
 	}
-	//게시물 삭제
-	@RequestMapping(value = "/remove", method = RequestMethod.POST)
-	public String remove(@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception {
-		logger.info("remove...............");
+	
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String modifyPOST(BoardDTO bDto, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) throws Exception {
+		logger.info("modify post............." + cri);
 		
-		if (service.remove(bno)) {
+		if (service.modify(bDto)) {
 			rttr.addFlashAttribute("result", "success");
-		}
+		}	
+			rttr.addAttribute("pageNum", cri.getPageNum());
+			rttr.addAttribute("amount", cri.getAmount());
+			
+			logger.info("pageNum : " + cri.getPageNum());
 		
 		return "redirect:/board/list";
-		
 	}
 }

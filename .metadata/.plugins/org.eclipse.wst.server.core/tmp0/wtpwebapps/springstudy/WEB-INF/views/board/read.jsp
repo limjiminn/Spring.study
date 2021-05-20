@@ -6,12 +6,27 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <h1 class="page-header">Board Register</h1>
+    <h1 class="page-header">Board Read</h1>
   </div>
   <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		var operForm = $("#operForm");
+		$("button[data-oper='modify']").on("click", function(e){
+			operForm.attr("action", "${ctx}/board/modify").submit();
+		});
+		
+		$("button[data-oper='list']").on("click", function(e){
+			operForm.find("#bno").remove();
+			operForm.attr("action", "${ctx}/board/list");
+			operForm.submit();
+		});
+	});
+	
 
+</script>
 <div class="row">
   <div class="col-lg-12">
     <div class="panel panel-default">
@@ -39,12 +54,17 @@
             <label>Writer</label> <input class="form-control" name='writer' value="${board.writer}" readonly="readonly">
           </div>
           
-          <button data-oper="modify" class="btn btn-default">
-          	<a href="${ctx}/board/modify?bno=${board.bno}">Modify</a></button>
-          	
-          <button data-oper="list" class="btn btn-default">
-          	<a href="${ctx}/board/list">List</a></button>
+          <button data-oper="modify" class="btn btn-default">Modify</button>
+          <button data-oper="list" class="btn btn-info">list</button>
           
+          <form action="${ctx }/board/modify" method="get" id="operForm">
+          	<input type="hidden" id="bno" name="bno" value="${board.bno }">
+          	
+          	<input type="hidden"  name="pageNum" value="${cri.pageNum}">
+          	<input type="hidden"  name="amount" value="${cri.amount}">
+          	
+          </form>  	
+        
         <!-- </form> -->
 
       </div>

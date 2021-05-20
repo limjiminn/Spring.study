@@ -1,5 +1,0 @@
-package com.springstudy.shop.exception;
-
-public class CommonExceptionAdvice {
-
-}

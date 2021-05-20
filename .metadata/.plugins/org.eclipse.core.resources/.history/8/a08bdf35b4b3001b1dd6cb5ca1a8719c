@@ -1,9 +1,0 @@
-package com.springstudy.shop;
-
-import org.junit.runner.RunWith;
-
-
-public class MockMvcTest {
-	
-
-}

@@ -1,5 +1,7 @@
 package com.springstudy.shop;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -9,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.springstudy.shop.domain.BoardDTO;
+import com.springstudy.shop.domain.Criteria;
 import com.springstudy.shop.persistence.IBoardDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -52,4 +55,17 @@ public class IBoardDAOTest {
 //	public void testlistAll() throws Exception{
 //		logger.info(bDao.listAll().toString());
 //	}
+	
+	@Test
+	public void textListCriteria() throws Exception {
+		Criteria cri = new Criteria();
+		//한페이지당 10개씩
+		cri.setPageNum(1);
+		cri.setAmount(10);
+		
+		List<BoardDTO> list = bDao.listAll(cri);
+		
+		list.forEach(board -> logger.info(board.getBno()+ " : " + board.getContent()));
+		
+	}
 }

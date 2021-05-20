@@ -2,8 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ include file="/resources/includes/header.jsp" %>
-<c:set var="ctx" value="${pageContext.request.contextPath == '/' ? '' : pageContext.request.contextPath}" scope= "application" ></c:set>
-
+<c:set var="contextPath" value="${pageContext.request.contextPath == '/' ? '' : pageContext.request.contextPath }" scope="application" />
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Tables</h1>
@@ -21,7 +20,6 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <table class="table table-striped table-bordered table-hover">
-                            
                                 <thead>
                                     <tr>
                                         <th>#번호</th>
@@ -32,36 +30,72 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                	<c:forEach items="${list}" var="board" >
+                                	<c:forEach items="${list }" var="board">
                                 		<tr>
-                                			<th>${board.bno}</th>
-                                			<th><a href="${ctx}/board/read?bno=${board.bno}">${board.title}</a></th>
-                                			<th>${board.writer}</th>
-                                			<th>${board.regdate}</th>
-                                			<th><span class="badge bg-ref">${board.viewcnt}</th>
+                                			<td>${board.bno }</td>
+                                			<!-- 페이징 처리를 하고 나면 특정 게시물의 조회 페이지로 이동한 후 다시 목록으로 돌아가는데 문제가 생긴다. -->
+                                			<%-- <td><a href="${contextPath}/board/read?bno=${board.bno}">${board.title}</a></td> --%>
+                                			<!--페이지 번호는 조회 페이지에 전달되지않으로 직접링크로 연결된 경로로 처리  -->
+                                			<td><a class="move" href="${board.bno}">${board.title}</a></td>
+                                			<td>${board.writer}</td>
+                                			<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${board.regdate}"/></td>
+                                			<td><span class="badge bg-ref">${board.viewcnt}</span></td>
                                 		</tr>
                                 	</c:forEach>
                                 </tbody>
-                            </table>
-                            	<!-- Modal 추가 : 활성화된 div를 선택하지 않고선 다시 원래 화면을 볼수 없도록 막기때문에 메세지를 보여주는데 효과적-->
-                            	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            		<div class="modal-dialog">
-                            			<div class="modal-content">
-                            				<div class="modal-header">
-                            					<button type="button" class="close" data-dismiss="modal" aria-hidden="true" >&times;</button>
-                            					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                            				</div>
-                            				<div class="modal-body">
-                            					처리가 완료 되었습니다.
-                            				</div>
-                            				<div class="modal-footer">
-                            					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            					<button type="button" class="btn btn-primary" data-dismiss="">Save Changes</button>
-                            				</div>
-                     
-                            			</div>
-                            		</div>
-                            	</div>
+                            </table> <!-- table태그 끝 -->
+                            
+                <div class='pull-right'>
+					<ul class="pagination">
+						<c:if test="${pageMaker.prev}">
+							<li class="paginate_button previous"><a
+								href="${pageMaker.startPage -1}">Previous</a></li>
+						</c:if>
+
+						<c:forEach var="num" begin="${pageMaker.startPage}"
+							end="${pageMaker.endPage}">
+							<li class="paginate_button  ${pageMaker.cri.pageNum == num ? 'active' : ' '} ">
+								<a href="${num}">${num}</a>
+							</li>
+						</c:forEach>
+
+						<c:if test="${pageMaker.next}">
+							<li class="paginate_button next"><a
+								href="${pageMaker.endPage +1 }">Next</a></li>
+						</c:if>
+					</ul>
+				</div>
+				<!--  end Pagination -->
+
+		    <!-- 실제 페이지를 클릭하면 동작을 하는 부분  -->
+			<form id='actionForm' action="${contextPath}/board/list" method='get'>
+				<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+				<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+			</form>                            
+                            			<!-- Modal  추가 -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+						</div>
+						<div class="modal-body">처리가 완료되었습니다.</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Save
+								changes</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+			<!-- /.modal -->
+                            
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -70,31 +104,81 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-<script>
-	$(document).ready(function(){
+            
+<script type="text/javascript">
+	$(document).ready(function() {
+//		var result = '<c:out value="${result}"/>';
 		var result = "${result}";
 		
-		checkModal(result); 
+		// 파라메터에 따라서 모달창을 보여주거나 내용을 수정한 뒤 보이도록 작성하기 위함.
+		checkModal(result);
+		
+		// history 객체에 현재 저장된 데이터를 변경 (새 기록을 작성하는 대신 사용자의 동작에 따라 현재 히스토리 엔트리의 URL을 업데이트 하려고 할 때 매우 유용)
+		// window.history.replace(data, title [, url]);
+		// 사용 예) window.history.replaceState("http://example.ca", "Sample Title", "/example/path.html");
+	    // 이 예제는 현재 기록, 주소 표시 줄 및 페이지 제목을 바꿉니다.
+		history.replaceState({}, null, null);
 		
 		function checkModal(result) {
-			
-			if (result == "") {
+			if (result === "" || history.state) {
 				return;
 			}
-			
+
 			if (parseInt(result) > 0) {
-				$(".modal-body").html("게시글" + parseInt(result) + "변이 등록되었습니다.");  
+				$(".modal-body").html("게시글 " + parseInt(result) + " 번이 등록되었습니다.");
 			}
-			
+
 			$("#myModal").modal("show");
-		}
+	    }
 		
 		$("#regBtn").on("click", function() {
-			self.location = "${ctx}/board/register";
+			self.location = "${contextPath}/board/register";
 		});
+		
+		// 페이지 번호를 클릭하면 처리하는 부분
+		var actionForm = $("#actionForm");
+		$(".paginate_button a").on("click", function(e) {
+			e.preventDefault(); // <a>태그를 클릭해도 페이지 이동이 없도록 처리
+			
+			console.log("click");
+
+			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+			actionForm.submit();
+		});
+		
+		$(".move").on("click", function(e) {
+			e.preventDefault();
+			actionForm.append("<input type='hidden' name='bno' value='"
+											+ $(this).attr("href")
+											+ "'>");
+			actionForm.attr("action", "${contextPath}/board/read");
+			actionForm.submit();
+		});
+
+		var searchForm = $("#searchForm");
+
+		$("#searchForm button").on("click", function(e) {
+			if (!searchForm.find("option:selected").val()) {
+				alert("검색종류를 선택하세요");
+				
+				return false;
+			}
+
+			if (!searchForm.find("input[name='keyword']").val()) {
+				alert("키워드를 입력하세요");
+				
+				return false;
+			}
+
+			searchForm.find("input[name='pageNum']").val("1");
+			
+			e.preventDefault();
+
+			searchForm.submit();
+
+		});
+		
+		
 	});
-</script>            
+</script>
 <%@include file="/resources/includes/footer.jsp"%>
-
-
-

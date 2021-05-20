@@ -3,6 +3,7 @@ package com.springstudy.shop.persistence;
 import java.util.List;
 
 import com.springstudy.shop.domain.BoardDTO;
+import com.springstudy.shop.domain.Criteria;
 
 public interface IBoardDAO {
 	
@@ -10,5 +11,7 @@ public interface IBoardDAO {
 	public BoardDTO read(Integer bno) throws Exception;
 	public int update(BoardDTO bDto) throws Exception;
 	public int delete(Integer bno) throws Exception;
-	public List<BoardDTO> listAll() throws Exception;
+	public List<BoardDTO> listAll(Criteria cri) throws Exception;
+	
+	public int getTotalCnt(Criteria cri) throws Exception;
 }

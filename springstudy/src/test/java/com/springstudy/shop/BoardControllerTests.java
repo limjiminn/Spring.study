@@ -65,8 +65,9 @@ public class BoardControllerTests {
 	@Test
 	public void testRead() throws Exception{
 		logger.info(""+mockMvc.perform(MockMvcRequestBuilders
-										.get("/board/read")
-										.param("bno", "1"))
+										.get("/board/list")
+										.param("pageNum", "2")
+										.param("amount", "20"))
 										.andReturn()
 										.getModelAndView()
 										.getModelMap());
