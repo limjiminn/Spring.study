@@ -1,9 +1,0 @@
-package com.springstudy.shop;
-
-import org.springframework.stereotype.Controller;
-
-@Controller  //어노테이션을 붙여줘야 컨트롤러로 인식한다.
-
-public class BoardController {
-
-}

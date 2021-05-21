@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="${ctx}/"/>
+		<item key="selection" value="move"/>
 		<list key="findhistory">
+			<item value="move"/>
 			<item value="/bookshop/"/>
 		</list>
 		<list key="replacehistory">

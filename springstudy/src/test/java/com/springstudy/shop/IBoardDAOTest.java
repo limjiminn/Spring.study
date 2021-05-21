@@ -68,4 +68,15 @@ public class IBoardDAOTest {
 		list.forEach(board -> logger.info(board.getBno()+ " : " + board.getContent()));
 		
 	}
+	
+	@Test
+	public void testSearch() throws Exception {
+		Criteria cri = new Criteria();
+		cri.setKeyword("테스트 새글 제목13수정");
+		cri.setType("TC");  //검색어 옆 타이틀 + 컨텐츠
+		
+		List<BoardDTO> list = bDao.listAll(cri);
+		//람다식 사용
+		list.forEach(board -> logger.info("" + board));
+	}
 }

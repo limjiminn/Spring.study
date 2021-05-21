@@ -87,8 +87,12 @@ public class BoardController {
 		model.addAttribute("board",service.read(bno));
 		model.addAttribute("pageNum", cri.getPageNum());
 		model.addAttribute("amount", cri.getAmount());
+		model.addAttribute("type", cri.getType());
+		model.addAttribute("keyword", cri.getKeyword());
 		
 		logger.info("pageNum1 : " + cri.getPageNum());
+		logger.info("keyword : " + cri.getKeyword());
+		
 		
 	}
 	
@@ -97,11 +101,14 @@ public class BoardController {
 	public String remove(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) throws Exception {
 		logger.info("remove...............");
 		
-		if (service.remove(bno)) 
+		if (service.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
-			
+		}	
 			rttr.addAttribute("pageNum", cri.getPageNum());
 			rttr.addAttribute("amount", cri.getAmount());
+			
+			rttr.addAttribute("type", cri.getType());
+			rttr.addAttribute("keyword", cri.getKeyword());
 		
 		return "redirect:/board/list";
 	}
@@ -116,8 +123,12 @@ public class BoardController {
 			rttr.addAttribute("pageNum", cri.getPageNum());
 			rttr.addAttribute("amount", cri.getAmount());
 			
+			rttr.addAttribute("type", cri.getType());
+			rttr.addAttribute("keyword", cri.getKeyword());
+			
 			logger.info("pageNum : " + cri.getPageNum());
-		
+			logger.info("pageNum : " + cri.getKeyword());
+			
 		return "redirect:/board/list";
 	}
 }

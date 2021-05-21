@@ -29,6 +29,26 @@
   		WHERE bno = #{bno}
   	</delete>
   	
+  	<sql id="criteria">
+  		<trim prefix="(" suffix=") AND" prefixOverrides="OR">
+			<foreach item="type" collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							title LIKE '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							content LIKE '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'W'.toString()">
+							writer LIKE '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>		  		
+  	</sql>
+  	
   	<select id="getListWithPaging" resultType="com.springstudy.shop.domain.BoardDTO">
   		<![CDATA[
 	  		SELECT bno,
@@ -47,13 +67,21 @@
 	  						regdate,
 	  						viewcnt
 	  				FROM 	tbl_board
-	  				WHERE	rownum <= #{pageNum} * #{amount})
+	  				WHERE
+	  	]]>
+		<include refid="criteria"></include>
+	  	<![CDATA[				
+	  				rownum <= #{pageNum} * #{amount})
 	  		WHERE rn > (#{pageNum} - 1) * #{amount}
   		]]>
   	</select>
+  	
   	<select id="getTotalCnt" resultType="int">
   		SELECT COUNT(*)
   		FROM	tbl_board
-  		WHERE bno > 0
+  		WHERE 
+  		<include refid="criteria"></include>
+  		bno > 0
   	</select>
+  	
   </mapper>

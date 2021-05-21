@@ -27,12 +27,19 @@
 			}else if(operation === "list"){
 				
 				formObj.attr("action","${ctx}/board/list").attr("method","get");
+				/* input 의 히든 타입*/				
 				var pageNumTag = $("input[name = 'pageNum']").clone();
 				var amountTag = $("input[name = 'amount']").clone();
-
+				
+				var keywordTag = $("input[name = 'keyword']").clone();
+				var typeTag = $("input[name = 'type']").clone();
+				
 				formObj.empty();
 				formObj.append(pageNumTag);
 				formObj.append(amountTag);
+				
+				formObj.append(keywordTag);
+				formObj.append(typeTag);
 			}
 			
 			formObj.submit();
@@ -49,9 +56,11 @@
 
         <form role="form" action="${ctx}/board/modify" method="post">
         	<!--수정하고 페이지 고정  -->
-        	<input type="hidden"  name="pageNum" value="${cri.pageNum}">
-          	<input type="hidden"  name="amount" value="${cri.amount}">
-          	
+        	<input type="hidden"  name="pageNum" value="${pageNum}">
+          	<input type="hidden"  name="amount" value="${amount}">
+          	<!--검색 조회후 페이지 고정  -->
+          	<input type="hidden"  name="keyword" value="${keyword}">
+          	<input type="hidden"  name="type" value="${type}">
           <div class="form-group" >
             <label>bno</label> <input class="form-control" name='bno' value="${board.bno}" readonly="readonly">
           </div>

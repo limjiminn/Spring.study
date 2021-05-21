@@ -38,11 +38,13 @@
         <%-- <form role="form" action="${ctx}/board/register" method="post"> --%>
         	
           <div class="form-group" >
-            <label>bno</label> <input class="form-control" name='bno' value="${board.bno}" readonly="readonly">
+            <label>bno</label> 
+            <input class="form-control" name='bno' value="${board.bno}" readonly="readonly">
           </div>
           
           <div class="form-group">
-            <label>Title</label> <input class="form-control" name='title' value="${board.title}" readonly="readonly">
+            <label>Title</label> 
+            <input class="form-control" name='title' value="${board.title}" readonly="readonly">
           </div>
 
           <div class="form-group">
@@ -51,7 +53,8 @@
           </div>
 
           <div class="form-group">
-            <label>Writer</label> <input class="form-control" name='writer' value="${board.writer}" readonly="readonly">
+            <label>Writer</label> 
+            <input class="form-control" name='writer' value="${board.writer}" readonly="readonly">
           </div>
           
           <button data-oper="modify" class="btn btn-default">Modify</button>
@@ -60,8 +63,11 @@
           <form action="${ctx }/board/modify" method="get" id="operForm">
           	<input type="hidden" id="bno" name="bno" value="${board.bno }">
           	
-          	<input type="hidden"  name="pageNum" value="${cri.pageNum}">
-          	<input type="hidden"  name="amount" value="${cri.amount}">
+          	<input type="hidden"  name="pageNum" value="${pageNum}">
+          	<input type="hidden"  name="amount" value="${amount}">
+          	
+          	<input type="hidden"  name="keyword" value="${keyword}">
+          	<input type="hidden"  name="type" value="${type}">
           	
           </form>  	
         

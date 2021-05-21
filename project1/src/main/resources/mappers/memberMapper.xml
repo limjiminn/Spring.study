@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.springstudy.shop.memberMapper">
+  	<select id="getTime" resultType="string">
+  		SELECT sysdate
+  		FROM dual
+  	</select>
+  	
+  	<insert id="insertMember">
+  		INSERT INTO tbl_member(userid, userpw, username, email)
+  		VALUES(#{userid}, #{userpw}, #{username}, #{email})
+  	</insert>
+  	
+  	<select id="selMember" resultType="com.springstudy.shop.domain.MemberDTO">
+  		SELECT *
+  		FROM tbl_member
+  		WHERE userid = #{userid}
+  	</select>
+  	
+  	<select id="selLoginfo" resultType="com.springstudy.shop.domain.MemberDTO">
+  		SELECT *
+  		FROM tbl_member
+  		WHERE userid = #{userid}
+  		AND userpw = #{userpw}
+  	</select>
+  	
+  	<update id="modifyMember">
+  		UPDATE tbl_member
+  		SET userpw=#{userpw}, email=#{email}
+  		WHERE userid=#{userid}
+  	</update>
+  	
+  	<delete id="deMember">
+  		DELETE FROM tbl_member
+  		WHERE userid=#{userid}
+  	</delete>
+  	
+  </mapper>

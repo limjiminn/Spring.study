@@ -44,6 +44,24 @@
                                 	</c:forEach>
                                 </tbody>
                             </table> <!-- table태그 끝 -->
+                       <!--부트 스트랩  -->
+                <div class="row">
+                	<div class="col-lg-12">
+                		<form id="searchForm" action="${ctx}/board/list" method="get">
+                			<select name="type">
+                				<option value="" <c:out value="${pageMaker.cri.type == null? 'selected':''}"></c:out>>선택하세요.</option>
+                				<option value="T" <c:out value="${pageMaker.cri.type eq 'T'? 'selected':''}"></c:out>>제목</option>
+                				<option value="C" <c:out value="${pageMaker.cri.type eq 'C'? 'selected':''}"></c:out>>내용</option>
+                				<option value="W" <c:out value="${pageMaker.cri.type eq 'W'? 'selected':''}"></c:out>>작성자</option>
+                				<option value="TC" <c:out value="${pageMaker.cri.type eq 'TC'? 'selected':''}"></c:out>>제목or내용</option>
+                				<option value="TW" <c:out value="${pageMaker.cri.type eq 'TW'? 'selected':''}"></c:out>>제목or작성자</option>
+                				<option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'? 'selected':''}"></c:out>>제목or작성자or내용</option>
+                			</select>
+                			<input type="text" name="keyword" placeholder="검색어" value="${pageMaker.cri.keyword}">
+                			<button class="btn btn-default">Search</button>
+                		</form>
+                	</div>
+                </div>            
                             
                 <div class='pull-right'>
 					<ul class="pagination">
@@ -71,6 +89,9 @@
 			<form id='actionForm' action="${contextPath}/board/list" method='get'>
 				<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 				<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+				
+				<input type='hidden' name='type' value='${pageMaker.cri.type}'>
+				<input type='hidden' name='keyword' value='${pageMaker.cri.keyword}'>
 			</form>                            
                             			<!-- Modal  추가 -->
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
