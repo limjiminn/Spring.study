@@ -38,7 +38,7 @@ public class BoardController {
 	}
 	//등록부분은 폼이 보여야한다.
 	@RequestMapping(value ="/register", method = RequestMethod.GET)
-	public void regitsterGET() {
+	public void registerGET() {
 		logger.info("register get.........");
 	}
 	
@@ -46,7 +46,7 @@ public class BoardController {
 	//한두개 받을땐  @param 사용하자
 	//게시물 등록
 	@RequestMapping(value = "/register" , method = RequestMethod.POST)
-	public String regitsterPOST(BoardDTO bDto, RedirectAttributes rttr) throws Exception{
+	public String registerPOST(BoardDTO bDto, RedirectAttributes rttr) throws Exception{
 		logger.info("register POST.........");  //redirectAttributes : redirect를 처리할때 사용(일회성)
 		logger.info("/register====> " + bDto);	
 		
