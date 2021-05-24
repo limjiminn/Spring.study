@@ -1,6 +1,0 @@
-package com.springstudy.shop.service;
-
-public interface IBoardService {
-	//컨트롤러와 persistence의 다리역할 = 서비스 계층
-	
-}

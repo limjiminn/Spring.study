@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="BoardMapper">
-  	<insert id="create" parameterType="com.springstudy.shop.domain.BoardDTO">
+  	<insert id="create" parameterType="com.springstudy.shop.board.domain.BoardDTO">
   		INSERT INTO tbl_board(bno, title, content, writer)
   		VALUES(board_seq.NEXTVAL, #{title}, #{content}, #{writer})
   		<selectKey keyProperty="bno" resultType="Integer" order="AFTER">
@@ -12,7 +12,7 @@
   		</selectKey>
   	</insert>
   	
-  	<select id="read" resultType="com.springstudy.shop.domain.BoardDTO">
+  	<select id="read" resultType="com.springstudy.shop.board.domain.BoardDTO">
   		SELECT *
   		FROM tbl_board
   		WHERE bno = #{bno}
@@ -49,7 +49,7 @@
 		</trim>		  		
   	</sql>
   	
-  	<select id="getListWithPaging" resultType="com.springstudy.shop.domain.BoardDTO">
+  	<select id="getListWithPaging" resultType="com.springstudy.shop.board.domain.BoardDTO">
   		<![CDATA[
 	  		SELECT bno,
 	  			   title,

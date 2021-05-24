@@ -10,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.springstudy.shop.domain.BoardDTO;
-import com.springstudy.shop.domain.Criteria;
-import com.springstudy.shop.persistence.IBoardDAO;
+import com.springstudy.shop.board.domain.BoardDTO;
+import com.springstudy.shop.board.domain.Criteria;
+import com.springstudy.shop.board.persistence.IBoardDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src\\main\\webapp\\WEB-INF\\spring\\root-context.xml")
