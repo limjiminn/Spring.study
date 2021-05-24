@@ -12,7 +12,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.springstudy.shop">
+	<logger name="com.beer.shop">
 		<level value="info" />
 	</logger>
 	
