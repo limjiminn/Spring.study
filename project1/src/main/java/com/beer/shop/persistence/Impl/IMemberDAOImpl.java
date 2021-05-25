@@ -6,7 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.beer.shop.domain.MemberDTO;
+import com.beer.shop.member.domain.MemberDTO;
 import com.beer.shop.persistence.IMemberDAO;
 
 public class IMemberDAOImpl implements IMemberDAO{

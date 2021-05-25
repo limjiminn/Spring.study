@@ -1,6 +1,6 @@
 package com.beer.shop.persistence;
 
-import com.beer.shop.domain.MemberDTO;
+import com.beer.shop.member.domain.MemberDTO;
 
 public interface IMemberDAO {
 	

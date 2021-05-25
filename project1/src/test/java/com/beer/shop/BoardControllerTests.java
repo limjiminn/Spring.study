@@ -40,12 +40,13 @@ public class BoardControllerTests {
 								.getModelAndView()
 								.getModelMap());
 	}
-	
+	//게시물 등록
 	@Test
 	public void testResister() throws Exception {
+		for(int i = 2; i < 10000; i++) {
 		String resultPage = mockMvc.perform(MockMvcRequestBuilders
 								   .post("/board/register")
-								   .param("title", "테스트제목")
+								   .param("title", "테스트제목" + i)
 								   .param("content","테스트내용")
 								   .param("writer","user00"))
 								   .andReturn()
@@ -53,19 +54,20 @@ public class BoardControllerTests {
 								   .getViewName();
 		
 		logger.info(resultPage);
+		}
 	}
-	
+	//게시물 조회
 	@Test
 	public void testRead() throws Exception {
 		logger.info("" + mockMvc.perform(MockMvcRequestBuilders
 							    .get("/board/list")
-							    .param("pageNum", "2")
-							    .param("amount", "20"))
+							    .param("pageNum", "1")
+							    .param("amount", "10"))
 								.andReturn()
 								.getModelAndView()
 								.getModelMap());
 	}
-	
+	//게시물 수정
 	@Test
 	public void testModify() throws Exception {
 		logger.info("" + mockMvc.perform(MockMvcRequestBuilders
@@ -77,7 +79,7 @@ public class BoardControllerTests {
 								.andReturn()
 								.getFlashMap());
 	}
-	
+	//게시물 삭제
 	@Test
 	public void testRemove() throws Exception {
 		logger.info("" + mockMvc.perform(MockMvcRequestBuilders

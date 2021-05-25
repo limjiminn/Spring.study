@@ -83,7 +83,7 @@
 
       </nav><!-- .nav-menu -->
 
-      <a href="index.html" class="get-started-btn ml-auto">LogIn</a>
+      <a href="member/loginform" class="get-started-btn ml-auto">LogIn</a>
 
     </div>
   </header><!-- End Header -->
