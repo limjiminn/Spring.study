@@ -74,12 +74,11 @@
               </li>
             </ul>
           </li>
-
           <li><a href="services.html">라거</a></li>
           <li><a href="portfolio.html">에일</a></li>
           <li><a href="pricing.html">라들러</a></li>
           <li><a href="blog.html">흑맥주</a></li>
-
+          <li><a href="board/list">공지사항</a></li>
         </ul>
 
       </nav><!-- .nav-menu -->
