@@ -182,7 +182,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu .drop-down .drop-down:hover > ul {
   opacity: 1;
   top: 0;
-  left: 100%;
+  left	: 100%;
 }
 
 .nav-menu .drop-down .drop-down > a {

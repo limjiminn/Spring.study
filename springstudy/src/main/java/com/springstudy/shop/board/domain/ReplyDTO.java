@@ -11,6 +11,7 @@ public class ReplyDTO {
 	private int rno;
 	private int bno;
 	
+	
 	private String replytext;
 	private String replyer;
 	

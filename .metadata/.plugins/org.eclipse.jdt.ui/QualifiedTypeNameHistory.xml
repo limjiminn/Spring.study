@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.lang.Override"/>
-    <fullyQualifiedTypeName name="com.springstudy.shop.domain.BoardDTO"/>
-    <fullyQualifiedTypeName name="com.springstudy.shop.domain.PageDTO"/>
-    <fullyQualifiedTypeName name="lombok.ToString"/>
-    <fullyQualifiedTypeName name="com.beer.shop.lombok.LombokTestClass"/>
-    <fullyQualifiedTypeName name="com.beer.shop.exception.CommonExceptionAdivce"/>
-    <fullyQualifiedTypeName name="java.lang.Exception"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ExceptionHandler"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseStatus"/>
-    <fullyQualifiedTypeName name="org.springframework.web.servlet.NoHandlerFoundException"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
     <fullyQualifiedTypeName name="com.springstudy.shop.domain.Criteria"/>
     <fullyQualifiedTypeName name="org.springframework.web.util.UriComponentsBuilder"/>
@@ -31,25 +21,17 @@
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
-    <fullyQualifiedTypeName name="lombok.Data"/>
     <fullyQualifiedTypeName name="lombok.extern.log4j.Log4j"/>
     <fullyQualifiedTypeName name="java.util.stream.IntStream"/>
-    <fullyQualifiedTypeName name="org.junit.Test"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
     <fullyQualifiedTypeName name="com.springstudy.shop.board.service.IReplyService"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="com.springstudy.shop.board.mapper.ReplyMapper"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.springstudy.shop.board.persistence.IBoardDAO"/>
-    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
-    <fullyQualifiedTypeName name="org.slf4j.Logger"/>
-    <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
     <fullyQualifiedTypeName name="java.awt.PageAttributes.MediaType"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
-    <fullyQualifiedTypeName name="com.springstudy.shop.board.domain.Criteria"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
@@ -60,4 +42,22 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="org.junit.runner.RunWith"/>
+    <fullyQualifiedTypeName name="org.springframework.test.context.junit4.SpringJUnit4ClassRunner"/>
+    <fullyQualifiedTypeName name="org.springframework.test.context.ContextConfiguration"/>
+    <fullyQualifiedTypeName name="org.springframework.test.context.web.WebAppConfiguration"/>
+    <fullyQualifiedTypeName name="org.slf4j.Logger"/>
+    <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.springframework.web.context.WebApplicationContext"/>
+    <fullyQualifiedTypeName name="org.springframework.test.web.servlet.MockMvc"/>
+    <fullyQualifiedTypeName name="org.junit.Before"/>
+    <fullyQualifiedTypeName name="org.springframework.test.web.servlet.setup.MockMvcBuilders"/>
+    <fullyQualifiedTypeName name="org.junit.Test"/>
+    <fullyQualifiedTypeName name="org.springframework.test.web.servlet.request.MockMvcRequestBuilders"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="lombok.Data"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+    <fullyQualifiedTypeName name="com.springstudy.shop.board.domain.Criteria"/>
+    <fullyQualifiedTypeName name="com.springstudy.shop.board.domain.ReplyPageDTO"/>
 </qualifiedTypeNameHistroy>

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.springstudy.shop.board.domain.Criteria;
 import com.springstudy.shop.board.domain.ReplyDTO;
+import com.springstudy.shop.board.domain.ReplyPageDTO;
 import com.springstudy.shop.board.service.IReplyService;
 
 
@@ -36,7 +37,7 @@ public class ReplyController {
 				produces = {MediaType.TEXT_PLAIN_VALUE})
 	//json타입{"key":"value"}
 	//상태코드값까지 반환						//json타입으로 반환될때
-	//등록
+	//등록								
 	public ResponseEntity<String> create(@RequestBody ReplyDTO replyDto){
 		log.info("ReplyDTO : " + replyDto);
 		
@@ -50,15 +51,20 @@ public class ReplyController {
 	//댓글 목록 갖고오기
 	@GetMapping(value = "/pages/{bno}/{page}",
 				produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public ResponseEntity<List<ReplyDTO>> getList(
+							//수정
+	public ResponseEntity<ReplyPageDTO> getList(
+	//getList()는 Criteria를 이용해서 파라미터를 수집하는데
+	//{bno}/{page} 의 page값은 Criteria를 생성해서 직접처리해야한다.
+	//게시물의 번호는 @PathVariable을 이용해서 파라미터로 처리하고 브라우저에서 테스트
 						@PathVariable("page") int page,
 						@PathVariable("bno") int bno){
 		Criteria cri = new Criteria(page, 10);
 		log.info("get Reply List bno : " + bno);
 		log.info("cri : " + cri);
-			
-		return new ResponseEntity<List<ReplyDTO>>(service.getList(cri, bno),HttpStatus.OK);
+													//수정
+		return new ResponseEntity<>(service.getListPage(cri, bno),HttpStatus.OK);
 	}
+	
 	//조회 (댓글 상세)
 	@GetMapping(value = "/{rno}", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
 	public ResponseEntity<ReplyDTO> read(@PathVariable("rno") int rno){
@@ -83,6 +89,7 @@ public class ReplyController {
 			consumes = "application/json",
 			produces = {MediaType.TEXT_PLAIN_VALUE})
 	public ResponseEntity<String> modify(
+		//실제 수정되는 데이터는 JSON포맷이므로 @RequestBody 사용
 			@RequestBody ReplyDTO replyDto,
 			@PathVariable("rno") int rno){
 		replyDto.setRno(rno);

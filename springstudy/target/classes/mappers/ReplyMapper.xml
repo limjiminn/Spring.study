@@ -32,14 +32,34 @@
   	</update>
   	
   	<select id="getListWithPaging" resultType="com.springstudy.shop.board.domain.ReplyDTO">
-  		SELECT rno,
-  			   bno,
-  			   replytext,
-  			   replyer,
-  			   regdate,
-  			   updatedate
-  		FROM tbl_reply
-  		WHERE bno = #{bno}
-  		ORDER BY rno ASC
+  		<![CDATA[
+	  		SELECT rno,
+	  			   bno,
+	  			   replytext,
+	  			   replyer,
+	  			   regdate,
+	  			   updatedate
+	  		FROM (SELECT /*+ INDEX(tbl_reply IDX_tbl_reply_PK) */
+	  					rownum rn,
+	  					rno,
+	  					bno,
+	  					replytext,
+	  					replyer,
+	  					regdate,
+	  					updatedate
+	  			  FROM tbl_reply
+	  			  WHERE bno = #{bno}
+	  			  AND rno > 0
+	  			  AND rownum <= #{cri.pageNum} * #{cri.amount})
+	  		WHERE rn > (#{cri.pageNum} -1) * #{cri.amount}		
+  		]]>
+  	</select>
+  	
+  	<select id="getCountByBno" resultType="int">
+  		<![CDATA[
+  			SELECT count(rno)
+  			FROM tbl_reply
+  			WHERE bno = #{bno}
+  		]]>
   	</select>
   </mapper>
