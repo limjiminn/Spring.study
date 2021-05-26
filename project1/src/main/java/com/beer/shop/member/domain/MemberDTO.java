@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MemberDTO {
-	private String userid;
-	private String userpw;
-	private String username;
-	private String email;
-	private Timestamp regdate;
+	private String userid;  //아이디
+	private String userpw;  //비밀번호
+	private String username; //이름
+	private String email;    //이메일
+	private Timestamp regdate;  
 	private Timestamp updatedate;
 }

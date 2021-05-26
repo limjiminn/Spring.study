@@ -210,7 +210,7 @@
 		</dependency>
 		
 		<!-- spring security -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
 			<version>4.2.13.RELEASE</version>
@@ -228,12 +228,12 @@
 			<version>4.2.13.RELEASE</version>
 		</dependency>
 		
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
+		https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>4.2.13.RELEASE</version>
-		</dependency>
+		</dependency> -->
 		    
 	</dependencies>
     <build>

@@ -9,7 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.beer.shop.member.domain.MemberDTO;
-import com.beer.shop.persistence.IMemberDAO;
+import com.beer.shop.member.persistence.IMemberDAO;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)

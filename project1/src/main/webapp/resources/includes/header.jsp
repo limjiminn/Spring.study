@@ -83,7 +83,8 @@
 
       </nav><!-- .nav-menu -->
 
-      <a href="member/login" class="get-started-btn ml-auto">LogIn</a>
+      <a href="member/login" class="get-started-btn ml-auto">로그인</a>
+      <a href="member/register" class="get-started-btn ml-auto">회원가입</a>
 
     </div>
   </header><!-- End Header -->
