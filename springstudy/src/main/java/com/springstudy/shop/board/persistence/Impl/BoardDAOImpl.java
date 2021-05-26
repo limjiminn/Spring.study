@@ -1,6 +1,8 @@
 package com.springstudy.shop.board.persistence.Impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +46,21 @@ public class BoardDAOImpl implements IBoardDAO{
 	@Override
 	public int getTotalCnt(Criteria cri) throws Exception {
 		return sqlSession.selectOne("BoardMapper.getTotalCnt", cri);
+	}
+	//조회수
+	@Override
+	public void updateViewCnt(Integer bno) throws Exception {
+		sqlSession.update("BoardMapper.updateViewCnt", bno);
+	}
+
+	@Override
+	public void updateReplyCnt(Integer bno, int amount) throws Exception {
+		Map<String, Object> paramMap = new HashMap<>();
+		
+		paramMap.put("bno", bno);
+		paramMap.put("amount", amount);
+		
+		sqlSession.update("BoardMapper.updateReplyCnt", paramMap);
 	}
 	
 	

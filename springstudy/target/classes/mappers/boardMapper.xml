@@ -56,7 +56,8 @@
 	  			   content,
 	  			   writer,
 	  			   regdate,
-	  			   viewcnt
+	  			   viewcnt,
+	  			   replycnt
 	  		FROM (      		
 	  				SELECT /*+ INDEX_DESC(tbl_board IDX_TBL_BOARD_PK)*/
 	  						rownum rn,
@@ -65,7 +66,8 @@
 	  						content,
 	  						writer,
 	  						regdate,
-	  						viewcnt
+	  						viewcnt,
+	  						replycnt
 	  				FROM 	tbl_board
 	  				WHERE
 	  	]]>
@@ -83,5 +85,18 @@
   		<include refid="criteria"></include>
   		bno > 0
   	</select>
+  	
+  	<update id="updateViewCnt">
+  		UPDATE tbl_board
+  		SET viewcnt = viewcnt + 1
+  		WHERE bno = #{bno}
+  	</update>
+  	
+  	<update id="updateReplyCnt">
+  		UPDATE tbl_board
+  		SET replycnt = replycnt + #{amount}
+  		WHERE bno = #{bno}
+  	</update>
+  	
   	
   </mapper>

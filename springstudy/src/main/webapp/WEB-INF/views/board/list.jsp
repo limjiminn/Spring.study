@@ -36,7 +36,7 @@
                                 			<!-- 페이징 처리를 하고 나면 특정 게시물의 조회 페이지로 이동한 후 다시 목록으로 돌아가는데 문제가 생긴다. -->
                                 			<%-- <td><a href="${contextPath}/board/read?bno=${board.bno}">${board.title}</a></td> --%>
                                 			<!--페이지 번호는 조회 페이지에 전달되지않으로 직접링크로 연결된 경로로 처리  -->
-                                			<td><a class="move" href="${board.bno}">${board.title}</a></td>
+                                			<td><a class="move" href="${board.bno}">${board.title} <b>[${board.replycnt}]</b></a></td>
                                 			<td>${board.writer}</td>
                                 			<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${board.regdate}"/></td>
                                 			<td><span class="badge bg-ref">${board.viewcnt}</span></td>

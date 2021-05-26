@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.springstudy.shop.board.domain.BoardDTO;
 import com.springstudy.shop.board.domain.Criteria;
@@ -20,9 +22,11 @@ public class BoardServiceImpl implements IBoardService{
 	public void register(BoardDTO bDto) throws Exception {
 		bDao.create(bDto);
 	}
-
+	
+	@Transactional(isolation = Isolation.READ_COMMITTED)
 	@Override
 	public BoardDTO read(Integer bno) throws Exception {
+		bDao.updateViewCnt(bno);
 		return bDao.read(bno);
 	}
 

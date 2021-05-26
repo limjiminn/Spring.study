@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.springstudy.shop.board.domain.Criteria;
 import com.springstudy.shop.board.domain.ReplyDTO;
@@ -24,9 +25,15 @@ public class IReplyServiceImpl implements IReplyService{
 	
 	private static final Logger log = LoggerFactory.getLogger(IReplyServiceImpl.class);
 	
+	@Transactional
 	@Override
 	public int register(ReplyDTO replyDto) {
 		log.info("Reply register..........." + replyDto);
+		try {
+			boardDao.updateReplyCnt(replyDto.getBno(), +1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return mapper.insert(replyDto);
 	}
 
@@ -41,9 +48,15 @@ public class IReplyServiceImpl implements IReplyService{
 		log.info("Reply modify......" + replyDto);
 		return mapper.update(replyDto);
 	}
-
+	@Transactional
 	@Override
 	public int remove(int rno) {
+		ReplyDTO replyDto = mapper.read(rno);
+		try {			
+			boardDao.updateReplyCnt(replyDto.getBno(), -1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		log.info("Reply remove....." + rno);
 		return mapper.delete(rno);
 	}
