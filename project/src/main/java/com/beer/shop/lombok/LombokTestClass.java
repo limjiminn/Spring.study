@@ -9,8 +9,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+
+
 public class LombokTestClass {
-	
+
 	private String id;
 	private String name;
 	private int age;
