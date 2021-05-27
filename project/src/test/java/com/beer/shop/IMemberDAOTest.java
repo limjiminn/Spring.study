@@ -9,7 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.beer.shop.member.domain.MemberDTO;
-import com.beer.shop.persistence.IMemberDAO;
+import com.beer.shop.member.persistence.MemberDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src\\main\\webapp\\WEB-INF\\spring\\root-context.xml")
@@ -18,7 +18,7 @@ public class IMemberDAOTest {
 private static final Logger logger = LoggerFactory.getLogger(IMemberDAOTest.class);
 	
 	@Autowired
-	private IMemberDAO mDao;
+	private MemberDAO mDao;
 	
 	@Test
 	public void testTime() throws Exception{
@@ -26,7 +26,7 @@ private static final Logger logger = LoggerFactory.getLogger(IMemberDAOTest.clas
 	}
 	//회원 가입
 	@Test
-	public void testInsetMember() throws Exception{
+	public void testInsertMember() throws Exception{
 		MemberDTO mDto = new MemberDTO();
 		mDto.setUserid("user04");
 		mDto.setUserpw("user04");

@@ -13,13 +13,13 @@
   		VALUES(#{userid}, #{userpw}, #{username}, #{email})
   	</insert>
   	
-  	<select id="selMember" resultType="com.beer.shop.domain.MemberDTO">
+  	<select id="selMember" resultType="com.beer.shop.member.domain.MemberDTO">
   		SELECT *
   		FROM tbl_member
   		WHERE userid = #{userid}
   	</select>
   	
-  	<select id="selLoginfo" resultType="com.beer.shop.domain.MemberDTO">
+  	<select id="selLoginfo" resultType="com.beer.shop.member.domain.MemberDTO">
   		SELECT *
   		FROM tbl_member
   		WHERE userid = #{userid}
