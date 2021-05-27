@@ -1,5 +1,6 @@
 package com.beer.shop.member.persistence.Impl;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,15 +16,17 @@ public class IMemberDAOImpl implements IMemberDAO{
 	private SqlSession sqlSession;
 
 	private static final String namespace = "com.beer.shop.member.memberMapper";
+	
+	@Override
+	public void insertMember(MemberDTO mDto) {
+		sqlSession.insert(namespace + ".insertMember", mDto);
+	}
+	
 	@Override
 	public String getTime() {
 		return sqlSession.selectOne(namespace + ".getTime");
 	}
 
-	@Override
-	public void insertMember(MemberDTO mDto) {
-		sqlSession.insert(namespace + ".insertMember", mDto);
-	}
 
 	@Override
 	public MemberDTO selMember(String userid) throws Exception {

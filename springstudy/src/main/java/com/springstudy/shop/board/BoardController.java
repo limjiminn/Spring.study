@@ -1,16 +1,24 @@
 package com.springstudy.shop.board;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.springstudy.shop.board.domain.BoardAttachDTO;
 import com.springstudy.shop.board.domain.BoardDTO;
 import com.springstudy.shop.board.domain.Criteria;
 import com.springstudy.shop.board.domain.PageDTO;
@@ -50,6 +58,13 @@ public class BoardController {
 		logger.info("register POST.........");  //redirectAttributes : redirect를 처리할때 사용(일회성)
 		logger.info("/register====> " + bDto);	
 		
+		logger.info("====================================");
+		//게시물이 등록될때 해당되는 Attach
+		if (bDto.getAttachList() != null) {
+			bDto.getAttachList().forEach(attach -> logger.info("" + attach));
+		}
+		logger.info("확인");
+		logger.info("====================================");
 		service.register(bDto);
 		//addFlashAttribute: 리다이렉트 직전 플래시에 저장하는 메소드(리다이렉트 이후 소멸)
 		//내부적으로 HttpSession을 이용해 처리
@@ -130,5 +145,14 @@ public class BoardController {
 			logger.info("pageNum : " + cri.getKeyword());
 			
 		return "redirect:/board/list";
+	}
+	
+	@GetMapping(value = "/getAttachList",
+				produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseEntity<List<BoardAttachDTO>> getAttachList(int bno){
+		logger.info("getAttachList : " + bno);
+		
+		return new ResponseEntity<>(service.getAttachList(bno), HttpStatus.OK);
 	}
 }

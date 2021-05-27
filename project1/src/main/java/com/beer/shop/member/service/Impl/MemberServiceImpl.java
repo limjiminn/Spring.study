@@ -9,7 +9,6 @@ import com.beer.shop.member.persistence.IMemberDAO;
 import com.beer.shop.member.service.MemberService;
 
 @Service
-@Repository
 public class MemberServiceImpl implements MemberService{
 	
 	@Autowired

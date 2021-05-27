@@ -125,7 +125,7 @@
 					var fileLink = fileCallPath.replace(new RegExp(/\\/g), "/");
 					/*파일로 넘어왔을때 */
 					str +="<li><div><a href='${ctx}/download?fileName=" + fileCallPath + "'>" +
-						  "<img src ='${ctx}/resource/img/attach.png'>" + obj.fileName + "</a>" +
+						  "<img src ='${ctx}/resources/img/attach.png'>" + obj.fileName + "</a>" +
 						  "<span data-file=\'" + fileCallPath + "\' data-type='file'>x</span>" +
 						  "</div></li>";
 				}else {
@@ -157,7 +157,7 @@
 			
 			$.ajax({
 				url : "${ctx}/deleteFile",
-				data : {fileName : targetFile, type : type}
+				data : {fileName : targetFile, type : type},
 				dataType : "text",
 				type: "POST",
 				success : function (result) {

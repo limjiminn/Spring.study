@@ -2,13 +2,16 @@ package com.springstudy.shop.board.service.Impl;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.springstudy.shop.board.domain.BoardAttachDTO;
 import com.springstudy.shop.board.domain.BoardDTO;
 import com.springstudy.shop.board.domain.Criteria;
+import com.springstudy.shop.board.mapper.BoardAttachMapper;
 import com.springstudy.shop.board.persistence.IBoardDAO;
 import com.springstudy.shop.board.service.IBoardService;
 
@@ -18,9 +21,25 @@ public class BoardServiceImpl implements IBoardService{
 	@Autowired 
 	private IBoardDAO bDao;
 	
+	//매퍼 등록
+	@Autowired
+	private BoardAttachMapper attachMapper;
+	
+	@Transactional
 	@Override
 	public void register(BoardDTO bDto) throws Exception {
 		bDao.create(bDto);
+		
+		//첨부파일등록 만약 첨부파일이없을때
+		if (bDto.getAttachList() == null || bDto.getAttachList().size() <=0) {
+			
+			return;
+		}
+		
+		bDto.getAttachList().forEach(attch -> {
+			attch.setBno(bDto.getBno());
+			attachMapper.insert(attch);
+		});
 	}
 	
 	@Transactional(isolation = Isolation.READ_COMMITTED)
@@ -48,6 +67,12 @@ public class BoardServiceImpl implements IBoardService{
 	@Override
 	public int getTotalCnt(Criteria cri) throws Exception {
 		return bDao.getTotalCnt(cri);
+	}
+
+	@Override
+	public List<BoardAttachDTO> getAttachList(int bno) {
+		
+		return attachMapper.findByBno(bno);
 	}
 
 }

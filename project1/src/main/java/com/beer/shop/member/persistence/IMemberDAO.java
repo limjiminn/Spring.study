@@ -4,9 +4,9 @@ import com.beer.shop.member.domain.MemberDTO;
 
 public interface IMemberDAO {
 	
-	public String getTime();
-	
 	public void insertMember(MemberDTO mDto) throws Exception;
+
+	public String getTime();
 	
 	public MemberDTO selMember(String userid) throws Exception;
 	

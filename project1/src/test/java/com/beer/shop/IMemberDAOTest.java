@@ -27,7 +27,7 @@ private static final Logger logger = LoggerFactory.getLogger(IMemberDAOTest.clas
 	}
 	//회원 가입
 	@Test
-	public void testInsetMember() throws Exception{
+	public void testInsertMember() throws Exception{
 		MemberDTO mDto = new MemberDTO();
 		mDto.setUserid("user04");
 		mDto.setUserpw("user04");

@@ -1,21 +1,28 @@
 package com.springstudy.shop;
 
 import java.io.File;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -133,6 +140,96 @@ public class UploardController {
 		}
 		return new ResponseEntity<>(attachList, HttpStatus.OK);
 	}
+	
+	@RequestMapping("/display")
+	@ResponseBody
+	public ResponseEntity<byte[]> getFile(String fileName) {
+		log.info("fileName : " + fileName);
+		
+		File file = new File(uploadPath + "\\" + fileName);
+		log.info("file : " + file);
+		
+		ResponseEntity<byte[]> result = null;
+		//io 객체
+		try {
+			HttpHeaders header = new HttpHeaders();
+			
+			header.add("Content-Type", Files.probeContentType(file.toPath()));
+			
+			result = new ResponseEntity<>(FileCopyUtils.copyToByteArray(file), header, HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	//파일 다운로드
+	@GetMapping(value="/download", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+	   public ResponseEntity<Resource> downloadFile(@RequestHeader("User-Agent") String userAgent, String fileName) {
+	      Resource resource = new FileSystemResource(uploadPath + "\\" + fileName);
+	      
+	      if(resource.exists() == false) {
+	         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	      }
+	      
+	      String resourceName = resource.getFilename();
+	      String resourceOriginalName = resourceName.substring(resourceName.indexOf("_") + 1);
+	      
+	      HttpHeaders headers = new HttpHeaders();
+	      
+	      try {
+	         boolean checkIE = (userAgent.indexOf("MSIE") > -1 || userAgent.indexOf("Trident") > -1); // ex냐 아니냐
+	         
+	         String downloadName = null;
+	         
+	         if (checkIE) {
+	            downloadName = URLEncoder.encode(resourceOriginalName, "UTF-8").replaceAll("\\+", " ");
+	         } else {
+	            downloadName = new String(resourceOriginalName.getBytes("UTF-8"), "ISO-8859-1");
+	         }
+	         
+	         headers.add("Content-Disposition", "attachment; filename=" + downloadName);
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      }
+	      return new ResponseEntity<>(resource, headers, HttpStatus.OK);
+	      
+	   }
+	
+	//폴더 삭제
+	@PostMapping("/deleteFile")
+	@ResponseBody
+	public ResponseEntity<String> deleteFile(String fileName, String type){
+		log.info("deleteFile : " + fileName);
+		
+		 HttpHeaders headers = new HttpHeaders();
+		 
+		 headers.add("Content-Type", "text/html;charset=UTF-8");
+		
+		File file;
+		
+		try {
+			file = new File(uploadPath + "\\" + URLDecoder.decode(fileName, "UTF-8"));
+			
+			file.delete();
+			
+			if (type.equals("image")) {		//s_를 없앤다 
+				String largeFileName = file.getAbsolutePath().replace("\\s_", "\\");
+				
+				log.info("largeFileName : " + largeFileName);
+				
+				file = new File(largeFileName);
+				file.delete();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+																//상태코드
+		return new ResponseEntity<>("정상적으로 처리되었습니다.",headers, HttpStatus.OK);
+		
+	}
+	
 	
 }
 
