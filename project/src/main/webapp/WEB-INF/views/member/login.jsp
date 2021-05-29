@@ -2,13 +2,55 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath == '/' ? '' : pageContext.request.contextPath }" scope="application" />
+ <%@ include file="/resources/includes/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
- <%@ include file="/resources/includes/header.jsp" %>
-<form name="login" method="post" action="/member/login">
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>로그인</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>로그인</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">   
+
+            <form action="${ctx}/member/login" method="post" >
+           
+              <div class="form-group">
+                <input type="text"  name="userid" id="userid" placeholder="아이디"   />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <input type="password"  name="userpw" id="userpw" placeholder="비밀번호"  />
+                <div class="validate"></div>
+              </div>
+              
+              
+              
+              <div class="text-center"><button type="submit" id="submit">로그인</button></div>
+            </form>
+			
+          </div>
+      
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+<%-- <form id="mid" name="login" method="post" action="${ctx}/member/login" ">
 	<c:if test="${member == null}">
 		<div>
 			<label for="userid"></label>
@@ -32,7 +74,7 @@
 	<c:if test="${msg == false}">
 		<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
 	</c:if>
-</form>
+</form> --%>
 
 
  <%@ include file="/resources/includes/footer.jsp" %>

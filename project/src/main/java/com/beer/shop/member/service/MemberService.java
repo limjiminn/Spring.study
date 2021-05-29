@@ -10,7 +10,7 @@ public interface MemberService {
 	
 	public MemberDTO selLoginInfo(String userid, String userpw) throws Exception;
 	
-	public int update(MemberDTO mDto) throws Exception;
+	public boolean update(MemberDTO mDto) throws Exception;
 	
-	public int delete(String userid) throws Exception;
+	public boolean delete(String userid) throws Exception;
 }

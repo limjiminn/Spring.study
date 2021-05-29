@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
  <%@ include file="/resources/includes/header.jsp" %>
-<script type="text/javascript">
+   <script type="text/javascript">
 		$(document).ready(function(){
 			// 취소
 			$(".cencle").on("click", function(){
@@ -40,9 +40,6 @@
 					return false;
 				}
 			});
-			
-				
-			
 		})
 	</script>
 </head>
@@ -66,28 +63,27 @@
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">   
-           
-          <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="${ctx}/member/register" method="post"  >
+           
               <div class="form-group">
-                <input type="text" class="form-control" name="userid" id="userid" placeholder="아이디"   />
+                <input type="text"  name="userid" id="userid" placeholder="아이디"   />
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" name="userpw" id="userpw" placeholder="비밀번호"  />
+                <input type="password"  name="userpw" id="userpw" placeholder="비밀번호"  />
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" name="userpw2" id="userpw2" placeholder="비밀번호 재입력" />
+                <input type="password" name="userpw2" id="userpw2" placeholder="비밀번호 재입력" />
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="username" id="username" placeholder="이름" />
+                <input type="text"  name="username" id="username" placeholder="이름" />
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="email" id="email" placeholder="이메일" />
+                <input type="text"  name="email" id="email" placeholder="이메일" />
                 <div class="validate"></div>
               </div>
               
@@ -95,12 +91,9 @@
               <div class="text-center"><button type="submit" id="submit">회원가입</button></div>
               <div class="text-center"><button type="button">취소</button></div>
             </form>
-
+			
           </div>
-
-        </div>
-
-      </div>
+      
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->

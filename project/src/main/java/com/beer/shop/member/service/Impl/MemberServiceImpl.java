@@ -22,20 +22,23 @@ public class MemberServiceImpl implements MemberService{
 	public MemberDTO selMember(String userid) throws Exception {
 		return mDao.selMember(userid);
 	}
+	//로그인
 	@Override
 	public MemberDTO selLoginInfo(String userid, String userpw) throws Exception {
 	
 		return mDao.selLoginInfo(userid, userpw);
 	}
+	//회원 수정
 	@Override
-	public int update(MemberDTO mDto) throws Exception {
+	public boolean update(MemberDTO mDto) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return mDao.update(mDto) == 1;
 	}
+	//회원 삭제
 	@Override
-	public int delete(String userid) throws Exception {
+	public boolean delete(String userid) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return mDao.delete(userid) == 1;
 	}
 	
 	
