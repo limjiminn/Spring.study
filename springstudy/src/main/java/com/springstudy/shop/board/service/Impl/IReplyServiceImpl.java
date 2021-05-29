@@ -78,4 +78,5 @@ public class IReplyServiceImpl implements IReplyService{
 								mapper.getListWithPaging(cri, bno));
 	}
 
+	
 }

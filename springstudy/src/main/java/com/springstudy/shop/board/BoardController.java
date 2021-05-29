@@ -1,5 +1,8 @@
 package com.springstudy.shop.board;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -32,6 +35,9 @@ public class BoardController {
 	
 	@Autowired   //자동으로 객체생성
 	private IBoardService service;
+	
+	//업로드 경로
+	private String uploadPath = "C:\\Users\\jiaez\\Documents\\workspace-spring-tool-suite-4-4.10.0.RELEASE\\springstudy\\src\\main\\webapp\\resources\\fileupload";
 	
 	@RequestMapping("/list")
 	public void listAll(Criteria cri, Model model) throws Exception {
@@ -109,6 +115,7 @@ public class BoardController {
 		logger.info("keyword : " + cri.getKeyword());
 		
 		
+		
 	}
 	
 	//게시물 삭제
@@ -116,16 +123,20 @@ public class BoardController {
 	public String remove(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) throws Exception {
 		logger.info("remove...............");
 		
+		List<BoardAttachDTO> attachList = service.getAttachList(bno);
+		
+		
 		if (service.remove(bno)) {
+			deleteFiles(attachList);
 			rttr.addFlashAttribute("result", "success");
 		}	
 			rttr.addAttribute("pageNum", cri.getPageNum());
 			rttr.addAttribute("amount", cri.getAmount());
 			
-			rttr.addAttribute("type", cri.getType());
-			rttr.addAttribute("keyword", cri.getKeyword());
+//			rttr.addAttribute("type", cri.getType());
+//			rttr.addAttribute("keyword", cri.getKeyword());
 		
-		return "redirect:/board/list";
+		return "redirect:/board/list" + cri.getListLink();
 	}
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
@@ -154,5 +165,41 @@ public class BoardController {
 		logger.info("getAttachList : " + bno);
 		
 		return new ResponseEntity<>(service.getAttachList(bno), HttpStatus.OK);
+	}
+	
+	//자식정보 찾는거
+	
+	private void deleteFiles(List<BoardAttachDTO> attachList) {
+		//첨부파일이 없을때
+		if (attachList == null || attachList.size() == 0) {
+			return;
+		}
+		
+		logger.info("delete attache files................");
+		logger.info("" + attachList);
+		
+		attachList.forEach(attach -> {
+			try {
+				//파일 삭제
+				Path file = Paths.get(uploadPath + "\\" 
+									+ attach.getUploadPath() + "\\" 
+									+ attach.getUuid() + "_" 
+									+ attach.getFileName());
+				//존재하면 삭제해라
+				Files.deleteIfExists(file);
+				
+				if (Files.probeContentType(file).startsWith("image")) {
+					//썸네일 삭제
+					Path thumbNail = Paths.get(uploadPath + "\\" 
+									+ attach.getUploadPath() + "\\s_" 
+									+ attach.getUuid() + "_" 
+									+ attach.getFileName());
+					
+					Files.delete(thumbNail);
+				}
+			} catch (Exception e) {
+				logger.error("delete file error : " + e.getMessage());
+			}
+		});
 	}
 }

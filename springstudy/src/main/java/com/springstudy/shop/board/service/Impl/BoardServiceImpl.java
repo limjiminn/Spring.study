@@ -12,6 +12,7 @@ import com.springstudy.shop.board.domain.BoardAttachDTO;
 import com.springstudy.shop.board.domain.BoardDTO;
 import com.springstudy.shop.board.domain.Criteria;
 import com.springstudy.shop.board.mapper.BoardAttachMapper;
+import com.springstudy.shop.board.mapper.ReplyMapper;
 import com.springstudy.shop.board.persistence.IBoardDAO;
 import com.springstudy.shop.board.service.IBoardService;
 
@@ -24,6 +25,9 @@ public class BoardServiceImpl implements IBoardService{
 	//매퍼 등록
 	@Autowired
 	private BoardAttachMapper attachMapper;
+	
+	@Autowired
+	private ReplyMapper replyMapper;
 	
 	@Transactional
 	@Override
@@ -48,14 +52,31 @@ public class BoardServiceImpl implements IBoardService{
 		bDao.updateViewCnt(bno);
 		return bDao.read(bno);
 	}
-
+	
+	@Transactional
 	@Override
 	public boolean modify(BoardDTO bDto) throws Exception {
-		return bDao.update(bDto) == 1;
+		attachMapper.deleteAll(bDto.getBno());
+		boolean modifyResult = bDao.update(bDto) == 1;
+		
+		if (modifyResult && bDto.getAttachList().size() > 0) {
+			
+			bDto.getAttachList().forEach(attach -> {
+				attach.setBno(bDto.getBno());
+				attachMapper.insert(attach);
+			});
+		}
+		return modifyResult;
 	}
-
-	@Override
+	
+	//게시물 삭제
+	@Override 
 	public boolean remove(Integer bno) throws Exception {
+		//댓글 삭제하고
+		replyMapper.deleteAll(bno);
+		//첨부파일 삭제하고
+		attachMapper.deleteAll(bno);
+		//그다음 부모 삭제
 		return bDao.delete(bno) == 1;
 	}
 

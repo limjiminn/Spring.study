@@ -62,4 +62,9 @@
   			WHERE bno = #{bno}
   		]]>
   	</select>
+  	<!--게시물삭제시 삭제됨  -->
+  	<delete id="deleteAll">
+  		DELETE FROM tbl_reply
+  		WHERE bno = #{bno}
+  	</delete>
   </mapper>

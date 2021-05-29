@@ -14,4 +14,5 @@ public interface IReplyService {
 	public List<ReplyDTO> getList(Criteria cri, int bno);
 	//페이지관련기능
 	public ReplyPageDTO getListPage(Criteria cri, int bno);
+	
 }

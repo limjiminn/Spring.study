@@ -28,23 +28,23 @@ private static final Logger logger = LoggerFactory.getLogger(IMemberDAOTest.clas
 	@Test
 	public void testInsertMember() throws Exception{
 		MemberDTO mDto = new MemberDTO();
-		mDto.setUserid("user04");
-		mDto.setUserpw("user04");
-		mDto.setUsername("USER04");
-		mDto.setEmail("user04@naver.com");
+		mDto.setUserid("user06");
+		mDto.setUserpw("1234");
+		mDto.setUsername("배용배");
+		mDto.setEmail("user06@naver.com");
 		
 		mDao.insertMember(mDto);
 	}
 	//회원 조회
 	@Test
 	public void selMember() throws Exception {
-		MemberDTO mDto = mDao.selMember("user03");
+		MemberDTO mDto = mDao.selMember("user05");
 		logger.info(mDto.toString());
 	}
-	//회원정보 수정 삭제 
+	//회원 로그인
 	@Test
 	public void selLoginInfo() throws Exception{
-		MemberDTO mDto = mDao.selLoginInfo("user03", "user03");
+		MemberDTO mDto = mDao.selLoginInfo("user06", "1234");
 		logger.info(mDto.toString()); 
 	}
 	

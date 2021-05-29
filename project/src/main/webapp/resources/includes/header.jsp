@@ -48,7 +48,7 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo"><a href="index.html">BEER</a></h1>
+      <h1 class="logo"><a href="/shop">BEER</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <%-- <a href="index.html" class="logo"><img src="${ctx}/resources/assets/img/slide/로고.png" alt="" class="img-fluid"></a> --%>
 
@@ -83,7 +83,7 @@
 
       </nav><!-- .nav-menu -->
 
-      <a href="member/login" class="get-started-btn ml-auto">로그인</a>
+      <a href="/member/login" class="get-started-btn ml-auto">로그인</a>
       <a href="member/register" class="get-started-btn ml-auto">회원가입</a>
 
     </div>

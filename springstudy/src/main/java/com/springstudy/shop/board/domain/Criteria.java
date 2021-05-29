@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class Criteria {
 	private int pageNum;
-	private int amount;
+	private int amount; //양
 	
 	//검색어
 	private String type;
@@ -28,6 +28,16 @@ public class Criteria {
 	public String[] getTypeArr() {
 		
 		return type == null? new String[]{} : type.split("");
+	}
+	
+	public String getListLink() {
+		UriComponentsBuilder builder = UriComponentsBuilder.fromPath("")
+				.queryParam("pageNum", this.pageNum)
+				.queryParam("amount", this.getAmount())
+				.queryParam("type", this.getType())
+				.queryParam("keyword", this.getKeyword());
+		
+		return builder.toUriString();
 	}
 	
 	//UriComponentsBuilder는 여러개의 파라미터들을 연결해서 URL의 형태를 만들어주는 기능을 가지고있다.
