@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath == '/' ? '' : pageContext.request.contextPath }" scope="application" />
 <%@ page session="false" %>
@@ -80,11 +79,20 @@
           <li><a href="blog.html">흑맥주</a></li>
           <li><a href="board/list">공지사항</a></li>
         </ul>
+	 	<c:choose>
+	 		<c:when test="${sessionScope.userid == null }">
+	 			<li><a href="${ctx}/member/login">로그인</a></li>
+	 			<li><a href="${ctx}/member/register">회원가입</a></li>
+	 		</c:when>
+	 		<c:otherwise>
+	 			<b>${sessionScope.userid} &nbsp;&nbsp;</b>
+	 			<li style="color: blue">${sessionScope.username}님 반갑습니다.</li>
+	 			<li><a href="${ctx}/member/logout">로그아웃</a></li>
+	 			<li><a href="${ctx}/member/mypage">마이페이지</a></li>
+	 			
+	 		</c:otherwise>
+	 	</c:choose>
 
       </nav><!-- .nav-menu -->
-
-      <a href="${ctx}/member/login" class="get-started-btn ml-auto">로그인</a>
-      <a href="${ctx}/member/register" class="get-started-btn ml-auto">회원가입</a>
-
-    </div>
+          </div>
   </header><!-- End Header -->

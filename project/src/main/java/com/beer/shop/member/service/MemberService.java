@@ -8,7 +8,7 @@ public interface MemberService {
 	
 	public MemberDTO selMember(String userid) throws Exception;
 	
-	public MemberDTO selLoginInfo(String userid, String userpw) throws Exception;
+	public MemberDTO selLoginInfo(MemberDTO mDto) throws Exception;
 	
 	public boolean update(MemberDTO mDto) throws Exception;
 	

@@ -1,6 +1,5 @@
 package com.beer.shop.member;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -9,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -28,8 +26,10 @@ public class MemberController {
 	
 	//회원가입 GET
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public void insertGET() throws Exception{
+	public String insertGET() throws Exception{
 		logger.info("insertGET.........");
+		
+		return "/member/register";
 	}
 	
 	//회원가입 POST
@@ -39,22 +39,22 @@ public class MemberController {
 		
 		service.insertMember(mDto);
 		
-		return null;
+		return "redirect:/member/login";
 	}
 	//로그인 화면
 	@RequestMapping("/login")
 	public String login() {
-		return "member/login";
+	return "member/login";
 	}
 	
 	//로그인
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(String userid, String userpw, HttpServletRequest req, RedirectAttributes rttr) throws Exception{
+	public String login(MemberDTO mDto, HttpServletRequest req, RedirectAttributes rttr) throws Exception{
 		logger.info("post login...........");
 		
 		HttpSession session = req.getSession();
 		
-		MemberDTO result = service.selLoginInfo(userid, userpw);
+		MemberDTO result = service.selLoginInfo(mDto);
 		
 		if (result == null) {
 			session.setAttribute("member", null);
@@ -62,7 +62,7 @@ public class MemberController {
 		}else {
 			session.setAttribute("member", result);
 		}
-		return "redirect/member/login";
+		return "redirect:/";
 	}
 	
 	//로그아웃
@@ -71,6 +71,6 @@ public class MemberController {
 		session.invalidate();
 		
 		
-		return "redirect/member/login";
+		return "redirect/";
 	}
 }

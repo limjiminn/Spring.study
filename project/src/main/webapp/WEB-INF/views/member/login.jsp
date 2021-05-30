@@ -28,53 +28,37 @@
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">   
-
-            <form action="${ctx}/member/login" method="post" k>
-           
-              <div class="form-group">
-                <input type="text"  name="userid" id="userid" placeholder="아이디"   />
-                <div class="validate"></div>
-              </div>
-              <div class="form-group">
-                <input type="password"  name="userpw" id="userpw" placeholder="비밀번호"  />
-                <div class="validate"></div>
-              </div>
-              
-              
-              
-              <div class="text-center"><button type="submit" id="submit">로그인</button></div>
-            </form>
-			
-          </div>
-      
+		<form action="${ctx}/member/login" method="post">
+			<c:if test="${member == null}">
+				<div class="col-lg-4">
+					<label for="userid"></label>
+					<input type="text" id="userid" name="userid">
+				</div>
+				<div class="col-lg-4">
+					<label for="userpw"></label>
+					<input type="password" id="userpw" name="userpw">
+				</div>
+				<div class="col-lg-4">
+					<button type="submit">로그인</button>
+					<button type="button"><a href="${ctx}/member/register">회원가입</a></button>
+				</div>
+			</c:if>
+			<c:if test="${member != null }">
+				<div>
+					<p>${member.username}님 환영합니다.</p>
+					<button id="logoutBtn" type="button">로그아웃</button>
+				</div>
+			</c:if>
+			<c:if test="${msg == false}">
+				<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
+			</c:if>
+		</form>	
+      </div>  
     </section><!-- End Contact Section -->
-
+          
   </main><!-- End #main -->
-<%-- <form id="mid" name="login" method="post" action="${ctx}/member/login" ">
-	<c:if test="${member == null}">
-		<div>
-			<label for="userid"></label>
-			<input type="text" id="userid" name="userid">
-		</div>
-		<div>
-			<label for="userpw"></label>
-			<input type="password" id="userpw" name="userpw">
-		</div>
-		<div>
-			<button type="submit">로그인</button>
-			<button type="button">회원가입</button>
-		</div>
-	</c:if>
-	<c:if test="${member != null }">
-		<div>
-			<p>${member.username}님 환영합니다.</p>
-			<button id="logoutBtn" type="button">로그아웃</button>
-		</div>
-	</c:if>
-	<c:if test="${msg == false}">
-		<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
-	</c:if>
-</form> --%>
+
+
 
 
  <%@ include file="/resources/includes/footer.jsp" %>

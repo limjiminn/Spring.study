@@ -44,7 +44,11 @@ private static final Logger logger = LoggerFactory.getLogger(IMemberDAOTest.clas
 	//회원 로그인
 	@Test
 	public void selLoginInfo() throws Exception{
-		MemberDTO mDto = mDao.selLoginInfo("user06", "1234");
+		MemberDTO mDto = new MemberDTO();
+		mDto.setUserid("user06");
+		mDto.setUserpw("1234");
+		
+		mDao.selLoginInfo(mDto);
 		logger.info(mDto.toString()); 
 	}
 	

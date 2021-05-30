@@ -33,11 +33,12 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 	@Override
-	public MemberDTO selLoginInfo(String userid, String userpw) throws Exception {
-		Map<String, Object> paramMap = new HashMap<>();
-		paramMap.put("userid", userid);
-		paramMap.put("userpw", userpw);
-		return sqlSession.selectOne(namespace + ".selLoginfo", paramMap);
+	public MemberDTO selLoginInfo(MemberDTO mDto) throws Exception {
+//		Map<String, Object> paramMap = new HashMap<>();
+//		paramMap.put("userid", userid);
+//		paramMap.put("userpw", userpw);
+//		return sqlSession.selectOne(namespace + ".selLoginfo", paramMap);
+		return sqlSession.selectOne(namespace + ".selLoginfo", mDto);
 	}
 	@Override
 	public int update(MemberDTO mDto) throws Exception {

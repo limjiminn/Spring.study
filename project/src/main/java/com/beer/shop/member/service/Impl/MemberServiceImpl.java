@@ -24,9 +24,9 @@ public class MemberServiceImpl implements MemberService{
 	}
 	//로그인
 	@Override
-	public MemberDTO selLoginInfo(String userid, String userpw) throws Exception {
+	public MemberDTO selLoginInfo(MemberDTO mDto) throws Exception {
 	
-		return mDao.selLoginInfo(userid, userpw);
+		return mDao.selLoginInfo(mDto);
 	}
 	//회원 수정
 	@Override

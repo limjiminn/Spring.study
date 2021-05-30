@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath == '/' ? '' : pageContext.request.contextPath }" scope="application" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +10,11 @@
  <%@ include file="/resources/includes/header.jsp" %>
    <script type="text/javascript">
 		$(document).ready(function(){
+			
 			// 취소
 			$(".cencle").on("click", function(){
-				
-				location.href = "/login";					    
+				alert("확인");	
+				location.href ="${ctx}/home";					    
 			})
 			$("#submit").on("click", function(){
 				if($("#userid").val()==""){
@@ -40,7 +43,7 @@
 					return false;
 				}
 			});
-		})
+		});
 	</script>
 </head>
  <main id="main">
@@ -89,7 +92,7 @@
               
               
               <div class="text-center"><button type="submit" id="submit">회원가입</button></div>
-              <div class="text-center"><button type="button">취소</button></div>
+              <div class="cencle"><button type="button">취소</button></div>
             </form>
 			
           </div>
