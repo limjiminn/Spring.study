@@ -12,9 +12,9 @@
   		INSERT INTO tbl_member(userid, userpw, username, email)
   		VALUES(#{userid}, #{userpw}, #{username}, #{email})
   	</insert>
-  	
-  	<select id="selMember" resultType="com.beer.shop.member.domain.MemberDTO">
-  		SELECT *
+  	<!-- 아이디 중복확인 -->
+  	<select id="selMember" resultType="Integer" parameterType="String">
+  		SELECT count(*)
   		FROM tbl_member
   		WHERE userid = #{userid}
   	</select>

@@ -30,7 +30,7 @@
     <section id="contact" class="contact">
       <div class="container">   
 		<form action="${ctx}/member/login" method="post">
-			<%-- <c:if test="${member == null}"> --%>
+		<%-- 	<c:if test="${member == null}"> --%>
 				<div class="col-lg-4">
 					<label for="userid"></label>
 					<input type="text" id="userid" name="userid">
@@ -43,8 +43,8 @@
 					<button type="submit">로그인</button>
 					<button type="button"><a href="${ctx}/member/register">회원가입</a></button>
 				</div>
-			<%-- </c:if> --%>
-			<%-- <c:if test="${member != null }">
+			<%--  </c:if>
+			 <c:if test="${member == null}">
 				<div>
 					<p>${member.username}님 환영합니다.</p>
 					<button id="logoutBtn" type="button">로그아웃</button>
@@ -52,7 +52,7 @@
 			</c:if>
 			<c:if test="${msg == false}">
 				<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
-			</c:if> --%>
+			</c:if>  --%>
 		</form>	
       </div>  
     </section><!-- End Contact Section -->

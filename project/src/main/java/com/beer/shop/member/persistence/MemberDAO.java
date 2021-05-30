@@ -8,7 +8,7 @@ public interface MemberDAO {
 	public void insertMember(MemberDTO mDto) throws Exception;
 	
 	public String getTime(); // 원래 abstract final ?
-	//회원조회
+	//아이디 중복조회
 	public MemberDTO selMember(String userid) throws Exception;
 	//로그인
 	public MemberDTO selLoginInfo(MemberDTO mDto) throws Exception;

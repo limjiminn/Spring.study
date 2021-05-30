@@ -26,7 +26,7 @@ public class MemberDAOImpl implements MemberDAO{
 	public void insertMember(MemberDTO mDto) {
 		sqlSession.insert(namespace + ".insertMember", mDto);
 	}
-
+	//아이디 중복조회
 	@Override
 	public MemberDTO selMember(String userid) throws Exception {
 		return sqlSession.selectOne(namespace + ".selMember", userid);

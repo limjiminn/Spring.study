@@ -37,10 +37,19 @@ public class MemberController {
 	public String insertPOST(MemberDTO mDto) throws Exception{
 		logger.info("insertPOST.........");
 		
-		service.insertMember(mDto);
+		int count = service.selMember(mDto.getUserid());
+		
+		try {
+			if(count == 0) {
+				service.insertMember(mDto);				
+			}
+		} catch (Exception e) {
+			logger.info("존재하는 아아디");
+		}
 		
 		return "redirect:/member/login";
 	}
+	
 	//로그인 화면
 	@RequestMapping("/login")
 	public String login() {
@@ -57,15 +66,16 @@ public class MemberController {
 		HttpSession session = req.getSession();
 		
 		MemberDTO result = service.selLoginInfo(mDto);
-		
-		if (result == null) {
-			session.setAttribute("member", null);
-			rttr.addFlashAttribute("msg", "false");
-			
-		}else {
-			session.setAttribute("member", result);
-		}
-		logger.info("결과야 있니?" + result);
+		logger.info("결과 : " + result);
+		session.setAttribute("member", result);
+//		if (result == null) {
+////			session.setAttribute("member", null);
+//			rttr.addFlashAttribute("msg", "false");
+//			
+//		}else {
+//			session.setAttribute("member", result);
+//		}
+		logger.info("결과야 있니?" + session.toString());
 		return "redirect:/";
 	}
 	

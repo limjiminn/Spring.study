@@ -79,12 +79,12 @@
           <li><a href="${ctx}/blog.html">흑맥주</a></li>
           <li><a href="${ctx}/board/list">공지사항</a></li>
 	 
-	 		<c:if test="${member == null}">
+	 		<c:if test="${empty sessionScope.member}">
 	 			<li><a href="${ctx}/member/login">로그인</a></li>
 	 			<li><a href="${ctx}/member/register">회원가입</a></li>
 	 		</c:if>
-	 		<c:if test="${member != null}">
-	 			<li style="color: blue">${member.username}님 반갑습니다.</li>
+	 		<c:if test="${not empty sessionScope.member}">
+	 			<li style="color: blue">${sessionScope.member.username}님 반갑습니다.</li>
 	 			<li><a href="${ctx}/member/logout">로그아웃</a></li>
 	 			<li><a href="${ctx}/member/mypage">마이페이지</a></li>
 	 		</c:if>	 			
