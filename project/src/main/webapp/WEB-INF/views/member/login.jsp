@@ -29,7 +29,7 @@
     <section id="contact" class="contact">
       <div class="container">   
 
-            <form action="${ctx}/member/login" method="post" >
+            <form action="${ctx}/member/login" method="post" k>
            
               <div class="form-group">
                 <input type="text"  name="userid" id="userid" placeholder="아이디"   />

@@ -52,7 +52,7 @@ private static final Logger logger = LoggerFactory.getLogger(IMemberDAOTest.clas
 	@Test
 	public void modifyMember() throws Exception{
 		MemberDTO mDto = new MemberDTO();
-		mDto.setUserid("user04");
+		mDto.setUserid("user06");
 		mDto.setUserpw("1234");
 		mDto.setEmail("hhh@naver.com");
 		
@@ -63,7 +63,7 @@ private static final Logger logger = LoggerFactory.getLogger(IMemberDAOTest.clas
 	@Test
 	public void deMember() throws Exception {
 		logger.info("확인");
-		mDao.delete("user04");
+		mDao.delete("user06");
 	}
 
 }
