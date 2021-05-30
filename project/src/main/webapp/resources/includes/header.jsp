@@ -73,25 +73,23 @@
               </li>
             </ul>
           </li>
-          <li><a href="services.html">라거</a></li>
-          <li><a href="portfolio.html">에일</a></li>
-          <li><a href="pricing.html">라들러</a></li>
-          <li><a href="blog.html">흑맥주</a></li>
-          <li><a href="board/list">공지사항</a></li>
-        </ul>
-	 	<c:choose>
-	 		<c:when test="${sessionScope.userid == null }">
+          <li><a href="${ctx}/services.html">라거</a></li>
+          <li><a href="${ctx}/portfolio.html">에일</a></li>
+          <li><a href="${ctx}/pricing.html">라들러</a></li>
+          <li><a href="${ctx}/blog.html">흑맥주</a></li>
+          <li><a href="${ctx}/board/list">공지사항</a></li>
+	 
+	 		<c:if test="${member == null}">
 	 			<li><a href="${ctx}/member/login">로그인</a></li>
 	 			<li><a href="${ctx}/member/register">회원가입</a></li>
-	 		</c:when>
-	 		<c:otherwise>
-	 			<b>${sessionScope.userid} &nbsp;&nbsp;</b>
-	 			<li style="color: blue">${sessionScope.username}님 반갑습니다.</li>
+	 		</c:if>
+	 		<c:if test="${member != null}">
+	 			<li style="color: blue">${member.username}님 반갑습니다.</li>
 	 			<li><a href="${ctx}/member/logout">로그아웃</a></li>
 	 			<li><a href="${ctx}/member/mypage">마이페이지</a></li>
-	 			
-	 		</c:otherwise>
-	 	</c:choose>
+	 		</c:if>	 			
+	 	
+        </ul>
 
       </nav><!-- .nav-menu -->
           </div>

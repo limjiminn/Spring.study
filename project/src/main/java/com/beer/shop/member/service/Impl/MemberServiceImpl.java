@@ -31,13 +31,13 @@ public class MemberServiceImpl implements MemberService{
 	//회원 수정
 	@Override
 	public boolean update(MemberDTO mDto) throws Exception {
-		// TODO Auto-generated method stub
+		
 		return mDao.update(mDto) == 1;
 	}
 	//회원 삭제
 	@Override
 	public boolean delete(String userid) throws Exception {
-		// TODO Auto-generated method stub
+		
 		return mDao.delete(userid) == 1;
 	}
 	

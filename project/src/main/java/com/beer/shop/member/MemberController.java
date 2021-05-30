@@ -44,6 +44,8 @@ public class MemberController {
 	//로그인 화면
 	@RequestMapping("/login")
 	public String login() {
+		logger.info("loginGET........");
+		
 	return "member/login";
 	}
 	
@@ -58,16 +60,19 @@ public class MemberController {
 		
 		if (result == null) {
 			session.setAttribute("member", null);
-			rttr.addFlashAttribute("msg", false);
+			rttr.addFlashAttribute("msg", "false");
+			
 		}else {
 			session.setAttribute("member", result);
 		}
+		logger.info("결과야 있니?" + result);
 		return "redirect:/";
 	}
 	
 	//로그아웃
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) throws Exception{
+		
 		session.invalidate();
 		
 		
