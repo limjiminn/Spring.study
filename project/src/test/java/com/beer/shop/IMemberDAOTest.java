@@ -35,10 +35,12 @@ private static final Logger logger = LoggerFactory.getLogger(IMemberDAOTest.clas
 		
 		mDao.insertMember(mDto);
 	}
-	//회원 조회
+	//아이디 중복검사
 	@Test
-	public void selMember() throws Exception {
-		MemberDTO mDto = mDao.selMember("user05");
+	public void idchk() throws Exception {
+		MemberDTO mDto = new MemberDTO();
+		
+		mDao.idchk("user05");
 		logger.info(mDto.toString());
 	}
 	//회원 로그인

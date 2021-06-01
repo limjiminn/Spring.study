@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath == '/' ? '' : pageContext.request.contextPath }" scope="application" />
-<%@ page session="false" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,8 +78,9 @@
           <li><a href="${ctx}/pricing.html">라들러</a></li>
           <li><a href="${ctx}/blog.html">흑맥주</a></li>
           <li><a href="${ctx}/board/list">공지사항</a></li>
-	 
-	 		<c:if test="${empty sessionScope.member}">
+
+			 
+	 		<c:if test="${empty sessionScope.member}">	
 	 			<li><a href="${ctx}/member/login">로그인</a></li>
 	 			<li><a href="${ctx}/member/register">회원가입</a></li>
 	 		</c:if>

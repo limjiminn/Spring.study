@@ -1,5 +1,9 @@
 package com.beer.shop.member.service.Impl;
 
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +23,11 @@ public class MemberServiceImpl implements MemberService{
 	}
 	//아이디 조회
 	@Override
-	public MemberDTO selMember(String userid) throws Exception {
-		return mDao.selMember(userid);
+	public int idchk(String userid) throws Exception {
+		
+		int result = mDao.idchk(userid);
+		
+		return result;
 	}
 	//로그인
 	@Override
@@ -29,16 +36,29 @@ public class MemberServiceImpl implements MemberService{
 		return mDao.selLoginInfo(mDto);
 	}
 	//회원 수정
+	//Controller에서 보내는 파라미터들을 update(MemberDTO mDto)로 받는다.
 	@Override
-	public boolean update(MemberDTO mDto) throws Exception {
-		
-		return mDao.update(mDto) == 1;
+	public void update(MemberDTO mDto) throws Exception {
+		//받은 dto를 dao로 보내준다.
+		mDao.update(mDto);
 	}
 	//회원 삭제
 	@Override
-	public boolean delete(String userid) throws Exception {
+	public void delete(MemberDTO mDto) throws Exception {
 		
-		return mDao.delete(userid) == 1;
+		mDao.delete(mDto);
+	}
+	//로그아웃
+//	public void logout(HttpServletResponse response) throws Exception{
+//		response.setContentType("text/html;charset=utf-8");
+//		PrintWriter out = response.getWriter();
+//		
+//	}
+	//회원 정보조회
+	@Override
+	public MemberDTO selmember(String userid) throws Exception {
+		System.out.println("정보 조회");
+		return mDao.selmember(userid);
 	}
 	
 	

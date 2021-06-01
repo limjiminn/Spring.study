@@ -3,12 +3,43 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath == '/' ? '' : pageContext.request.contextPath }" scope="application" />
 <%@ include file="/resources/includes/header.jsp" %>
- 
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	/* $(document).ready(function(e){
+		$("#login").click(function(){
+			//입력값 체크
+			if ($.trim($("#userid").val()) == "") {
+				alert("아이디를 입력해 주세요");
+				$("#userid").focus();
+				return;
+			}
+		});
+	}); */
+	function login() {
+		$.ajax({
+			url:"member/login",
+			type: "POST",
+			dataType: "json", 
+			data:{
+				id:$("#userid").val(),
+				pw:$("#userpw").val()
+			},
+			success: function(data){
+				alert(data.Msg);
+			},
+			error: function(){
+				alert("err");
+			}
+		});
+		
+	}
+</script>
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
@@ -30,7 +61,7 @@
     <section id="contact" class="contact">
       <div class="container">   
 		<form action="${ctx}/member/login" method="post">
-		<%-- 	<c:if test="${member == null}"> --%>
+		
 				<div class="col-lg-4">
 					<label for="userid"></label>
 					<input type="text" id="userid" name="userid">
@@ -40,7 +71,7 @@
 					<input type="password" id="userpw" name="userpw">
 				</div>
 				<div class="col-lg-4">
-					<button type="submit">로그인</button>
+					<button type="submit" id="login">로그인</button>
 					<button type="button"><a href="${ctx}/member/register">회원가입</a></button>
 				</div>
 			<%--  </c:if>

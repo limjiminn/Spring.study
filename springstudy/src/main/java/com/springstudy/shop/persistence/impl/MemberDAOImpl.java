@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.springstudy.shop.domain.MemberDTO;
+import com.springstudy.shop.member.domain.MemberDTO;
 import com.springstudy.shop.persistence.IMemberDAO;
 
 @Repository // 무조건 달아줘야 한다 DB쿼리 연동엔 필수 

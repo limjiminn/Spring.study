@@ -13,28 +13,35 @@
   		VALUES(#{userid}, #{userpw}, #{username}, #{email})
   	</insert>
   	<!-- 아이디 중복확인 -->
-  	<select id="selMember" resultType="Integer" parameterType="String">
+  	<select id="idchk" resultType="int">
   		SELECT count(*)
   		FROM tbl_member
   		WHERE userid = #{userid}
   	</select>
-  	
+  	<!-- 회원조회 -->
+  	<select id="selmember" resultType="com.beer.shop.member.domain.MemberDTO">
+  		SELECT *
+  		FROM tbl_member
+  		WHERE userid = #{userid}
+  	</select>
+  	<!--로그인  -->
   	<select id="selLoginfo" resultType="com.beer.shop.member.domain.MemberDTO">
   		SELECT *
   		FROM tbl_member
   		WHERE userid = #{userid}
   		AND userpw = #{userpw}
   	</select>
-  	
+  	<!--회원 수정 -->
   	<update id="modifyMember">
   		UPDATE tbl_member
   		SET userpw=#{userpw}, email=#{email}
   		WHERE userid=#{userid}
   	</update>
-  	
+  	<!--회원탈퇴  -->
   	<delete id="deMember">
   		DELETE FROM tbl_member
   		WHERE userid=#{userid}
+  		AND	userpw=#{userpw}
   	</delete>
   	
   </mapper>

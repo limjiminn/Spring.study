@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="list"/>
 		<list key="findhistory">
+			<item value="list"/>
 			<item value="fileType"/>
 			<item value="replyService.add"/>
 			<item value="nav-menu"/>

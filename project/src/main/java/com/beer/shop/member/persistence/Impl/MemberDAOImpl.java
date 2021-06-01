@@ -1,7 +1,5 @@
 package com.beer.shop.member.persistence.Impl;
 
-import java.util.HashMap;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +26,11 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 	//아이디 중복조회
 	@Override
-	public MemberDTO selMember(String userid) throws Exception {
-		return sqlSession.selectOne(namespace + ".selMember", userid);
+	public int idchk(String userid) throws Exception {
+		
+		int result = sqlSession.selectOne(namespace + ".idchk", userid);
+		
+		return result;
 	}
 
 	@Override
@@ -40,15 +41,27 @@ public class MemberDAOImpl implements MemberDAO{
 //		return sqlSession.selectOne(namespace + ".selLoginfo", paramMap);
 		return sqlSession.selectOne(namespace + ".selLoginfo", mDto);
 	}
+	//회원 정보수정
+	//서비스에서 보낸 파라미터들을 update(MemberDTO mDto)에 담는다.
 	@Override
-	public int update(MemberDTO mDto) throws Exception {
-		return sqlSession.update(namespace + ".modifyMember", mDto);
+	public void update(MemberDTO mDto) throws Exception {
+		//mDto에 담긴 파라미터들은 memberMapper.xml에 memberMapper라는 namespace
+		//아이디가 memberUpdate인 쿼리에 파라미터들을 넣어줌
+		sqlSession.update(namespace + ".modifyMember", mDto);
 	}
 	
 	@Override
-	public int delete(String userid) throws Exception {
-		
-		return sqlSession.delete(namespace + ".deMember", userid);
+	public void delete(MemberDTO mDto) throws Exception {
+		//MemberDTO에 담긴 값들을 보내줌
+		//그럼 xml에서 memberMapper.deMember에 보면
+		// #{userid},#{userpw}에 파라미터값 매칭
+		 sqlSession.delete(namespace + ".deMember", mDto);
+	}
+
+	@Override
+	public MemberDTO selmember(String userid) throws Exception {
+
+		return sqlSession.selectOne(namespace + ".selmember", userid);
 	}
 
 	

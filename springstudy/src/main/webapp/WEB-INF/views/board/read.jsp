@@ -88,8 +88,10 @@
          <div class="form-group">
            <label>Writer</label> <input class="form-control" name="writer" value="${board.writer }" readonly="readonly">
          </div>
-         
-         <button data-oper="modify" class="btn btn-default">Modify</button>
+         <!-- ===========회원과 작성자가 일치한다면 ================================================= -->
+         <c:if test="${login.userid == board.writer }">
+         	<button data-oper="modify" class="btn btn-default">Modify</button>         
+         </c:if>
 		 <button data-oper="list" class="btn btn-info">List</button>
 		 
 		 <form id="operForm" action="${contextPath}/boad/modify" method="get">
@@ -141,8 +143,11 @@
     <!-- /.panel -->
     <div class="panel panel-default">
       <div class="panel-heading">
+      <!-- ======================================================================== -->
         <i class="fa fa-comments fa-fw"></i> Reply
-        <button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>New Reply</button>
+        <c:if test="${not empty login}">
+	        <button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>New Reply</button>
+        </c:if>
       </div>      
       
       <!-- /.panel-heading -->
@@ -181,8 +186,10 @@
 				</div>
             </div>
 			<div class="modal-footer">
-        		<button id="modalModifyBtn" type="button" class="btn btn-warning">Modify</button>
-        		<button id="modalRemoveBtn" type="button" class="btn btn-danger">Remove</button>
+				<c:if test="${not empty login }">
+	        		<button id="modalModifyBtn" type="button" class="btn btn-warning">Modify</button>
+	        		<button id="modalRemoveBtn" type="button" class="btn btn-danger">Remove</button>
+				</c:if>
         		<button id="modalRegisterBtn" type="button" class="btn btn-primary">Register</button>
         		<button id="modalCloseBtn" type="button" class="btn btn-default">Close</button>
       		</div>          
