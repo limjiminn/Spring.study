@@ -10,6 +10,30 @@
 <meta charset="UTF-8">
 <title>로그인</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style type="text/css">
+
+body {
+	  margin: 0;
+	  padding: 0;
+	 /*  background-color: #17a2b8; */
+	  height: 100vh;
+	}
+	#login .container #login-row #login-column #login-box {
+	  margin-top: 20px;
+	  max-width: 600px;
+	  height: 320px;
+	  border: 1px solid #9C9C9C;
+	  border-bottom: 100px;
+	  background-color: #EAEAEA;
+	}
+	#login .container #login-row #login-column #login-box #login-form {
+	  padding: 20px;
+	}
+	#login .container #login-row #login-column #login-box #login-form #register-link {
+	  margin-top: -85px;
+	}
+</style>
+
 <script type="text/javascript">
 	/* $(document).ready(function(e){
 		$("#login").click(function(){
@@ -20,7 +44,7 @@
 				return;
 			}
 		});
-	}); */
+	}); 
 	function login() {
 		$.ajax({
 			url:"member/login",
@@ -38,7 +62,7 @@
 			}
 		});
 		
-	}
+	}*/
 </script>
   <main id="main">
 
@@ -58,7 +82,7 @@
     </section><!-- End Breadcrumbs -->
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
+   <%--  <section id="contact" class="contact">
       <div class="container">   
 		<form action="${ctx}/member/login" method="post">
 		
@@ -74,22 +98,45 @@
 					<button type="submit" id="login">로그인</button>
 					<button type="button"><a href="${ctx}/member/register">회원가입</a></button>
 				</div>
-			<%--  </c:if>
-			 <c:if test="${member == null}">
-				<div>
-					<p>${member.username}님 환영합니다.</p>
-					<button id="logoutBtn" type="button">로그아웃</button>
-				</div>
-			</c:if>
-			<c:if test="${msg == false}">
-				<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
-			</c:if>  --%>
+			
 		</form>	
       </div>  
-    </section><!-- End Contact Section -->
+    </section><!-- End Contact Section --> --%>
+    
+    
           
   </main><!-- End #main -->
 
+ <body>
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="post">
+                            <h3 class="text-center text-info">Login</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">ID:</label><br>
+                                <input type="text" name="userid" id="userid" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">PW:</label><br>
+                                <input type="text" name="userpw" id="userpw" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                            </div>
+                            <div id="register-link" class="text-right">
+                                <a href="#" class="text-info">Register here</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 
 
 

@@ -68,8 +68,9 @@ private static final Logger logger = LoggerFactory.getLogger(IMemberDAOTest.clas
 	//회원 정보 삭제
 	@Test
 	public void deMember() throws Exception {
+		MemberDTO mDto = new MemberDTO();
 		logger.info("확인");
-		mDao.delete("user06");
+		mDao.delete(mDto);
 	}
 
 }

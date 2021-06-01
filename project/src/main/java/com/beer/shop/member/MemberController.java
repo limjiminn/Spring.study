@@ -142,17 +142,29 @@ public class MemberController {
 	}
 	//회원 탈퇴
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String delete(MemberDTO mDto, HttpSession session, RedirectAttributes rttr) throws Exception{
-		//세션에 있는 member를 가져와 member변수에 넣는다.
-		MemberDTO result = (MemberDTO) session.getAttribute("member");
-		//세션에 있는 비밀번호
-	
-		
+	public String delete() throws Exception{	
 		return "member/delete";
 	}
 
-	/*
-	 * @RequestMapping(value = "/delete", method = RequestMethod.GET) public String
-	 * delete() throws Exception{ return "member/delete"; }
-	 */
+	//회원 탈퇴
+	 @RequestMapping(value = "/delete", method = RequestMethod.POST) 
+	 public String delete(MemberDTO mDto, HttpSession session, RedirectAttributes rttr) throws Exception{
+		 //세션에 있는 member를 가져와 member변수에 넣는다.
+		 MemberDTO member = (MemberDTO) session.getAttribute("member");
+		 //세션에있는 비밀번호
+		 String sessionpw = member.getUserpw();
+		 //DTO로 들어오는 비밀번호
+		 String pwDto = mDto.getUserpw();
+		 
+		 if (!(sessionpw.equals(pwDto))) {
+//			rttr.addFlashAttribute("msg", false);
+			 logger.info("탈퇴 실패");
+			return "redirect:/member/delete";
+		}
+		 logger.info("탈퇴 성공");
+		 service.delete(mDto);
+		 session.invalidate();
+		 return "redirect:/"; 
+	}
+	
 }
