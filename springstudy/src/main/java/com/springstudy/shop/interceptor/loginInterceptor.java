@@ -15,6 +15,21 @@ public class loginInterceptor extends HandlerInterceptorAdapter{
 	private static final String LOGIN = "login";
 	private static final Logger log = LoggerFactory.getLogger(loginInterceptor.class);
 	
+	//프리핸들러: 지정된 컨트롤러의 동작 이전에 수행할 동작(사전제어)
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		
+		HttpSession session = request.getSession();
+		if (session.getAttribute(LOGIN) != null) {
+			log.info("clear login data before");
+			//기존 HttpSession에 남아있는 정보가 있는 경우 이를 삭제
+			session.removeAttribute(LOGIN);
+		}
+		
+		return true;
+	}
+	
 	//포스트핸들러: 지정된 컨트롤러의 동작 이후에 처리할 동작(사후제어)
 	@Override //재정의
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
@@ -46,18 +61,4 @@ public class loginInterceptor extends HandlerInterceptorAdapter{
 		}
 	}
 	
-	//프리핸들러: 지정된 컨트롤러의 동작 이전에 수행할 동작(사전제어)
-	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-			throws Exception {
-		
-		HttpSession session = request.getSession();
-		if (session.getAttribute(LOGIN) != null) {
-			log.info("clear login data before");
-			//기존 HttpSession에 남아있는 정보가 있는 경우 이를 삭제
-			session.removeAttribute(LOGIN);
-		}
-		
-		return true;
-	}
 }

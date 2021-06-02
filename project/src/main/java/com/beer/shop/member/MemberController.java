@@ -77,25 +77,24 @@ public class MemberController {
 	}
 	
 	//로그인
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(MemberDTO mDto, HttpServletRequest req, RedirectAttributes rttr) throws Exception{
+	@RequestMapping(value = "/loginPost", method = RequestMethod.POST)
+	public String login(MemberDTO mDto, HttpSession session, Model model) throws Exception{
 		logger.info("post login...........");
 		
-		HttpSession session = req.getSession();
+		String returnURL = "";
 		
-		MemberDTO result = service.selLoginInfo(mDto);
-		logger.info("결과 : " + result);
-	
+		MemberDTO memInfo = service.selLoginInfo(mDto);
+		logger.info("결과 : " + memInfo);
 		
-		if (result == null) {
-//			session.setAttribute("member", null);
-			rttr.addFlashAttribute("msg", "false");
-			
-		}else {
-			session.setAttribute("member", result);
+		if (memInfo == null) {
+			logger.info("아이디혹은 비밀번호가 잘못되엇습니다.");
+			return "redirect:/member/login";
 		}
-		logger.info("결과야 있니?" + session.toString());
-		return "redirect:/";
+		model.addAttribute("memInfo", memInfo);
+		session.setAttribute("member", memInfo);
+		
+		logger.info("결과야 있니?" + model.toString());
+		return returnURL;
 	}
 	
 	//로그아웃

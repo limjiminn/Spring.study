@@ -73,13 +73,13 @@
               </li>
             </ul>
           </li>
-          <li><a href="${ctx}/services.html">라거</a></li>
-          <li><a href="${ctx}/portfolio.html">에일</a></li>
-          <li><a href="${ctx}/pricing.html">라들러</a></li>
-          <li><a href="${ctx}/blog.html">흑맥주</a></li>
+          <li><a href="${ctx}/product/lager">라거</a></li>
+          <li><a href="${ctx}/product/ale">에일</a></li>
+          <li><a href="${ctx}/product/radler">라들러</a></li>
+          <li><a href="${ctx}/product/dark">흑맥주</a></li>
           <li><a href="${ctx}/board/list">공지사항</a></li>
 
-			 
+	
 	 		<c:if test="${empty sessionScope.member}">	
 	 			<li><a href="${ctx}/member/login">로그인</a></li>
 	 			<li><a href="${ctx}/member/register">회원가입</a></li>
@@ -93,5 +93,6 @@
         </ul>
 
       </nav><!-- .nav-menu -->
-          </div>
+      	<a href="index.html" class="get-started-btn ml-auto">Get Started</a>
+    </div>
   </header><!-- End Header -->
