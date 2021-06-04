@@ -73,10 +73,11 @@
               </li>
             </ul>
           </li>
-          <li><a href="${ctx}/product/productlist">라거</a></li>
-          <li><a href="${ctx}/product/productlist">에일</a></li>
-          <li><a href="${ctx}/product/productlist">라들러</a></li>
-          <li><a href="${ctx}/product/productlist">흑맥주</a></li>
+          
+          <li><a href="${ctx}/product/productlist?pcategory=lager">라거</a></li>
+          <li><a href="${ctx}/product/productlist?pcategory=ale">에일</a></li>
+          <li><a href="${ctx}/product/productlist?pcategory=radler">라들러</a></li>
+          <li><a href="${ctx}/product/productlist?pcategory=dark">흑맥주</a></li>
           <li><a href="${ctx}/board/list">공지사항</a></li>
 
 	
@@ -90,6 +91,7 @@
 	 			<li><a href="${ctx}/member/mypage">마이페이지</a></li>
 	 		</c:if>	 			
 	 	
+	 	   <li><a href="${ctx}/board/list">장바구니</a></li>
         </ul>
 
       </nav><!-- .nav-menu -->

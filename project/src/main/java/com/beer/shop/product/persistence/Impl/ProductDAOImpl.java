@@ -18,12 +18,12 @@ public class ProductDAOImpl implements ProductDAO{
 	
 	//상품 조회
 	@Override
-	public List<ProductDTO> productlist() throws Exception {
+	public List<ProductDTO> productlist(String pcategory) throws Exception {
 		System.out.println("DAO확인");
-		return session.selectList("ProductMapper.productlist");
+		return session.selectList("ProductMapper.productlist", pcategory);
 	}
 
-
+	//상품 상세
 	@Override
 	public ProductDTO productdetail(String pid) throws Exception {
 	

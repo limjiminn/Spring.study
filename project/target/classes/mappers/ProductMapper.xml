@@ -6,6 +6,7 @@
    		<select id="productlist" resultType="com.beer.shop.product.domain.ProductDTO">
    			SELECT *
    			FROM tbl_product
+   			WHERE pcategory = #{pcategory}
    		</select>
    	
    		<select id="productdetail" resultType="com.beer.shop.product.domain.ProductDTO">

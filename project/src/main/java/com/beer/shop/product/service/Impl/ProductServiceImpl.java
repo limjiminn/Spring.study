@@ -16,14 +16,14 @@ public class ProductServiceImpl implements ProductService {
 	private ProductDAO pDao;
 	
 	@Override
-	public List<ProductDTO> productlist() throws Exception {
+	public List<ProductDTO> productlist(String pcategory) throws Exception {
 		System.out.println("service확인");
-		return pDao.productlist();
+		return pDao.productlist(pcategory);
 	}
 
 	@Override
 	public ProductDTO productdetail(String pid) throws Exception {
-		
+		System.out.println("상품상세 확인");
 		return pDao.productdetail(pid);
 	}
 

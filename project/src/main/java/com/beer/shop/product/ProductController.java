@@ -25,20 +25,20 @@ public class ProductController {
 	
 	//상품 목록
 	@RequestMapping(value = "/productlist" , method = RequestMethod.GET)
-	public void productlist( Model model) throws Exception{
+	public void productlist(@RequestParam("pcategory") String pcategory, Model model) throws Exception{
 		log.info("========== productlist ===========");
 		
-		List<ProductDTO> list = null; 
-			list = service.productlist();
+		List<ProductDTO> list = service.productlist(pcategory);
 		
 		log.info("list : " + list);
 		model.addAttribute("list" , list);
 	}
+	//상품 상세
 	@RequestMapping(value = "/productdetail", method = RequestMethod.GET)
 	public void productdetail(@RequestParam("pid") String pid, Model model) throws Exception{
 		log.info("============productdetail=============");
 		ProductDTO result = service.productdetail(pid);
 		
-		model.addAttribute("product",result);
+		model.addAttribute("detail",result);
 	}
 }
