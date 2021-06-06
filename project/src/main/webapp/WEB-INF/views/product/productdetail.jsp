@@ -38,20 +38,17 @@
             <ul>
               <li><strong>Category</strong>: ${detail.pcategory}</li>
               <li><strong>Country</strong>: ${detail.pcompany}</li>
-              <li><strong>PRICE</strong>: <h2>${detail.pprice}won</h2></li>
               <li>
               	<strong>구입 수량 : </strong>
               	<input type="number" min="1" max="${detail.pstock}" value="1"/>
          	  </li>
             <p>${detail.pdescription}</p>
             <hr>
-            <li>
-            <span>총 가격</span>
-            <h2>${detail.pprice*detail.pstock}won</h2>
-            </li>
+              <li><strong>Price</strong>: <h2>${detail.pprice}won</h2></li>
+            
             </ul>
-            <button>구매하기</button>
-            <button>장바구니</button>
+            <button><a href="##">구매하기</a></button>
+            <button><a href="##">장바구니</a></button>
           </div>
         </div>
 
