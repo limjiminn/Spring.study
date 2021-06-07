@@ -52,10 +52,7 @@
       <%-- <a href="index.html" class="logo"><img src="${ctx}/resources/assets/img/slide/로고.png" alt="" class="img-fluid"></a> --%>
 
       <nav class="nav-menu d-none d-lg-block">
-
         <ul>
-          
-
           <li class="drop-down"><a href="#">About</a>
             <ul>
               <li><a href="about.html">About Us</a></li>
@@ -79,8 +76,8 @@
           <li><a href="${ctx}/product/productlist?pcategory=radler">라들러</a></li>
           <li><a href="${ctx}/product/productlist?pcategory=dark">흑맥주</a></li>
           <li><a href="${ctx}/board/list">공지사항</a></li>
-
-	
+		 
+	 	   
 	 		<c:if test="${empty sessionScope.member}">	
 	 			<li><a href="${ctx}/member/login">로그인</a></li>
 	 			<li><a href="${ctx}/member/register">회원가입</a></li>
@@ -89,12 +86,13 @@
 	 			<li style="color: blue">${sessionScope.member.username}님 반갑습니다.</li>
 	 			<li><a href="${ctx}/member/logout">로그아웃</a></li>
 	 			<li><a href="${ctx}/member/mypage">마이페이지</a></li>
-	 		</c:if>	 			
-	 	
+	 		</c:if>	 				 	
 	 	   <li><a href="${ctx}/board/list">장바구니</a></li>
         </ul>
 
-      </nav><!-- .nav-menu -->
-      	<a href="index.html" class="get-started-btn ml-auto">Get Started</a>
+      </nav><!-- .nav-menu --> 
+      <div class="get-started-btn ml-auto">
+      </div>
+      <!-- 	<a href="index.html" class="get-started-btn ml-auto">Get Started</a> -->
     </div>
   </header><!-- End Header -->

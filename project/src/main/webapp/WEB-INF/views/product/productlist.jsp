@@ -14,17 +14,19 @@
  <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
+   
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">	
 	        <div class="d-flex justify-content-between align-items-center">
-	          <h2>라거</h2>
+	          <h2>상품 분류</h2>
 	          <ol>
 	            <li><a href="index.html">Home</a></li>
-	            <li>라거</li>
+	            <li>상품 분류</li>
 	          </ol>
 	        </div>
       </div>
     </section><!-- End Breadcrumbs -->
+
 
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
@@ -40,7 +42,7 @@
                 <h4>${list.pprice}</h4>
                 <div class="portfolio-links">
                   <a href="${ctx}/resources/assets/img/lager/${list.pimg}" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                  <a href="${ctx}/product/productdetail?pid=${list.pid}" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>

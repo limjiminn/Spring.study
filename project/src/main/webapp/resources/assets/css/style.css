@@ -219,18 +219,19 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.3s;
   font-size: 14px;
   display: inline-block;
+
 }
 
 .get-started-btn:hover {
   background: #e1444d;
-  color: #fff;
+  color: #fff; 
 }
 
 @media (max-width: 991px) {
   .get-started-btn {
     margin: 0 0 0 30;
     padding: 6px 18px;
-  }
+  } 
 }
 
 /* Mobile Navigation */
@@ -472,7 +473,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .btn-get-started {
-  font-family: "Raleway", sans-serif;
+   font-family: "Raleway", sans-serif;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: 1px;
@@ -484,11 +485,12 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
-  background: #d9232d;
+  background: #d9232d; 
+    list-style: none;
 }
 
 #hero .btn-get-started:hover {
-  background: #df3740;
+   background: #df3740; 
 }
 
 @media (max-width: 992px) {

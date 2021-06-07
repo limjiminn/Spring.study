@@ -4,15 +4,14 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="ctx" value="${pageContext.request.contextPath == '/' ? '' : pageContext.request.contextPath }" scope="application" />    
 <%@ include file="/resources/includes/header.jsp" %>
- <main id="main">
-	
+ <main id="main">	
 	<section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
-
         <div class="d-flex justify-content-between align-items-center">
           <h2>${detail.pcategory}</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
+            <li>상품 분류</li>
             <li>${detail.pcategory}</li>
           </ol>
         </div>
@@ -38,15 +37,16 @@
             <ul>
               <li><strong>Category</strong>: ${detail.pcategory}</li>
               <li><strong>Country</strong>: ${detail.pcompany}</li>
-              <li>
+             <li>
               	<strong>구입 수량 : </strong>
-              	<input type="number" min="1" max="${detail.pstock}" value="1"/>
-         	  </li>
-            <p>${detail.pdescription}</p>
-            <hr>
-              <li><strong>Price</strong>: <h2>${detail.pprice}won</h2></li>
-            
-            </ul>
+             	<input id="pronum" name="pronum" type="number" min="1" max="${detail.pstock}"onchange="change();" value="1"/>
+	          <p>${detail.pdescription}</p>
+	          <hr>
+             <li>
+              <strong>Price</strong>:
+              	<h2><fmt:formatNumber value="${detail.pprice}" pattern="###,###,###"/></h2>
+            </li>           
+           </ul>
             <button><a href="##">구매하기</a></button>
             <button><a href="##">장바구니</a></button>
           </div>
@@ -54,6 +54,6 @@
 
       </div>
     </section><!-- End Portfolio Details Section -->
-
   </main><!-- End #main -->
+
 <%@ include file="/resources/includes/footer.jsp" %>
