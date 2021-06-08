@@ -87,7 +87,7 @@
 	 			<li><a href="${ctx}/member/logout">로그아웃</a></li>
 	 			<li><a href="${ctx}/member/mypage">마이페이지</a></li>
 	 		</c:if>	 				 	
-	 	   <li><a href="${ctx}/board/list">장바구니</a></li>
+	 	   <li><a href="${ctx}/cart/list">장바구니</a></li>
         </ul>
 
       </nav><!-- .nav-menu --> 

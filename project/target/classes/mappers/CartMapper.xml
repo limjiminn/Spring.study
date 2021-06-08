@@ -2,9 +2,25 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-   <mapper namespace="CartMapper">
+   <mapper namespace="cartMapper">
    		<insert id="insert">
    			INSERT INTO CART(cartid, userid, pid, amount)
-   			VALUES(seq_cart.nextval,#{userid},#{pid},#{amount})
+   			VALUES(cart_seq.nextval,#{userid},#{pid},#{amount})
    		</insert>
+   		
+   		<select id="listCart" resultType="com.beer.shop.cart.domain.CartDTO">
+   			SELECT cartid, p.pid, p.pimg, c.userid, username, pname, amount, p.pprice, (p.pprice*amount)money
+   			FROM tbl_member m, cart c, tbl_product p
+   			WHERE m.userid = c.userid
+   			AND c.pid = p.pid
+   			AND c.userid = #{userid}
+   			ORDER BY cartid
+   		</select>
+   		
+   		<select id="sumMoney" resultType="int">
+   			SELECT nvl(sum(p.pprice*amount),0)
+   			FROM cart c, tbl_product p
+   			WHERE c.pid=p.pid
+   			AND userid=#{userid}
+   		</select>
    </mapper>

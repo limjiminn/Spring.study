@@ -14,10 +14,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MemberDTO {
-	private String userid;
-	private String userpw;
-	private String username;
-	private String email;
+	private String userid; //회원아이디
+	private String userpw; //회원비밀번호
+	private String username; //회원이름
+	private String email;	//이메일
 	private Timestamp regdate;
 	private Timestamp updatedate;
 

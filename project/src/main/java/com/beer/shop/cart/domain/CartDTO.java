@@ -17,4 +17,6 @@ public class CartDTO {
 	private int pprice;		//상품 단가
 	private int amount;		//구매 수량
 	private int money;		//구매 가격
+	private String pimg;
+	
 }

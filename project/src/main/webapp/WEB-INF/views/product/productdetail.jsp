@@ -48,7 +48,8 @@
             </li>           
            </ul>
             <button><a href="##">구매하기</a></button>
-            <button><a href="##">장바구니</a></button>
+            
+            <button><a href="${ctx}/cart/list">장바구니</a></button>
           </div>
         </div>
 

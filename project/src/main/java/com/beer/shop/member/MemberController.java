@@ -92,7 +92,7 @@ public class MemberController {
 		}
 		model.addAttribute("memInfo", memInfo);
 		session.setAttribute("member", memInfo);
-		
+		session.setAttribute("userid", memInfo.getUserid());
 		logger.info("결과야 있니?" + model.toString());
 		return returnURL;
 	}
