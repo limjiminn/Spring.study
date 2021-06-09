@@ -19,10 +19,13 @@ public interface ReplyMapper {
 	public int delete(int rno);
 	//수정
 	public int update(ReplyDTO reply);
-	
+	//댓글 작성후 
 	public List<ReplyDTO> getListWithPaging(
 					@Param("cri") Criteria cri,
 					@Param("bno") int bno);
-	
+	//게시물 확인시 Count
 	public int getCountByBno(int bno);
+	
+	//게시물 삭제시 댓글삭제
+	public int deleteAll(int bno);
 }

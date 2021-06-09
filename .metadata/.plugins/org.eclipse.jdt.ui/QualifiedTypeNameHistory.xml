@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.springstudy.shop.board.mapper.BoardAttachMapper"/>
     <fullyQualifiedTypeName name="javax.management.AttributeChangeNotification"/>
     <fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
     <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
     <fullyQualifiedTypeName name="org.slf4j.Logger"/>
     <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
+    <fullyQualifiedTypeName name="com.beer.shop.board.mapper.ReplyMapper"/>
 </qualifiedTypeNameHistroy>

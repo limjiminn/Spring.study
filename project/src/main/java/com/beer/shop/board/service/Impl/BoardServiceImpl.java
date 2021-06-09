@@ -12,6 +12,7 @@ import com.beer.shop.board.domain.BoardAttachDTO;
 import com.beer.shop.board.domain.BoardDTO;
 import com.beer.shop.board.domain.Criteria;
 import com.beer.shop.board.mapper.BoardAttachMapper;
+import com.beer.shop.board.mapper.ReplyMapper;
 import com.beer.shop.board.persistence.IBoardDAO;
 import com.beer.shop.board.service.IBoardService;
 
@@ -24,6 +25,9 @@ public class BoardServiceImpl implements IBoardService{
 	//매퍼 등록
 	@Autowired
 	private BoardAttachMapper attachMapper;
+	
+	@Autowired
+	private ReplyMapper replyMapper;
 	
 	@Transactional
 	@Override
@@ -51,11 +55,26 @@ public class BoardServiceImpl implements IBoardService{
 
 	@Override
 	public boolean modify(BoardDTO bDto) throws Exception {
-		return bDao.update(bDto) == 1;
+		attachMapper.deleteAll(bDto.getBno());
+		boolean modifyResult = bDao.update(bDto) == 1;
+		
+		if (modifyResult && bDto.getAttachList().size() > 0) {
+			
+			bDto.getAttachList().forEach(attach -> {
+				attach.setBno(bDto.getBno());
+				attachMapper.insert(attach);
+			});
+		}
+		return modifyResult;
 	}
 
 	@Override
 	public boolean remove(Integer bno) throws Exception {
+		//댓글 삭제하고
+		replyMapper.deleteAll(bno);
+		//첨부파일 삭제하고
+		attachMapper.deleteAll(bno);
+		//그다음 부모 삭제
 		return bDao.delete(bno) == 1;
 	}
 

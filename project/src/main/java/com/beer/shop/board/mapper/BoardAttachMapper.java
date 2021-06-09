@@ -9,4 +9,6 @@ public interface BoardAttachMapper {
 	public void insert(BoardAttachDTO boardAttachDto);
 	public void delete(String uuid);
 	public List<BoardAttachDTO> findByBno(int bno);
+	//전부삭제
+	public void deleteAll(int bno);
 }
