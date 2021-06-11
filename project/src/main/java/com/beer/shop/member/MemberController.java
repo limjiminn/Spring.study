@@ -136,7 +136,7 @@ public class MemberController {
 		service.update(mDto);
 		
 		
-		return "redirect:/";
+		return "redirect:/member/logout";
 		
 	}
 	//회원 탈퇴

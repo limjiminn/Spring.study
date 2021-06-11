@@ -6,6 +6,29 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%@ include file="/resources/includes/header.jsp" %>
+<style type="text/css">
+
+body {
+	  margin: 0;
+	  padding: 0;
+	 /*  background-color: #17a2b8; */
+	  height: 100vh;
+	}
+	#login .container #login-row #login-column #login-box {
+	  margin-top: 20px;
+	  max-width: 600px;
+	  height: 500px;
+	  border: 1px solid #9C9C9C;
+	  border-bottom: 100px;
+	  background-color: #EAEAEA;
+	}
+	#login .container #login-row #login-column #login-box #login-form {
+	  padding: 30px;
+	}
+	#login .container #login-row #login-column #login-box #login-form #register-link {
+	  margin-top: -85px;
+	}
+</style>
 </head>
 <main id="main">
 
@@ -24,10 +47,46 @@
 
       </div>
     </section><!-- End Breadcrumbs -->
-    <section id="contact" class="contact">
+    
+     <body>
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                         <form id="login-form" name="delete" action="${ctx}/member/delete" method="post"  >
+                            <h3 class="text-center text-info">회원 탈퇴</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">ID:</label><br>
+                                 <input type="text" class="form-control"  name="userid" id="userid" value="${member.userid}"  />
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">PW:</label><br>
+                               <input type="password" class="form-control"   name="userpw" id="userpw" placeholder="비밀번호"  />
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">name:</label><br>
+                                <input type="text" class="form-control"   name="username" id="username" value="${member.username}"  />
+                            </div>
+                            <div class="form-group">
+                                <div class="text-center">
+                                <button type="submit" id="submit" class="btn btn-info btn-md">탈퇴</button>
+	              				 <button type="button" class="btn btn-info btn-md" onclick="location.href='${ctx}'">취소</button>
+	              				 </div>
+                            </div>
+                           
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+    
+ <%--    <section id="contact" class="contact">
       <div class="container">   
 
-            <form name="delete" action="${ctx}/member/delete" method="post"  >
+            <form id="login-form" name="delete" action="${ctx}/member/delete" method="post"  >
            
               <div class="form-group">
 	                <input type="text"  name="userid" id="userid" value="${member.userid}"  />
@@ -41,13 +100,13 @@
 	                <input type="text"  name="username" id="username" value="${member.username}"  />
 	                <div class="validate"></div>
               </div>         
-	               <div class="text-center"><button type="submit" id="submit">탈퇴</button></div>
-	               <div class="cencle"><button type="button">취소</button></div>
+	               <div class="text-center"><button type="submit" id="submit" class="btn btn-info btn-md">탈퇴</button></div>
+	               <div class="cencle"><button type="button" class="btn btn-info btn-md">취소</button></div>
             </form>
 			
           </div>
       
-    </section><!-- End Contact Section -->
+    </section><!-- End Contact Section --> --%>
 </main>
 <body>
 

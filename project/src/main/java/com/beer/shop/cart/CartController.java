@@ -10,8 +10,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.beer.shop.cart.domain.CartDTO;
@@ -30,12 +32,13 @@ public class CartController {
 	//도메인 오브젝트나 DTO의 프로퍼티에 요청 파라미터를 바인딩해서 한번에 받으면 @ModelAttribute라고 볼수있다.
 	//ModelAttribute는 컨트롤러가 리턴하는 모델에 파라미터로 전달한 오브젝트를 자동을 추가해준다.
 	@RequestMapping("/insert")
-	public String insert(@ModelAttribute CartDTO cDto, HttpSession session)throws Exception{
+	public String insert(@ModelAttribute CartDTO cDto,HttpSession session)throws Exception{
 		//로그인 여부를 체크하기 위해 세션에 저장된 아이디 확인
 		String userid = (String) session.getAttribute("userid");
-		if(userid == null) {
-			return "redirect:/member/login";
-		}
+//		if(userid == null) {
+//			return "redirect:/member/login";
+//		}
+		
 		cDto.setUserid(userid);
 		service.insert(cDto);
 		return "redirect:/cart/list";
@@ -73,5 +76,23 @@ public class CartController {
 			 * }else { //로그인되지 않았을때 return new ModelAndView("member/login", "",null); } }
 			 */
 			 
+	}
+	@RequestMapping("/delete")
+	public String delete(@RequestParam int cartid) throws Exception {
+		service.delete(cartid);
+		return "redirect:/cart/list";
+	}
+	@RequestMapping("/deleteAll")
+	public String deleteAll(HttpSession session) throws Exception{
+		String userid = (String) session.getAttribute("userid");
+		if (userid!=null) {
+			service.deleteAll(userid);
+		}
+		return "redirect:/cart/list";
+	}
+	
+	public String modify(CartDTO cDto) throws Exception{
+		service.modifyCart(cDto);
+		return "redirect:/cart/list";
 	}
 }

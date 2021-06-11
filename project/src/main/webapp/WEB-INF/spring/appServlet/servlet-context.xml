@@ -36,7 +36,6 @@
 			<mapping path="/board/register"/>
 			<mapping path="/board/modify"/>
 			<mapping path="/board/remove"/>
-			<mapping path="/board/list"/>
 			<mapping path="/cart/list"/>
 			<beans:ref bean="authInterceptor"/>			
 		</interceptor>

@@ -215,7 +215,7 @@ $(document).ready(function() {
           </div>
 
           <div class="form-group">
-            <label>Writer</label> <input class="form-control" name="writer">
+            <label>Writer123</label> <input class="form-control" name="writer" value="${member.userid}" readonly="readonly">${sessionScope.member.userid}
           </div>
           <button type="submit" class="btn btn-default">Submit
             Button</button>

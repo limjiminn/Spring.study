@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -67,9 +68,10 @@ public class ReplyController {
 	
 	//조회 (댓글 상세)
 	@GetMapping(value = "/{rno}", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public ResponseEntity<ReplyDTO> read(@PathVariable("rno") int rno){
+	public ResponseEntity<ReplyDTO> read(@PathVariable("rno") int rno, Model model){
 		log.info("get : " + rno);
-		
+		model.addAttribute("reply", service.read(rno));
+		log.info("rno : " + service.read(rno));
 		return new ResponseEntity<ReplyDTO>(service.read(rno), HttpStatus.OK);
 		
 	}

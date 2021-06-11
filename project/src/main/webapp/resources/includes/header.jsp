@@ -53,24 +53,6 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="drop-down"><a href="#">About</a>
-            <ul>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="team.html">Team</a></li>
-              <li><a href="testimonials.html">Testimonials</a></li>
-
-              <li class="drop-down"><a href="#">Deep Drop Down</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          
           <li><a href="${ctx}/product/productlist?pcategory=lager">라거</a></li>
           <li><a href="${ctx}/product/productlist?pcategory=ale">에일</a></li>
           <li><a href="${ctx}/product/productlist?pcategory=radler">라들러</a></li>
@@ -78,21 +60,22 @@
           <li><a href="${ctx}/board/list">공지사항</a></li>
 		 
 	 	   
+        </ul>
+      </nav><!-- .nav-menu --> 
+      <nav class="nav-menu d-none d-lg-block ml-auto">
+		<ul>
 	 		<c:if test="${empty sessionScope.member}">	
-	 			<li><a href="${ctx}/member/login">로그인</a></li>
+	 			<li ><a href="${ctx}/member/login">로그인</a></li>
 	 			<li><a href="${ctx}/member/register">회원가입</a></li>
 	 		</c:if>
 	 		<c:if test="${not empty sessionScope.member}">
 	 			<li style="color: blue">${sessionScope.member.username}님 반갑습니다.</li>
-	 			<li><a href="${ctx}/member/logout">로그아웃</a></li>
+	 			<li class="float-right"><a href="${ctx}/member/logout">로그아웃</a></li>
 	 			<li><a href="${ctx}/member/mypage">마이페이지</a></li>
 	 		</c:if>	 				 	
 	 	   <li><a href="${ctx}/cart/list">장바구니</a></li>
-        </ul>
-
-      </nav><!-- .nav-menu --> 
-      <div class="get-started-btn ml-auto">
-      </div>
+	 	   </ul>
+      </nav>
       <!-- 	<a href="index.html" class="get-started-btn ml-auto">Get Started</a> -->
     </div>
   </header><!-- End Header -->

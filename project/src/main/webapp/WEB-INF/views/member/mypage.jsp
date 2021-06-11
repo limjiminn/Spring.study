@@ -23,10 +23,47 @@
 
       </div>
     </section><!-- End Breadcrumbs -->
-	<ul>
-		<li><a href="${ctx}/member/update">정보수정</a></li>
-		<li><a href="${ctx}/member/delete">회원탈퇴</a></li>
-	</ul>
  </main><!-- End #main -->
 </html>
+ <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="box">
+              <h3>Update</h3>
+              <h2>회원 수정</h2>
+              <ul>
+                <li> </li>
+                <li> </li>
+                <li> </li>
+                <li> </li>
+                <li> </li>            
+              </ul>
+              <div class="btn-wrap">
+                <a href="${ctx}/member/update" class="btn-buy">수정하기</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+            <div class="box">
+              <h3>Delete</h3>
+              <h2>회원 탈퇴</h2>
+              <ul>
+                <li> </li>
+                <li> </li>
+                <li> </li>
+                <li> </li>
+                <li> </li>  
+              </ul>
+              <div class="btn-wrap">
+                <a href="${ctx}/member/delete" class="btn-buy">탈퇴하기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Pricing Section -->
 <%@ include file="/resources/includes/footer.jsp" %>

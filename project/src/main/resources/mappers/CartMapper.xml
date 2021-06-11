@@ -3,11 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
    <mapper namespace="cartMapper">
+   		<!--장바구니 담기  -->
    		<insert id="insert">
    			INSERT INTO CART(cartid, userid, pid, amount)
    			VALUES(cart_seq.nextval,#{userid},#{pid},#{amount})
    		</insert>
-   		
+   		<!--장바구니 목록  -->
    		<select id="listCart" resultType="com.beer.shop.cart.domain.CartDTO">
    			SELECT cartid, p.pid, p.pimg, c.userid, username, pname, amount, p.pprice, (p.pprice*amount)money
    			FROM tbl_member m, cart c, tbl_product p
@@ -23,4 +24,20 @@
    			WHERE c.pid=p.pid
    			AND userid=#{userid}
    		</select>
+   		<!--장바구니 개별 상품 삭제  -->
+   		<delete id="delete">
+   			DELETE FROM cart
+   			WHERE cartid=#{cartid}
+   		</delete>
+   		<!--장바구니 비우기  -->
+   		<delete id="deleteAll">
+   			DELETE FROM cart
+   			WHERE userid=#{userid}
+   		</delete>
+   		<!--장바구니 수정  -->
+   		<update id="modify">
+   			UPDATE cart
+   			SET amount=#{amount}
+   			WHERE pid=#{pid} 
+   		</update>
    </mapper>

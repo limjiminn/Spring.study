@@ -3,26 +3,32 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ include file="/resources/includes/header.jsp" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath == '/' ? '' : pageContext.request.contextPath }" scope="application" />
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Tables</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>리뷰</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>리뷰</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Board List Page
-                            <button id="regBtn" type="button" class="btn btn-xs pull-right">Register New Board</button>
+                            <button id="regBtn" type="button" class="btn btn-xs pull-right">글 작성</button>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>#번호</th>
+                                        <th>번호</th>                                       
                                         <th>제목</th>
                                         <th>작성자</th>
                                         <th>작성일</th>
@@ -34,9 +40,9 @@
                                 		<tr>
                                 			<td>${board.bno }</td>
                                 			<!-- 페이징 처리를 하고 나면 특정 게시물의 조회 페이지로 이동한 후 다시 목록으로 돌아가는데 문제가 생긴다. -->
-                                			<td><a href="${contextPath}/board/read?bno=${board.bno}">${board.title}</a></td>
+                                			<%-- <td><a href="${contextPath}/board/read?bno=${board.bno}">${board.title}</a></td> --%>
                                 			<!--페이지 번호는 조회 페이지에 전달되지않으로 직접링크로 연결된 경로로 처리  -->
-                                			<%-- <td><a class="move" href="${board.bno}">${board.title} <b>[${board.replycnt}]</b></a></td> --%>
+                                			<td><a class="move" href="${board.bno}">${board.title} <b>[${board.replycnt}]</b></a></td>
                                 			<td>${board.writer}</td>
                                 			<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${board.regdate}"/></td>
                                 			<td><span class="badge bg-ref">${board.viewcnt}</span></td>
@@ -202,4 +208,5 @@
 		
 	});
 </script>
+
 <%@include file="/resources/includes/footer.jsp"%>

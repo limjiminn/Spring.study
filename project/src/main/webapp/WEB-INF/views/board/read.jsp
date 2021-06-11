@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <%@include file="/resources/includes/header.jsp"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath == '/' ? '' : pageContext.request.contextPath }" scope="application" />
 <style>
@@ -55,16 +55,31 @@
 	.bigPicture img {
 		width:600px;
 	}
+	.form-control{
+		width: 500px;
+	}
+	.panal
 </style>
+<section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>게시판</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>리뷰</li>
+            <li>게시판</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
 <div class="row">
-  <div class="col-lg-12">
-    <h1 class="page-header">Board Read</h1>
-  </div>
   <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
 
-<div class="row">
+<div class="row" align="center">
   <div class="col-lg-12">
     <div class="panel panel-default">
 
@@ -73,23 +88,23 @@
       <div class="panel-body">
 
          <div class="form-group">
-           <label>Bno</label> <input class="form-control" name="bno" value="${board.bno }" readonly="readonly">
+           <label>번호</label> <input class="form-control" name="bno" value="${board.bno }" readonly="readonly">
          </div>
 
          <div class="form-group">
-           <label>Title</label> <input class="form-control" name="title" value="${board.title }" readonly="readonly">
+           <label>제목</label> <input class="form-control" name="title" value="${board.title }" readonly="readonly">
          </div>
 
          <div class="form-group">
-           <label>Text area</label>
+           <label>내용</label>
            <textarea class="form-control" rows="3" name="content" readonly="readonly">${board.content }</textarea>
          </div>
 
          <div class="form-group">
-           <label>Writer</label> <input class="form-control" name="writer" value="${board.writer }" readonly="readonly">
+           <label>작성자</label> <input class="form-control" name="writer" value="${board.writer }" readonly="readonly">
          </div>
          <!-- ===========회원과 작성자가 일치한다면 ================================================= -->
-         <c:if test="${login.userid == board.writer }">
+         <c:if test="${member.userid == board.writer }">
          	<button data-oper="modify" class="btn btn-default">Modify</button>         
          </c:if>
 		 <button data-oper="list" class="btn btn-info">List</button>
@@ -123,8 +138,8 @@
       <div class="panel-heading">Files</div>
       <!-- /.panel-heading -->
       <div class="panel-body">
-        
         <div class="uploadResult"> 
+        
           <ul>
           </ul>
         </div>
@@ -145,9 +160,9 @@
       <div class="panel-heading">
       <!-- ======================================================================== -->
         <i class="fa fa-comments fa-fw"></i> Reply
-        <c:if test="${not empty login}">
+       <c:if test="${not empty member}">
 	        <button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>New Reply</button>
-        </c:if>
+       </c:if>
       </div>      
       
       <!-- /.panel-heading -->
@@ -174,11 +189,11 @@
             <div class="modal-body">
             	<div class="form-group">
             		<label>ReplyText</label>
-            		<input class="form-control" name="replytext" value="New Reply!!!!">
+            		<input class="form-control" id="replytext" type="text" name="replytext" >
             	</div>
             	<div class="form-group">
             		<label>Replyer</label>
-            		<input class="form-control" name="replyer" value="replyer">
+            		<input class="form-control" type="text" name="replyer" value="${member.userid}" readonly="readonly">
             	</div>
 				<div class="form-group">
 					<label>Reply Date</label>
@@ -186,10 +201,11 @@
 				</div>
             </div>
 			<div class="modal-footer">
-				<c:if test="${not empty login }">
+					
+				<c:if test="${member.userid == sessionScope.userid}">
 	        		<button id="modalModifyBtn" type="button" class="btn btn-warning">Modify</button>
 	        		<button id="modalRemoveBtn" type="button" class="btn btn-danger">Remove</button>
-				</c:if>
+				 </c:if>
         		<button id="modalRegisterBtn" type="button" class="btn btn-primary">Register</button>
         		<button id="modalCloseBtn" type="button" class="btn btn-default">Close</button>
       		</div>          
@@ -322,7 +338,10 @@ $(document).ready(function() {
     
     
     $("#addReplyBtn").on("click", function(e){
-    	modal.find("input").val("");
+    	 /*  modal.find("input").val("","${member.userid}"); */
+    	/*  $("#replytext").val(""); */
+    	modal.find("input[name='replytext']").val(""); 
+    	modal.find("input[name='replyer']").val("${member.userid}"); 
     	modalInputReplyDate.closest("div").hide();
     	modal.find("button[id !='modalCloseBtn']").hide();
     	
@@ -342,9 +361,10 @@ $(document).ready(function() {
     	
         replyService.add(reply, function(result){
         	alert(result);
-        	
-        	modal.find("input").val("");
-        	modal.modal("hide"); 
+        	/*  $("#replytext").val(""); */
+        	  modal.find("input[name='replytext']").val(""); 
+        	  modal.find("input[name='replyer']").val("${member.userid}"); 
+        	 modal.modal("hide");
         	
         	showList(-1);
         });

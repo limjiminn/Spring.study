@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <%@include file="/resources/includes/header.jsp"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath == '/' ? '' : pageContext.request.contextPath }" scope="application" />
 
@@ -187,6 +187,20 @@ $(document).ready(function() {
 
 });
 </script>
+<section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>글 작성</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>리뷰</li>
+            <li>글 작성</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
 <div class="row">
 <c:set var="contextPath" value="${pageContext.request.contextPath == '/' ? '' : pageContext.request.contextPath }" scope="application" />
   <div class="col-lg-12">
@@ -206,20 +220,19 @@ $(document).ready(function() {
 
         <form role="form" action="${contextPath}/board/register" method="post">
           <div class="form-group">
-            <label>Title</label> <input class="form-control" name="title">
+            <label>제목</label> <input class="form-control" name="title">
           </div>
 
           <div class="form-group">
-            <label>Text area</label>
+            <label>내용</label>
             <textarea class="form-control" rows="3" name="content"></textarea>
           </div>
 
           <div class="form-group">
-            <label>Writer</label> <input class="form-control" name="writer">
+            <label>Writer</label> <input class="form-control" name="writer" value="${member.userid}" readonly="readonly">
           </div>
-          <button type="submit" class="btn btn-default">Submit
-            Button</button>
-          <button type="reset" class="btn btn-default">Reset Button</button>
+          <button type="submit" class="btn btn-default">확인</button>
+          <button type="reset" class="btn btn-default">취소</button>
         </form>
 
       </div>

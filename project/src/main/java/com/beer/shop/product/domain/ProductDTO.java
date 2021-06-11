@@ -17,4 +17,5 @@ public class ProductDTO {
 	private String pcompany;	//상품회사
 	private int pstock;			//상품수량
 	private String pimg;		//상품이미지
+	private int pamount;
 }

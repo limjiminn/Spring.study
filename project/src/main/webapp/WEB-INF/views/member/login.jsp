@@ -79,32 +79,7 @@ body {
         </div>
 
       </div>
-    </section><!-- End Breadcrumbs -->
-
-    <!-- ======= Contact Section ======= -->
-   <%--  <section id="contact" class="contact">
-      <div class="container">   
-		<form action="${ctx}/member/login" method="post">
-		
-				<div class="col-lg-4">
-					<label for="userid"></label>
-					<input type="text" id="userid" name="userid">
-				</div>
-				<div class="col-lg-4">
-					<label for="userpw"></label>
-					<input type="password" id="userpw" name="userpw">
-				</div>
-				<div class="col-lg-4">
-					<button type="submit" id="login">로그인</button>
-					<button type="button"><a href="${ctx}/member/register">회원가입</a></button>
-				</div>
-			
-		</form>	
-      </div>  
-    </section><!-- End Contact Section --> --%>
-    
-    
-          
+    </section><!-- End Breadcrumbs -->  
   </main><!-- End #main -->
 
  <body>

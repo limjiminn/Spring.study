@@ -14,11 +14,11 @@ body {
 }
 
 a {
-  color: #d9232d;
+  color:yellow;
 }
 
 a:hover {
-  color: #e24d55;
+  color:yellow !important;
   text-decoration: none;
 }
 
