@@ -7,7 +7,7 @@
 <style>
 	.uploadResult {
 		width:100%;
-		background-color: gray;
+		background-color: white;
 	}
 	
 	.uploadResult ul{
@@ -25,7 +25,7 @@
 	}
 	
 	.uploadResult ul li img{
-		width: 100px;
+		width: 300px;
 	}
 	
 	.uploadResult ul li span {
@@ -55,9 +55,7 @@
 	.bigPicture img {
 		width:600px;
 	}
-	.form-control{
-		width: 500px;
-	}
+
 	.panal
 </style>
 <section id="breadcrumbs" class="breadcrumbs">
@@ -79,11 +77,9 @@
 </div>
 <!-- /.row -->
 
-<div class="row" align="center">
+<div class="container">
   <div class="col-lg-12">
     <div class="panel panel-default">
-
-      <div class="panel-heading">Board Read Page</div>
       <!-- /.panel-heading -->
       <div class="panel-body">
 
@@ -94,7 +90,32 @@
          <div class="form-group">
            <label>제목</label> <input class="form-control" name="title" value="${board.title }" readonly="readonly">
          </div>
+			
+			<div class='bigPictureWrapper'>
+  <div class='bigPicture'>
+  </div>
+</div>
 
+<div class="container">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+
+      <div class="panel-heading">이미지</div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <div class="uploadResult"> 
+        
+          <ul>
+          </ul>
+        </div>
+      </div>
+      <!--  end panel-body -->
+    </div>
+    <!--  end panel-body -->
+  </div>
+  <!-- end panel -->
+</div>
+			
          <div class="form-group">
            <label>내용</label>
            <textarea class="form-control" rows="3" name="content" readonly="readonly">${board.content }</textarea>
@@ -126,17 +147,17 @@
 </div>
 <!-- /.row -->
 
-<div class='bigPictureWrapper'>
+<!-- <div class='bigPictureWrapper'>
   <div class='bigPicture'>
   </div>
 </div>
 
-<div class="row">
+<div class="container">
   <div class="col-lg-12">
     <div class="panel panel-default">
 
-      <div class="panel-heading">Files</div>
-      <!-- /.panel-heading -->
+      <div class="panel-heading">이미지</div>
+      /.panel-heading
       <div class="panel-body">
         <div class="uploadResult"> 
         
@@ -144,24 +165,25 @@
           </ul>
         </div>
       </div>
-      <!--  end panel-body -->
+       end panel-body
     </div>
-    <!--  end panel-body -->
+     end panel-body
   </div>
-  <!-- end panel -->
-</div>
+  end panel
+</div> -->
 <!-- /.row -->
 
-<div class='row'>
+<div class="container">
   <div class="col-lg-12">
 
     <!-- /.panel -->
     <div class="panel panel-default">
       <div class="panel-heading">
       <!-- ======================================================================== -->
-        <i class="fa fa-comments fa-fw"></i> Reply
+      <hr>
+        <i class="fa fa-comments fa-fw"></i> 댓글
        <c:if test="${not empty member}">
-	        <button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>New Reply</button>
+	        <button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>댓글쓰기</button>
        </c:if>
       </div>      
       

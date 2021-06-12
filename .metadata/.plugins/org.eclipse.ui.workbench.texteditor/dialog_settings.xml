@@ -6,11 +6,13 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="uploadResult"/>
 		<list key="findhistory">
+			<item value="uploadResult"/>
+			<item value="row"/>
+			<item value="yell"/>
 			<item value="삭제"/>
 			<item value="attach"/>
-			<item value="uploadResult"/>
 			<item value="panel"/>
 			<item value="resister"/>
 			<item value="rno"/>
@@ -21,8 +23,6 @@
 			<item value="addReplyBtn"/>
 			<item value="add"/>
 			<item value="val(&quot;&quot;)"/>
-			<item value="val"/>
-			<item value="replyer"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

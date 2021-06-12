@@ -33,34 +33,29 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="box">
-              <h3>Update</h3>
-              <h2>회원 수정</h2>
               <ul>
                 <li> </li>
                 <li> </li>
+                <li> </li>
+              <a href="${ctx}/member/update" ><h5>회원 수정</h5></a>
                 <li> </li>
                 <li> </li>
                 <li> </li>            
               </ul>
-              <div class="btn-wrap">
-                <a href="${ctx}/member/update" class="btn-buy">수정하기</a>
-              </div>
+              
             </div>
           </div>
           <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
             <div class="box">
-              <h3>Delete</h3>
-              <h2>회원 탈퇴</h2>
               <ul>
                 <li> </li>
                 <li> </li>
                 <li> </li>
+              <a href="${ctx}/member/delete"><h5>회원 탈퇴</h5></a>
+                <li> </li>
                 <li> </li>
                 <li> </li>  
               </ul>
-              <div class="btn-wrap">
-                <a href="${ctx}/member/delete" class="btn-buy">탈퇴하기</a>
-              </div>
             </div>
           </div>
         </div>

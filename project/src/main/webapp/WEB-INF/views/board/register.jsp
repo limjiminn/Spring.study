@@ -201,20 +201,16 @@ $(document).ready(function() {
 
       </div>
     </section><!-- End Breadcrumbs -->
-<div class="row">
+<div class="container">
 <c:set var="contextPath" value="${pageContext.request.contextPath == '/' ? '' : pageContext.request.contextPath }" scope="application" />
-  <div class="col-lg-12">
-    <h1 class="page-header">Board Register</h1>
-  </div>
   <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
 
-<div class="row">
+<div class="container">
   <div class="col-lg-12">
     <div class="panel panel-default">
 
-      <div class="panel-heading">Board Register</div>
       <!-- /.panel-heading -->
       <div class="panel-body">
 
@@ -227,12 +223,14 @@ $(document).ready(function() {
             <label>내용</label>
             <textarea class="form-control" rows="3" name="content"></textarea>
           </div>
-
+			
+			
+			
           <div class="form-group">
-            <label>Writer</label> <input class="form-control" name="writer" value="${member.userid}" readonly="readonly">
+            <label>작성자</label> <input class="form-control" name="writer" value="${member.userid}" readonly="readonly">
           </div>
-          <button type="submit" class="btn btn-default">확인</button>
-          <button type="reset" class="btn btn-default">취소</button>
+          <button type="submit" class="btn btn-info">확인</button>
+          <button type="reset" class="btn btn-info">취소</button>
         </form>
 
       </div>
@@ -244,12 +242,11 @@ $(document).ready(function() {
   <!-- end panel -->
 </div>
 <!-- /.row -->
-
-<div class="row">
+<div class="container">
   <div class="col-lg-12">
     <div class="panel panel-default">
 
-      <div class="panel-heading">File Attach</div>
+      <div class="panel-heading">이미지</div>
       <!-- /.panel-heading -->
       <div class="panel-body">
         <div class="form-group uploadDiv">
@@ -271,5 +268,6 @@ $(document).ready(function() {
   </div>
   <!-- end panel -->
 </div>
+
 
 <%@include file="/resources//includes/footer.jsp"%>

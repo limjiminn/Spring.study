@@ -140,7 +140,7 @@
             <div class="portfolio-wrap">
               <img src="${ctx}/resources/assets/img/portfolio/카스 프레시.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 1</h4>
+                 <a href="${ctx}/product/productdetail?pid=lager0"><h4>카스 프레시</h4></a>
                 <p>App</p>
                 <div class="portfolio-links">
                   <a href="assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
@@ -154,7 +154,7 @@
             <div class="portfolio-wrap">
               <img src="${ctx}/resources/assets/img/portfolio/웨팅어 라들러.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Web 3</h4>
+                 <a href="${ctx}/product/productdetail?pid=radler3"><h4>웨팅어 라들러</h4></a>
                 <p>Web</p>
                 <div class="portfolio-links">
                   <a href="${ctx}/resources/assets/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox" title="Webs 3"><i class="bx bx-plus"></i></a>
@@ -166,9 +166,9 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="${ctx}/resources/assets/img/portfolio/하이네켄.jpg" class="img-fluid" alt="">
+              <img src="${ctx}/resources/assets/img/lager/테라.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 2</h4>
+                 <a href="${ctx}/product/productdetail?pid=lager12"><h4>테라</h4></a>
                 <p>App</p>
                 <div class="portfolio-links">
                   <a href="${ctx}/resources/assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="bx bx-plus"></i></a>
@@ -182,7 +182,7 @@
             <div class="portfolio-wrap">
               <img src="${ctx}/resources/assets/img/portfolio/호가든.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Card 2</h4>
+                 <a href="${ctx}/product/productdetail?pid=ale10"><h4>호가든</h4></a>
                 <p>Card</p>
                 <div class="portfolio-links">
                   <a href="${ctx}/resources/assets/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="bx bx-plus"></i></a>
@@ -196,7 +196,7 @@
             <div class="portfolio-wrap">
               <img src="${ctx}/resources/assets/img/portfolio/써머스비.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Web 2</h4>
+                 <a href="${ctx}/product/productdetail?pid=radler2"><h4>써머스비</h4></a>
                 <p>Web</p>
                 <div class="portfolio-links">
                   <a href="${ctx}/resources/assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
@@ -210,7 +210,7 @@
             <div class="portfolio-wrap">
               <img src="${ctx}/resources/assets/img/portfolio/스텔라아르투아.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 3</h4>
+                 <a href="${ctx}/product/productdetail?pid=lager6"><h4>스텔라아르투아</h4></a>
                 <p>App</p>
                 <div class="portfolio-links">
                   <a href="${ctx}/resources/assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="bx bx-plus"></i></a>
@@ -224,7 +224,7 @@
             <div class="portfolio-wrap">
               <img src="${ctx}/resources/assets/img/portfolio/프란치스카너.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Card 1</h4>
+                 <a href="${ctx}/product/productdetail?pid=ale9"><h4>프란치스카너</h4></a>
                 <p>Card</p>
                 <div class="portfolio-links">
                   <a href="${ctx}/resources/assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1"><i class="bx bx-plus"></i></a>
@@ -238,7 +238,7 @@
             <div class="portfolio-wrap">
               <img src="${ctx}/resources/assets/img/portfolio/제주 펠롱 에일.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Card 3</h4>
+                 <a href="${ctx}/product/productdetail?pid=ale4"><h4>제주 펠롱 에일</h4></a>
                 <p>Card</p>
                 <div class="portfolio-links">
                   <a href="${ctx}/resources/assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox" title="Card 3"><i class="bx bx-plus"></i></a>
@@ -252,7 +252,7 @@
             <div class="portfolio-wrap">
               <img src="${ctx}/resources/assets/img/portfolio/크롬바커 라들러.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Web 3</h4>
+                <a href="${ctx}/product/productdetail?pid=radler4"><h4>크롬바커 라들러</h4></a>
                 <p>Web</p>
                 <div class="portfolio-links">
                   <a href="${ctx}/resources/assets/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
@@ -266,7 +266,7 @@
             <div class="portfolio-wrap">
               <img src="${ctx}/resources/assets/img/portfolio/기네스 드래프트.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Web 1</h4>
+                 <a href="${ctx}/product/productdetail?pid=dark0"><h4>기네스 드래프트</h4></a>
                 <p>Web</p>
                 <div class="portfolio-links">
                   <a href="${ctx}/resources/assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
@@ -281,7 +281,7 @@
             <div class="portfolio-wrap">
               <img src="${ctx}/resources/assets/img/portfolio/라이온 스타우트.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Web 2</h4>
+                 <a href="${ctx}/product/productdetail?pid=dark1"><h4>라이온 스타우트</h4></a>
                 <p>Web</p>
                 <div class="portfolio-links">
                   <a href="${ctx}/resources/assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
@@ -295,7 +295,7 @@
             <div class="portfolio-wrap">
               <img src="${ctx}/resources/assets/img/portfolio/에딩거 둔켈.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Web 3</h4>
+                 <a href="${ctx}/product/productdetail?pid=dark2"><h4>에딩거 둔켈</h4></a>
                 <p>Web</p>
                 <div class="portfolio-links">
                   <a href="${ctx}/resources/assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>

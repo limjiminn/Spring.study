@@ -56,7 +56,7 @@ body {
 	#login .container #login-row #login-column #login-box {
 	  margin-top: 20px;
 	  max-width: 600px;
-	  height: 550px;
+	  height: 600px;
 	  border: 1px solid #9C9C9C;
 	  border-bottom: 100px;
 	  background-color: #EAEAEA;

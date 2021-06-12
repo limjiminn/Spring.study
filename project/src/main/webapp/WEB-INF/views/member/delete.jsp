@@ -17,7 +17,7 @@ body {
 	#login .container #login-row #login-column #login-box {
 	  margin-top: 20px;
 	  max-width: 600px;
-	  height: 500px;
+	  height: 350px;
 	  border: 1px solid #9C9C9C;
 	  border-bottom: 100px;
 	  background-color: #EAEAEA;
@@ -56,17 +56,18 @@ body {
                     <div id="login-box" class="col-md-12">
                          <form id="login-form" name="delete" action="${ctx}/member/delete" method="post"  >
                             <h3 class="text-center text-info">회원 탈퇴</h3>
+                            <h5 class="text-center text-info">비밀번호를 입력하시면 탈퇴승인됩니다.</h5>
                             <div class="form-group">
-                                <label for="username" class="text-info">ID:</label><br>
-                                 <input type="text" class="form-control"  name="userid" id="userid" value="${member.userid}"  />
+                                <label for="username" class="text-info"></label><br>
+                                 <input type="hidden" class="form-control"  name="userid" id="userid" value="${member.userid}"  />
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-info">PW:</label><br>
-                               <input type="password" class="form-control"   name="userpw" id="userpw" placeholder="비밀번호"  />
+                               <input type="password" class="form-control"   name="userpw" id="userpw" placeholder="비밀번호 입력"  />
                             </div>
                             <div class="form-group">
-                                <label for="password" class="text-info">name:</label><br>
-                                <input type="text" class="form-control"   name="username" id="username" value="${member.username}"  />
+                                <label for="password" class="text-info"></label><br>
+                                <input type="hidden" class="form-control"   name="username" id="username" value="${member.username}"  />
                             </div>
                             <div class="form-group">
                                 <div class="text-center">

@@ -35,9 +35,9 @@ public class CartController {
 	public String insert(@ModelAttribute CartDTO cDto,HttpSession session)throws Exception{
 		//로그인 여부를 체크하기 위해 세션에 저장된 아이디 확인
 		String userid = (String) session.getAttribute("userid");
-//		if(userid == null) {
-//			return "redirect:/member/login";
-//		}
+		if(userid == null) {
+			return "redirect:/member/login";
+		}
 		
 		cDto.setUserid(userid);
 		service.insert(cDto);

@@ -81,13 +81,13 @@
                         <td>   </td>
                         <td>   </td>
                         <td>
-                        <button type="button" class="btn btn-default">
+                      <!--   <button type="button" class="btn btn-default">
                             쇼핑<span class="glyphicon glyphicon-shopping-cart"></span>
                         </button></td>
                         <td>
                         <button type="button" class="btn btn-success">
                             구매<span class="glyphicon glyphicon-play"></span>
-                        </button></td>
+                        </button></td> -->
                     </tr>
                 	</c:otherwise>
                 			

@@ -17,12 +17,12 @@
 
       </div>
     </section><!-- End Breadcrumbs -->
-            <div class="row">
+            <div class="container">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
+                        <!-- <div class="panel-heading">
                             <button id="regBtn" type="button" class="btn btn-xs pull-right">글 작성</button>
-                        </div>
+                        </div> -->
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <table class="table table-striped table-bordered table-hover">
@@ -64,11 +64,13 @@
                 				<option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'? 'selected':''}"></c:out>>제목or작성자or내용</option>
                 			</select>
                 			<input type="text" name="keyword" placeholder="검색어" value="${pageMaker.cri.keyword}">
-                			<button class="btn btn-default">Search</button>
+                			<button class="btn btn-info">검색</button>
                 		</form>
                 	</div>
-                </div>            
-                            
+                </div>               
+                    <div class="panel-heading" align="right">
+                       <button id="regBtn" type="button" class="btn btn-info">글 작성</button>
+                    </div>
                 <div class='pull-right'>
 					<ul class="pagination">
 						<c:if test="${pageMaker.prev}">
@@ -99,6 +101,7 @@
 				<input type='hidden' name='type' value='${pageMaker.cri.type}'>
 				<input type='hidden' name='keyword' value='${pageMaker.cri.keyword}'>
 			</form>                            
+               
                             			<!-- Modal  추가 -->
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 				aria-labelledby="myModalLabel" aria-hidden="true">
