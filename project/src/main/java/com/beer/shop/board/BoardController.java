@@ -104,7 +104,6 @@ public class BoardController {
 	public void modifyGET(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri,  Model model) throws Exception{
 		logger.info("/read or /modify....................");
 		
-		
 		model.addAttribute("board",service.read(bno));
 		model.addAttribute("pageNum", cri.getPageNum());
 		model.addAttribute("amount", cri.getAmount());
@@ -113,17 +112,15 @@ public class BoardController {
 		
 		logger.info("pageNum1 : " + cri.getPageNum());
 		logger.info("keyword : " + cri.getKeyword());
-		
-		
-	}
-	
+			
+	}	
 	//게시물 삭제
 	@RequestMapping(value = "/remove", method = RequestMethod.POST)
 	public String remove(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) throws Exception {
 		logger.info("remove...............");
 		
 		List<BoardAttachDTO> attachList = service.getAttachList(bno);
-		
+		logger.info("attachlist : " + attachList);
 		if (service.remove(bno)) {
 			deleteFiles(attachList);
 			rttr.addFlashAttribute("result", "success");
@@ -135,12 +132,11 @@ public class BoardController {
 //			rttr.addAttribute("keyword", cri.getKeyword());
 		
 		return "redirect:/board/list" + cri.getListLink();
-	}
-	
+	}	
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
 	public String modifyPOST(BoardDTO bDto, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) throws Exception {
-		logger.info("modify post............." + cri);
-		
+		logger.info("modify post...??.........." + cri);
+		logger.info("service=========================");
 		if (service.modify(bDto)) {
 			rttr.addFlashAttribute("result", "success");
 		}	

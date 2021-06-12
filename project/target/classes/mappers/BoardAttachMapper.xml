@@ -23,9 +23,5 @@
   		DELETE FROM tbl_attach
   		WHERE bno = #{bno}
   	</delete>
-  	<select id="list">
-  		SELECT filename
-  		FROM tbl_attach
-  		WHERE bno = ${bno}
-  	</select>
+  
   </mapper>

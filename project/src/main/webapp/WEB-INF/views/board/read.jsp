@@ -91,44 +91,19 @@
            <label>제목</label> <input class="form-control" name="title" value="${board.title }" readonly="readonly">
          </div>
 			
-			<div class='bigPictureWrapper'>
-  <div class='bigPicture'>
-  </div>
-</div>
-
-<div class="container">
-  <div class="col-lg-12">
-    <div class="panel panel-default">
-
-      <div class="panel-heading">이미지</div>
-      <!-- /.panel-heading -->
-      <div class="panel-body">
-        <div class="uploadResult"> 
-        
-          <ul>
-          </ul>
-        </div>
-      </div>
-      <!--  end panel-body -->
-    </div>
-    <!--  end panel-body -->
-  </div>
-  <!-- end panel -->
-</div>
-			
          <div class="form-group">
            <label>내용</label>
            <textarea class="form-control" rows="3" name="content" readonly="readonly">${board.content }</textarea>
          </div>
 
          <div class="form-group">
-           <label>작성자</label> <input class="form-control" name="writer" value="${board.writer }" readonly="readonly">
+           <label>작성자</label> <input class="form-control" name="writer" readonly ="readonly" value="${board.writer }" >
          </div>
          <!-- ===========회원과 작성자가 일치한다면 ================================================= -->
          <c:if test="${member.userid == board.writer }">
-         	<button data-oper="modify" class="btn btn-default">Modify</button>         
+         	<button data-oper="modify" class="btn btn-default">수정</button>         
          </c:if>
-		 <button data-oper="list" class="btn btn-info">List</button>
+		 <button data-oper="list" class="btn btn-info">목록</button>
 		 
 		 <form id="operForm" action="${contextPath}/boad/modify" method="get">
 	  		 <input type="hidden" id="bno" name="bno" value="${board.bno}">
@@ -147,7 +122,7 @@
 </div>
 <!-- /.row -->
 
-<!-- <div class='bigPictureWrapper'>
+<div class='bigPictureWrapper'>
   <div class='bigPicture'>
   </div>
 </div>
@@ -170,7 +145,7 @@
      end panel-body
   </div>
   end panel
-</div> -->
+</div>
 <!-- /.row -->
 
 <div class="container">
@@ -206,30 +181,30 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">REPLY MODAL</h4>
+				<h4 class="modal-title" id="myModalLabel">댓글</h4>
             </div>
             <div class="modal-body">
             	<div class="form-group">
-            		<label>ReplyText</label>
+            		<label>내용</label>
             		<input class="form-control" id="replytext" type="text" name="replytext" >
             	</div>
             	<div class="form-group">
-            		<label>Replyer</label>
+            		<label>작성자</label>
             		<input class="form-control" type="text" name="replyer" value="${member.userid}" readonly="readonly">
             	</div>
 				<div class="form-group">
-					<label>Reply Date</label>
+					<label>날짜</label>
 					<input class="form-control" name="replyDate" value="2018-01-01 13:13">
 				</div>
             </div>
 			<div class="modal-footer">
 					
 				<c:if test="${member.userid == sessionScope.userid}">
-	        		<button id="modalModifyBtn" type="button" class="btn btn-warning">Modify</button>
-	        		<button id="modalRemoveBtn" type="button" class="btn btn-danger">Remove</button>
+	        		<button id="modalModifyBtn" type="button" class="btn btn-warning">수정</button>
+	        		<button id="modalRemoveBtn" type="button" class="btn btn-danger">삭제</button>
 				 </c:if>
-        		<button id="modalRegisterBtn" type="button" class="btn btn-primary">Register</button>
-        		<button id="modalCloseBtn" type="button" class="btn btn-default">Close</button>
+        		<button id="modalRegisterBtn" type="button" class="btn btn-primary">확인</button>
+        		<button id="modalCloseBtn" type="button" class="btn btn-default">취소</button>
       		</div>          
     	</div>
           <!-- /.modal-content -->

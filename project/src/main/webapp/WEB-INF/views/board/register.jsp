@@ -227,7 +227,8 @@ $(document).ready(function() {
 			
 			
           <div class="form-group">
-            <label>작성자</label> <input class="form-control" name="writer" value="${member.userid}" readonly="readonly">
+            <label>작성자</label> 
+            <input class="form-control" name="writer" value="${member.userid}" readonly="readonly">
           </div>
           <button type="submit" class="btn btn-info">확인</button>
           <button type="reset" class="btn btn-info">취소</button>

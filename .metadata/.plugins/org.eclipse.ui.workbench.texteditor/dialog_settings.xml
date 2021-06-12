@@ -6,10 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="uploadResult"/>
+		<item key="selection" value="row"/>
 		<list key="findhistory">
-			<item value="uploadResult"/>
 			<item value="row"/>
+			<item value="uploadResult"/>
 			<item value="yell"/>
 			<item value="삭제"/>
 			<item value="attach"/>
@@ -31,7 +31,7 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1877"/>
+		<item key="DIALOG_X_ORIGIN" value="1589"/>
 		<item key="DIALOG_Y_ORIGIN" value="184"/>
 		<item key="DIALOG_WIDTH" value="340"/>
 		<item key="DIALOG_HEIGHT" value="454"/>

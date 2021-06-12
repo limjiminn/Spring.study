@@ -3,21 +3,30 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <%@include file="/resources/includes/header.jsp"%>
+<section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
 
-<div class="row">
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>게시판</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>리뷰</li>
+            <li>게시판</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+<div class="container">
 <c:set var="contextPath" value="${pageContext.request.contextPath == '/' ? '' : pageContext.request.contextPath }" scope="application" />
-  <div class="col-lg-12">
-    <h1 class="page-header">Board Modify</h1>
-  </div>
   <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
 
-<div class="row">
+<div class="container">
   <div class="col-lg-12">
     <div class="panel panel-default">
 
-      <div class="panel-heading">Board Modify Page</div>
       <!-- /.panel-heading -->
       <div class="panel-body">
 
@@ -27,7 +36,9 @@
 		 <input type="hidden" name="type" value="${cri.type}">
 		 <input type="hidden" name="keyword" value="${cri.keyword}">
          <div class="form-group">
-           <label>Bno</label> <input class="form-control" name="bno" value="${board.bno }" readonly="readonly">
+           <label>Bno</label>
+            <input class="form-control" name="bno" value="${board.bno }" readonly="readonly">
+            <input type="hidden" class="form-control" name="bno" value="${board.bno }" readonly="readonly">
          </div>
 
          <div class="form-group">
@@ -40,12 +51,14 @@
          </div>
 
          <div class="form-group">
-           <label>Writer</label> <input class="form-control" name="writer" value="${board.writer }" readonly="readonly">
+           <label>Writer</label> 
+           <input class="form-control" name="writer" value="${board.writer }" readonly="readonly">
+           <input type="hidden" class="form-control" name="writer" value="${board.writer }">
          </div>
          <!-- html의 data- 속성 이용 -->
-         <button type="submit" data-oper="modify" class="btn btn-default">Modify</button>
-         <button type="submit" data-oper="remove" class="btn btn-danger">Remove</button>
-         <button type="submit" data-oper="list" class="btn btn-info">List</button>
+         <button type="submit" data-oper="modify" class="btn btn-default">수정</button>
+         <button type="submit" data-oper="remove" class="btn btn-danger">삭제</button>
+         <button type="submit" data-oper="list" class="btn btn-info">목록</button>
 	  </form>
 
       </div>
@@ -115,7 +128,7 @@
 	}
 </style>
 
-<div class="row">
+<div class="container">
   <div class="col-lg-12">
     <div class="panel panel-default">
 
