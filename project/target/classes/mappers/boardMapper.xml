@@ -18,7 +18,7 @@
   		WHERE bno = #{bno}
   	</select>
   	
-  	<update id="update" >
+  	<update id="update" parameterType="com.beer.shop.board.domain.BoardDTO" >
   		UPDATE tbl_board
   		SET title = #{title}, content = #{content}
   		WHERE bno = #{bno}

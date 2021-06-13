@@ -7,7 +7,7 @@
 <style>
 	.uploadResult {
 		width:100%;
-		background-color: white;
+		background-color: gray;
 	}
 	
 	.uploadResult ul{
@@ -25,7 +25,7 @@
 	}
 	
 	.uploadResult ul li img{
-		width: 300px;
+		width: 100px;
 	}
 	
 	.uploadResult ul li span {
@@ -55,8 +55,7 @@
 	.bigPicture img {
 		width:600px;
 	}
-
-	.panal
+</style>
 </style>
 <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
@@ -72,7 +71,10 @@
 
       </div>
     </section><!-- End Breadcrumbs -->
-<div class="row">
+<div class="container">
+  <div class="col-lg-12">
+  
+  </div>
   <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
@@ -80,6 +82,8 @@
 <div class="container">
   <div class="col-lg-12">
     <div class="panel panel-default">
+
+     
       <!-- /.panel-heading -->
       <div class="panel-body">
 
@@ -90,14 +94,14 @@
          <div class="form-group">
            <label>제목</label> <input class="form-control" name="title" value="${board.title }" readonly="readonly">
          </div>
-			
+
          <div class="form-group">
            <label>내용</label>
            <textarea class="form-control" rows="3" name="content" readonly="readonly">${board.content }</textarea>
          </div>
 
          <div class="form-group">
-           <label>작성자</label> <input class="form-control" name="writer" readonly ="readonly" value="${board.writer }" >
+           <label>작성자</label> <input class="form-control" name="writer" value="${board.writer }" readonly="readonly">
          </div>
          <!-- ===========회원과 작성자가 일치한다면 ================================================= -->
          <c:if test="${member.userid == board.writer }">
@@ -122,20 +126,20 @@
 </div>
 <!-- /.row -->
 
-<div class='bigPictureWrapper'>
+<!-- <div class='bigPictureWrapper'>
   <div class='bigPicture'>
   </div>
 </div>
 
-<div class="container">
+<div class="row">
   <div class="col-lg-12">
     <div class="panel panel-default">
 
-      <div class="panel-heading">이미지</div>
+      <div class="panel-heading">Files</div>
       /.panel-heading
       <div class="panel-body">
-        <div class="uploadResult"> 
         
+        <div class="uploadResult"> 
           <ul>
           </ul>
         </div>
@@ -146,20 +150,19 @@
   </div>
   end panel
 </div>
-<!-- /.row -->
+/.row -->
 
-<div class="container">
+<div class='container'>
   <div class="col-lg-12">
 
     <!-- /.panel -->
     <div class="panel panel-default">
       <div class="panel-heading">
       <!-- ======================================================================== -->
-      <hr>
         <i class="fa fa-comments fa-fw"></i> 댓글
-       <c:if test="${not empty member}">
-	        <button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>댓글쓰기</button>
-       </c:if>
+        <c:if test="${not empty member}">
+	        <button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>댓글 작성</button>
+        </c:if>
       </div>      
       
       <!-- /.panel-heading -->
@@ -181,30 +184,29 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">댓글</h4>
+				<h4 class="modal-title" id="myModalLabel">REPLY MODAL</h4>
             </div>
             <div class="modal-body">
             	<div class="form-group">
-            		<label>내용</label>
-            		<input class="form-control" id="replytext" type="text" name="replytext" >
+            		<label>ReplyText</label>
+            		<input class="form-control" name="replytext" value="New Reply!!!!">
             	</div>
             	<div class="form-group">
-            		<label>작성자</label>
-            		<input class="form-control" type="text" name="replyer" value="${member.userid}" readonly="readonly">
+            		<label>Replyer</label>
+            		<input class="form-control" name="replyer" value="replyer">
             	</div>
 				<div class="form-group">
-					<label>날짜</label>
+					<label>Reply Date</label>
 					<input class="form-control" name="replyDate" value="2018-01-01 13:13">
 				</div>
             </div>
 			<div class="modal-footer">
-					
-				<c:if test="${member.userid == sessionScope.userid}">
-	        		<button id="modalModifyBtn" type="button" class="btn btn-warning">수정</button>
-	        		<button id="modalRemoveBtn" type="button" class="btn btn-danger">삭제</button>
-				 </c:if>
-        		<button id="modalRegisterBtn" type="button" class="btn btn-primary">확인</button>
-        		<button id="modalCloseBtn" type="button" class="btn btn-default">취소</button>
+				<c:if test="${not empty member}">
+	        		<button id="modalModifyBtn" type="button" class="btn btn-warning">Modify</button>
+	        		<button id="modalRemoveBtn" type="button" class="btn btn-danger">Remove</button>
+				</c:if>
+        		<button id="modalRegisterBtn" type="button" class="btn btn-primary">Register</button>
+        		<button id="modalCloseBtn" type="button" class="btn btn-default">Close</button>
       		</div>          
     	</div>
           <!-- /.modal-content -->
@@ -335,10 +337,7 @@ $(document).ready(function() {
     
     
     $("#addReplyBtn").on("click", function(e){
-    	 /*  modal.find("input").val("","${member.userid}"); */
-    	/*  $("#replytext").val(""); */
-    	modal.find("input[name='replytext']").val(""); 
-    	modal.find("input[name='replyer']").val("${member.userid}"); 
+    	modal.find("input").val("");
     	modalInputReplyDate.closest("div").hide();
     	modal.find("button[id !='modalCloseBtn']").hide();
     	
@@ -358,10 +357,9 @@ $(document).ready(function() {
     	
         replyService.add(reply, function(result){
         	alert(result);
-        	/*  $("#replytext").val(""); */
-        	  modal.find("input[name='replytext']").val(""); 
-        	  modal.find("input[name='replyer']").val("${member.userid}"); 
-        	 modal.modal("hide");
+        	
+        	modal.find("input").val("");
+        	modal.modal("hide"); 
         	
         	showList(-1);
         });

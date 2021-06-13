@@ -1,27 +1,17 @@
 package com.beer.shop.board;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.beer.shop.board.domain.BoardAttachDTO;
 import com.beer.shop.board.domain.BoardDTO;
 import com.beer.shop.board.domain.Criteria;
 import com.beer.shop.board.domain.PageDTO;
@@ -113,16 +103,23 @@ public class BoardController {
 		logger.info("pageNum1 : " + cri.getPageNum());
 		logger.info("keyword : " + cri.getKeyword());
 			
-	}	
+	}
+	// 게시물 삭제
+	   @RequestMapping(value = "/remove", method = RequestMethod.GET)
+	   public void remove(@RequestParam("bno") int bno, Model model) throws Exception {
+	      model.addAttribute("board", service.remove(bno));
+	      service.remove(bno);
+	   }
+	
 	//게시물 삭제
 	@RequestMapping(value = "/remove", method = RequestMethod.POST)
 	public String remove(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) throws Exception {
 		logger.info("remove...............");
 		
-		List<BoardAttachDTO> attachList = service.getAttachList(bno);
-		logger.info("attachlist : " + attachList);
+		/* List<BoardAttachDTO> attachList = service.getAttachList(bno); */
+		/* logger.info("attachlist : " + attachList); */
 		if (service.remove(bno)) {
-			deleteFiles(attachList);
+			/* deleteFiles(attachList); */
 			rttr.addFlashAttribute("result", "success");
 		}	
 			rttr.addAttribute("pageNum", cri.getPageNum());
@@ -135,11 +132,16 @@ public class BoardController {
 	}	
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
 	public String modifyPOST(BoardDTO bDto, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) throws Exception {
-		logger.info("modify post...??.........." + cri);
-		logger.info("service=========================");
+		logger.info("modify post............." + cri);
+		logger.info("확인용 : " + bDto);
+		logger.info("확인용 : ");
+		
 		if (service.modify(bDto)) {
+			System.out.println("modify Post ..........................");
 			rttr.addFlashAttribute("result", "success");
 		}	
+		
+		
 			rttr.addAttribute("pageNum", cri.getPageNum());
 			rttr.addAttribute("amount", cri.getAmount());
 			
@@ -152,48 +154,33 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
-	@GetMapping(value = "/getAttachList",
-				produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	@ResponseBody
-	public ResponseEntity<List<BoardAttachDTO>> getAttachList(int bno){
-		logger.info("getAttachList : " + bno);
-		
-		return new ResponseEntity<>(service.getAttachList(bno), HttpStatus.OK);
-	}
-	
+	/*
+	 * @GetMapping(value = "/getAttachList", produces =
+	 * MediaType.APPLICATION_JSON_UTF8_VALUE)
+	 * 
+	 * @ResponseBody public ResponseEntity<List<BoardAttachDTO>> getAttachList(int
+	 * bno){ logger.info("getAttachList : " + bno);
+	 * 
+	 * return new ResponseEntity<>(service.getAttachList(bno), HttpStatus.OK); }
+	 */
 	//자식정보 찾는거
 	
-		private void deleteFiles(List<BoardAttachDTO> attachList) {
-			//첨부파일이 없을때
-			if (attachList == null || attachList.size() == 0) {
-				return;
-			}
-			
-			logger.info("delete attache files................");
-			logger.info("" + attachList);
-			
-			attachList.forEach(attach -> {
-				try {
-					//파일 삭제
-					Path file = Paths.get(uploadPath + "\\" 
-										+ attach.getUploadPath() + "\\" 
-										+ attach.getUuid() + "_" 
-										+ attach.getFileName());
-					//존재하면 삭제해라
-					Files.deleteIfExists(file);
-					
-					if (Files.probeContentType(file).startsWith("image")) {
-						//썸네일 삭제
-						Path thumbNail = Paths.get(uploadPath + "\\" 
-										+ attach.getUploadPath() + "\\s_" 
-										+ attach.getUuid() + "_" 
-										+ attach.getFileName());
-						
-						Files.delete(thumbNail);
-					}
-				} catch (Exception e) {
-					logger.error("delete file error : " + e.getMessage());
-				}
-			});
-		}
+	/*
+	 * private void deleteFiles(List<BoardAttachDTO> attachList) { //첨부파일이 없을때 if
+	 * (attachList == null || attachList.size() == 0) { return; }
+	 * 
+	 * logger.info("delete attache files................"); logger.info("" +
+	 * attachList);
+	 * 
+	 * attachList.forEach(attach -> { try { //파일 삭제 Path file = Paths.get(uploadPath
+	 * + "\\" + attach.getUploadPath() + "\\" + attach.getUuid() + "_" +
+	 * attach.getFileName()); //존재하면 삭제해라 Files.deleteIfExists(file);
+	 * 
+	 * if (Files.probeContentType(file).startsWith("image")) { //썸네일 삭제 Path
+	 * thumbNail = Paths.get(uploadPath + "\\" + attach.getUploadPath() + "\\s_" +
+	 * attach.getUuid() + "_" + attach.getFileName());
+	 * 
+	 * Files.delete(thumbNail); } } catch (Exception e) {
+	 * logger.error("delete file error : " + e.getMessage()); } }); }
+	 */
 }

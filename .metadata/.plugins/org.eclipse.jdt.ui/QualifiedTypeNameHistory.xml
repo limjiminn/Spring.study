@@ -10,7 +10,6 @@
     <fullyQualifiedTypeName name="java.nio.file.Files"/>
     <fullyQualifiedTypeName name="com.springstudy.shop.board.domain.BoardAttachDTO"/>
     <fullyQualifiedTypeName name="org.springframework.web.util.UriComponentsBuilder"/>
-    <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
     <fullyQualifiedTypeName name="com.springstudy.shop.board.mapper.ReplyMapper"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="com.beer.shop.cart.domain.CartDTO"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
+    <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
 </qualifiedTypeNameHistroy>

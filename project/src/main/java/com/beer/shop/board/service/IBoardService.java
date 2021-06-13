@@ -22,5 +22,5 @@ public interface IBoardService {
 	//게시판 전체갯수
 	public int getTotalCnt(Criteria cri) throws Exception;
 	
-	public List<BoardAttachDTO> getAttachList(int bno);
+	/* public List<BoardAttachDTO> getAttachList(int bno); */
 }

@@ -27,7 +27,7 @@
 		<item key="scope" value="0"/>
 	</section>
 	<section name="DialogBounds_SearchDialog">
-		<item key="DIALOG_X_ORIGIN" value="1247"/>
+		<item key="DIALOG_X_ORIGIN" value="973"/>
 		<item key="DIALOG_Y_ORIGIN" value="343"/>
 		<item key="DIALOG_WIDTH" value="956"/>
 		<item key="DIALOG_HEIGHT" value="554"/>
@@ -47,7 +47,7 @@
 			<item key="ignoreCase" value="false"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="result"/>
+			<item key="textPattern" value="listorg"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -59,7 +59,7 @@
 			<item key="ignoreCase" value="false"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="onclick"/>
+			<item key="textPattern" value="result"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -71,7 +71,7 @@
 			<item key="ignoreCase" value="false"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="thumnail"/>
+			<item key="textPattern" value="onclick"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -83,7 +83,7 @@
 			<item key="ignoreCase" value="false"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="sumnail"/>
+			<item key="textPattern" value="thumnail"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -95,7 +95,7 @@
 			<item key="ignoreCase" value="false"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="java.lang.String"/>
+			<item key="textPattern" value="sumnail"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -107,7 +107,7 @@
 			<item key="ignoreCase" value="false"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="primary-font"/>
+			<item key="textPattern" value="java.lang.String"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -119,7 +119,7 @@
 			<item key="ignoreCase" value="false"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="rno"/>
+			<item key="textPattern" value="primary-font"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -131,7 +131,7 @@
 			<item key="ignoreCase" value="false"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="read........4"/>
+			<item key="textPattern" value="rno"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -143,7 +143,7 @@
 			<item key="ignoreCase" value="false"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="Reply read........4"/>
+			<item key="textPattern" value="read........4"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -155,7 +155,7 @@
 			<item key="ignoreCase" value="false"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="order by"/>
+			<item key="textPattern" value="Reply read........4"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -167,7 +167,7 @@
 			<item key="ignoreCase" value="false"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="pcategory"/>
+			<item key="textPattern" value="order by"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -179,7 +179,7 @@
 			<item key="ignoreCase" value="false"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="board.mapper"/>
+			<item key="textPattern" value="pcategory"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>

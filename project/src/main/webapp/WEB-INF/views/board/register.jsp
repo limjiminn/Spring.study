@@ -186,7 +186,9 @@ $(document).ready(function() {
 	});
 
 });
+
 </script>
+
 <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
 
@@ -203,6 +205,9 @@ $(document).ready(function() {
     </section><!-- End Breadcrumbs -->
 <div class="container">
 <c:set var="contextPath" value="${pageContext.request.contextPath == '/' ? '' : pageContext.request.contextPath }" scope="application" />
+  <div class="col-lg-12">
+   
+  </div>
   <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
@@ -223,15 +228,12 @@ $(document).ready(function() {
             <label>내용</label>
             <textarea class="form-control" rows="3" name="content"></textarea>
           </div>
-			
-			
-			
+
           <div class="form-group">
-            <label>작성자</label> 
-            <input class="form-control" name="writer" value="${member.userid}" readonly="readonly">
+            <label>작성자</label> <input class="form-control" name="writer">
           </div>
-          <button type="submit" class="btn btn-info">확인</button>
-          <button type="reset" class="btn btn-info">취소</button>
+          <button type="submit" class="btn btn-default">확인</button>
+          <button type="reset" class="btn btn-default">취소</button>
         </form>
 
       </div>
@@ -243,12 +245,13 @@ $(document).ready(function() {
   <!-- end panel -->
 </div>
 <!-- /.row -->
-<div class="container">
+
+<!-- <div class="row">
   <div class="col-lg-12">
     <div class="panel panel-default">
 
-      <div class="panel-heading">이미지</div>
-      <!-- /.panel-heading -->
+      <div class="panel-heading">File Attach</div>
+      /.panel-heading
       <div class="panel-body">
         <div class="form-group uploadDiv">
             <input type="file" name="uploadFile" multiple>
@@ -262,13 +265,12 @@ $(document).ready(function() {
         
         
       </div>
-      <!--  end panel-body -->
+       end panel-body
 
     </div>
-    <!--  end panel-body -->
+     end panel-body
   </div>
-  <!-- end panel -->
-</div>
-
+  end panel
+</div> -->
 
 <%@include file="/resources//includes/footer.jsp"%>

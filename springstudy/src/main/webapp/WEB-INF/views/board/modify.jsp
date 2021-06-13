@@ -62,6 +62,31 @@
   <div class='bigPicture'>
   </div>
 </div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+
+      <div class="panel-heading">Files</div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <div class="form-group uploadDiv">
+            <input type="file" name="uploadFile" multiple="multiple">
+        </div>
+        
+        <div class="uploadResult"> 
+          <ul>
+          
+          </ul>
+        </div>
+      </div>
+      <!--  end panel-body -->
+  
+    </div>
+    <!--  end panel-body -->
+  </div>
+  <!-- end panel -->
+</div>
+<!-- /.row -->
 
 <style>
 	.uploadResult {
@@ -115,31 +140,6 @@
 	}
 </style>
 
-<div class="row">
-  <div class="col-lg-12">
-    <div class="panel panel-default">
-
-      <div class="panel-heading">Files</div>
-      <!-- /.panel-heading -->
-      <div class="panel-body">
-        <div class="form-group uploadDiv">
-            <input type="file" name="uploadFile" multiple="multiple">
-        </div>
-        
-        <div class="uploadResult"> 
-          <ul>
-          
-          </ul>
-        </div>
-      </div>
-      <!--  end panel-body -->
-  
-    </div>
-    <!--  end panel-body -->
-  </div>
-  <!-- end panel -->
-</div>
-<!-- /.row -->
 
 <script type="text/javascript">
 $(document).ready(function() {

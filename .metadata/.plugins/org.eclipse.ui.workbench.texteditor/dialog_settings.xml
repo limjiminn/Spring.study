@@ -6,13 +6,16 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="row"/>
+		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="ctx"/>
+			<item value="remove"/>
 			<item value="row"/>
+			<item value="attach"/>
+			<item value="bno"/>
 			<item value="uploadResult"/>
 			<item value="yell"/>
 			<item value="삭제"/>
-			<item value="attach"/>
 			<item value="panel"/>
 			<item value="resister"/>
 			<item value="rno"/>
@@ -20,9 +23,6 @@
 			<item value="get"/>
 			<item value="Reply read........4"/>
 			<item value="replytext"/>
-			<item value="addReplyBtn"/>
-			<item value="add"/>
-			<item value="val(&quot;&quot;)"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
@@ -31,8 +31,8 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1589"/>
-		<item key="DIALOG_Y_ORIGIN" value="184"/>
+		<item key="DIALOG_X_ORIGIN" value="1161"/>
+		<item key="DIALOG_Y_ORIGIN" value="116"/>
 		<item key="DIALOG_WIDTH" value="340"/>
 		<item key="DIALOG_HEIGHT" value="454"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
