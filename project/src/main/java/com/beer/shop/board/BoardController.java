@@ -128,7 +128,7 @@ public class BoardController {
 //			rttr.addAttribute("type", cri.getType());
 //			rttr.addAttribute("keyword", cri.getKeyword());
 		
-		return "redirect:/board/list" + cri.getListLink();
+		return "redirect:/board/list";
 	}	
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
 	public String modifyPOST(BoardDTO bDto, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) throws Exception {
