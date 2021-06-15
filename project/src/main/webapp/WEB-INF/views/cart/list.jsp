@@ -4,19 +4,59 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <c:set var="ctx" value="${pageContext.request.contextPath == '/' ? '' : pageContext.request.contextPath }" scope="application" />
 <%@ include file="/resources/includes/header.jsp" %>
-<<style>
+<style>
 	.media-object{
 		width: 130px;
 	}
 </style>
-<!DOCTYPE html>
+<body onload="init();">
+<script language="JavaScript">
+
+var sell_price;
+var amount;
+
+function init () {
+	sell_price = document.form.sell_price.value;
+	amount = document.form.amount.value;
+	document.form.sum.value = sell_price;
+	change();
+}
+
+function add () {
+	hm = document.form.amount;
+	sum = document.form.sum;
+	hm.value ++ ;
+
+	sum.value = parseInt(hm.value) * sell_price;
+}
+
+function del () {
+	hm = document.form.amount;
+	sum = document.form.sum;
+		if (hm.value > 1) {
+			hm.value -- ;
+			sum.value = parseInt(hm.value) * sell_price;
+		}
+}
+
+function change () {
+	hm = document.form.amount;
+	sum = document.form.sum;
+
+		if (hm.value < 0) {
+			hm.value = 0;
+		}
+	sum.value = parseInt(hm.value) * sell_price;
+}  
+</script>
+
  <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
           <h2>장바구니</h2>
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a>Home</a></li>
             <li>장바구니</li>
           </ol>
         </div>
@@ -29,8 +69,8 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>상품명</th>
-                        <th>개수</th>
+                        <th class="text-center">상품명</th>
+                        <th class="text-center">개수</th>
                         <th class="text-center">가격</th>
                         <th class="text-center">총 가격</th>
                         <th> </th>
@@ -46,8 +86,8 @@
 	                    </tr>
                 	</c:when>
                 	<c:otherwise>
+ <form name="form" method="get">             			
                 		<c:forEach items="${map.list}" var="map">
-                			
 	                    <tr>
 	                        <td class="col-sm-8 col-md-6">
 	                        <div class="media">
@@ -55,20 +95,33 @@
 	                            <div class="media-body">
 	                                <h4 class="media-heading"><a href="${ctx}/product/productdetail?pid=${map.pid}">${map.pname}</a></h4>
 	                            </div>
-	                        </div></td>
-	                        <td class="col-sm-1 col-md-1" style="text-align: center">
-	                        <%-- <input type="email" class="form-control" id="exampleInputEmail1" value="${map.amount}"> --%>
-	                        <input type="number" name="amount"  style="width:50px;" value="<fmt:formatNumber value="${map.amount}"  pattern="#,###,###" />">
-	                        
+	                        </div>
 	                        </td>
-	                        <td class="col-sm-1 col-md-1 text-center"><strong>${map.pprice}</strong></td>
-	                        <td class="col-sm-1 col-md-1 text-center"><strong>${map.pprice* map.amount}</strong></td>
-	                        <td class="col-sm-1 col-md-1">
+	                        <%-- <td class="amount" style="text-align: center">
+	                        <input type="email" class="form-control" id="exampleInputEmail1" value="${map.amount}">
+	                       	 <input type="number" name="amount"  style="width:50px;" value="${map.amount}">
+	                        </td>
+	                        <td class="price"><strong>${map.pprice}</strong></td>
+	                        <td class="total text-center">
+	                        	<strong>${map.pprice* map.amount}</strong></td>
+	                        <td class="col-sm-1 col-md-1">--%>
+                                              
+	<td><input type=hidden name="sell_price" value="1000">
+		<input type="text" name="amount" value="${map.amount}" size="3" onchange="change();"><br>
+		<input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();">
+	</td>
+	 <td class="price"><strong>${map.pprice}</strong></td>
+	<td>
+		<input type="text text-right"  name="sum" size="11" readonly style="border:none;border-right:0px; border-top:0px; boder-left:0px; boder-bottom:0px;">원
+	</td>
+							<td>
 	                        <button type="button" class="btn btn-danger" onclick="location.href='${ctx}/cart/delete?cartid=${map.cartid}'">
 	                          삭제
-	                        </button></td>
+	                        </button>
+	                        </td> 
 	                    </tr>
                 		</c:forEach>
+	   </form>
                     <tr>
                         <td>   </td>
                         <td>   </td>
@@ -97,4 +150,5 @@
         </div>
     </div>
 </div>
+</body> 
 <%@ include file="/resources/includes/footer.jsp" %>

@@ -104,7 +104,7 @@
            <label>작성자</label> <input class="form-control" name="writer" value="${board.writer }" readonly="readonly">
          </div>
          <!-- ===========회원과 작성자가 일치한다면 ================================================= -->
-         <c:if test="${member.userid == board.writer }">
+         <c:if test="${member.username == board.writer }">
          	<button data-oper="modify" class="btn btn-default">수정</button>         
          </c:if>
 		 <button data-oper="list" class="btn btn-info">목록</button>
