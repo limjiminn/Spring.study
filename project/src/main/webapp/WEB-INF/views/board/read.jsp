@@ -56,7 +56,6 @@
 		width:600px;
 	}
 </style>
-</style>
 <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
 
@@ -162,6 +161,7 @@
         <i class="fa fa-comments fa-fw"></i> 댓글
         <c:if test="${not empty member}">
 	        <button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>댓글 작성</button>
+	        <hr>
         </c:if>
       </div>      
       
@@ -184,16 +184,16 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">REPLY MODAL</h4>
+				<h4 class="modal-title" id="myModalLabel">댓글 작성</h4>
             </div>
             <div class="modal-body">
             	<div class="form-group">
-            		<label>ReplyText</label>
-            		<input class="form-control" name="replytext" value="New Reply!!!!">
+            		<label>내용</label>
+            		<input class="form-control" name="replytext" value="New Reply!!!!" >
             	</div>
             	<div class="form-group">
-            		<label>Replyer</label>
-            		<input class="form-control" name="replyer" value="replyer">
+            		<label>작성자</label>
+            		<input class="form-control" name="replyer" value="replyer" readonly="readonly">
             	</div>
 				<div class="form-group">
 					<label>Reply Date</label>
@@ -201,12 +201,12 @@
 				</div>
             </div>
 			<div class="modal-footer">
-				<c:if test="${not empty member}">
-	        		<button id="modalModifyBtn" type="button" class="btn btn-warning">Modify</button>
-	        		<button id="modalRemoveBtn" type="button" class="btn btn-danger">Remove</button>
-				</c:if>
-        		<button id="modalRegisterBtn" type="button" class="btn btn-primary">Register</button>
-        		<button id="modalCloseBtn" type="button" class="btn btn-default">Close</button>
+				
+	        		<button id="modalModifyBtn" type="button" class="btn btn-warning">수정</button>
+	        		<button id="modalRemoveBtn" type="button" class="btn btn-danger">삭제</button>
+				
+        		<button id="modalRegisterBtn" type="button" class="btn btn-primary">게시</button>
+        		<button id="modalCloseBtn" type="button" class="btn btn-default">취소</button>
       		</div>          
     	</div>
           <!-- /.modal-content -->
@@ -324,6 +324,7 @@ $(document).ready(function() {
 	
     var modal = $(".modal");
     var modalInputReplyText = modal.find("input[name='replytext']");
+    
     var modalInputReplyer = modal.find("input[name='replyer']");
     var modalInputReplyDate = modal.find("input[name='replyDate']");
     
@@ -331,13 +332,17 @@ $(document).ready(function() {
     var modalRemoveBtn = $("#modalRemoveBtn");
     var modalRegisterBtn = $("#modalRegisterBtn");
     
+    var username = "<c:out value='${member.username}'/>";
+    
     $("#modalCloseBtn").on("click", function(e){
     	modal.modal("hide");
     });
     
     
     $("#addReplyBtn").on("click", function(e){
-    	modal.find("input").val("");
+    	modal.find("input[name='replytext']").val(""); 
+    	modal.find("input[name='replyer']").val("${member.username}"); 
+    	/* modal.find("input").val(""); */
     	modalInputReplyDate.closest("div").hide();
     	modal.find("button[id !='modalCloseBtn']").hide();
     	
@@ -358,7 +363,9 @@ $(document).ready(function() {
         replyService.add(reply, function(result){
         	alert(result);
         	
-        	modal.find("input").val("");
+        	/* modal.find("input").val(""); */
+        	modal.find("input[name='replytext']").val(""); 
+        	  modal.find("input[name='replyer']").val("${member.username}"); 
         	modal.modal("hide"); 
         	
         	showList(-1);
@@ -370,20 +377,57 @@ $(document).ready(function() {
     		rno : $(this).data("rno"),
     		contextPath:"${contextPath}",
     	};
-
+	
     	replyService.get(reply, function(reply){
     		modalInputReplyText.val(reply.replytext);
     		modalInputReplyer.val(reply.replyer);
     		modalInputReplyDate.val(replyService.displayTime(reply.regdate)).attr("readonly","readonly");
     		modal.data("rno", reply.rno);
     		
+    		
     		modal.find("button[id !='modalCloseBtn']").hide();
+    		
+    		if (reply.replyer == username) {
     		modalModifyBtn.show();
     		modalRemoveBtn.show();
     		
     		$(".modal").modal("show");
+			} else{
+				
+    		 modalModifyBtn.hide();
+    		modalRemoveBtn.hide(); 
+    		
+    		$(".modal").modal("show");
+			}
     	});
     });
+/*     $(".chat").on("click", "li", function(e){
+    	var reply = {
+    		rno : $(this).data("rno"),
+    		contextPath:"${contextPath}",
+    	};
+	
+    	replyService.get(reply, function(reply){
+    		modalInputReplyText.val(reply.replytext);
+    		modalInputReplyer.val(reply.replyer);
+    		modalInputReplyDate.val(replyService.displayTime(reply.regdate)).attr("readonly","readonly");
+    		modal.data("rno", reply.rno);
+    		
+    		 alert(modalInputReplyText.val(reply.replytext)); 
+    		
+    		modal.find("button[id !='modalCloseBtn']").hide();
+    		
+    		 if (modalInputReplyer.val(reply.replyer)  username) {
+    		modalModifyBtn.hide();
+    		modalRemoveBtn.hide();			
+			} 
+    		 modalModifyBtn.show();
+    		modalRemoveBtn.show(); 
+    		
+    		$(".modal").modal("show");
+    	});
+    }); 
+    */
     
     modalModifyBtn.on("click", function(e){
     	var reply = {

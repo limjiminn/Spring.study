@@ -1,7 +1,6 @@
 package com.beer.shop.board;
 
 
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,10 +38,10 @@ public class ReplyController {
 	//json타입{"key":"value"}
 	//상태코드값까지 반환						//json타입으로 반환될때
 	//등록								
-	public ResponseEntity<String> create(@RequestBody ReplyDTO replyDto){
+	public ResponseEntity<String> create(@RequestBody ReplyDTO replyDto , Model model){
 		log.info("ReplyDTO : " + replyDto);
-		
 		int insertCount = service.register(replyDto);
+		model.addAttribute("reply",insertCount);
 		log.info("Reply Insert Count : " + insertCount);
 		
 		return insertCount == 1? 
@@ -58,10 +57,12 @@ public class ReplyController {
 	//{bno}/{page} 의 page값은 Criteria를 생성해서 직접처리해야한다.
 	//게시물의 번호는 @PathVariable을 이용해서 파라미터로 처리하고 브라우저에서 테스트
 						@PathVariable("page") int page,
-						@PathVariable("bno") int bno){
+						@PathVariable("bno") int bno
+						){
 		Criteria cri = new Criteria(page, 10);
 		log.info("get Reply List bno : " + bno);
 		log.info("cri : " + cri);
+		
 													//수정
 		return new ResponseEntity<>(service.getListPage(cri, bno),HttpStatus.OK);
 	}

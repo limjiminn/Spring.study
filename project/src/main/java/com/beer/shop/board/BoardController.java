@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +17,7 @@ import com.beer.shop.board.domain.BoardDTO;
 import com.beer.shop.board.domain.Criteria;
 import com.beer.shop.board.domain.PageDTO;
 import com.beer.shop.board.service.IBoardService;
+import com.beer.shop.board.service.IReplyService;
 
 @Controller  //어노테이션을 붙여줘야 컨트롤러로 인식한다.
 @RequestMapping ("/board")  //클래스영역과 메소드 영역에 
@@ -95,6 +97,7 @@ public class BoardController {
 		logger.info("/read or /modify....................");
 		
 		model.addAttribute("board",service.read(bno));
+
 		model.addAttribute("pageNum", cri.getPageNum());
 		model.addAttribute("amount", cri.getAmount());
 		model.addAttribute("type", cri.getType());

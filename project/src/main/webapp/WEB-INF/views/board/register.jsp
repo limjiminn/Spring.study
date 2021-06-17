@@ -184,6 +184,10 @@ $(document).ready(function() {
 			}
 		}); //$.ajax
 	});
+	
+	$("#button").on("click", function() {
+		self.location = "${contextPath}/board/list";
+	});
 
 });
 
@@ -233,7 +237,7 @@ $(document).ready(function() {
             <label>작성자</label> <input class="form-control" name="writer">
           </div>
           <button type="submit" class="btn btn-default">확인</button>
-          <button type="reset" class="btn btn-default">취소</button>
+          <button type="button" id="button" class="btn btn-default">취소</button>
         </form>
 
       </div>

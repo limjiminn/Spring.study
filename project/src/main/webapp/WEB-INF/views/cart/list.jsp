@@ -86,7 +86,7 @@ function change () {
 	                    </tr>
                 	</c:when>
                 	<c:otherwise>
- <form name="form" method="get">             			
+ 		<form name="form" method="get">             			
                 		<c:forEach items="${map.list}" var="map">
 	                    <tr>
 	                        <td class="col-sm-8 col-md-6">
@@ -106,14 +106,16 @@ function change () {
 	                        	<strong>${map.pprice* map.amount}</strong></td>
 	                        <td class="col-sm-1 col-md-1">--%>
                                               
-	<td><input type=hidden name="sell_price" value="1000">
-		<input type="text" name="amount" value="${map.amount}" size="3" onchange="change();"><br>
-		<input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();">
-	</td>
-	 <td class="price"><strong>${map.pprice}</strong></td>
-	<td>
-		<input type="text text-right"  name="sum" size="11" readonly style="border:none;border-right:0px; border-top:0px; boder-left:0px; boder-bottom:0px;">원
-	</td>
+						<td>
+							<input type=hidden name="sell_price" value="1000">
+							<input type="text" name="amount" value="${map.amount}" size="3" onchange="change();"><br>
+							<input type="button" value=" + " onclick="add();">
+							<input type="button" value=" - " onclick="del();">
+						</td>
+						 <td class="price"><strong>${map.pprice}</strong></td>
+						<td>
+							<input type="text"  name="sum" size="11" readonly value="${map.money}" style="border:none;border-right:0px; border-top:0px; boder-left:0px; boder-bottom:0px; width:50px;">원
+						</td>
 							<td>
 	                        <button type="button" class="btn btn-danger" onclick="location.href='${ctx}/cart/delete?cartid=${map.cartid}'">
 	                          삭제
@@ -133,14 +135,7 @@ function change () {
                         <td>   </td>
                         <td>   </td>
                         <td>   </td>
-                        <td>
-                      <!--   <button type="button" class="btn btn-default">
-                            쇼핑<span class="glyphicon glyphicon-shopping-cart"></span>
-                        </button></td>
-                        <td>
-                        <button type="button" class="btn btn-success">
-                            구매<span class="glyphicon glyphicon-play"></span>
-                        </button></td> -->
+                        <td>	</td>
                     </tr>
                 	</c:otherwise>
                 			

@@ -6,8 +6,12 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="list"/>
 		<list key="findhistory">
+			<item value="list"/>
+			<item value="regbtn"/>
+			<item value="ㄱㄷ휴수"/>
+			<item value="reset"/>
 			<item value="ctx"/>
 			<item value="remove"/>
 			<item value="row"/>
@@ -19,10 +23,6 @@
 			<item value="panel"/>
 			<item value="resister"/>
 			<item value="rno"/>
-			<item value="댓글"/>
-			<item value="get"/>
-			<item value="Reply read........4"/>
-			<item value="replytext"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
