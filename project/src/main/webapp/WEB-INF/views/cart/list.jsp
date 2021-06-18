@@ -10,7 +10,7 @@
 	}
 </style>
 <body onload="init();">
-<script language="JavaScript">
+<!-- <script language="JavaScript">
 
 var sell_price;
 var amount;
@@ -48,7 +48,7 @@ function change () {
 		}
 	sum.value = parseInt(hm.value) * sell_price;
 }  
-</script>
+</script> -->
 
  <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
