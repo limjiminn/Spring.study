@@ -86,7 +86,7 @@ function change () {
 	                    </tr>
                 	</c:when>
                 	<c:otherwise>
- 		<form name="form" method="get">             			
+ 		<!-- <form name="form" method="get">     -->         			
                 		<c:forEach items="${map.list}" var="map">
 	                    <tr>
 	                        <td class="col-sm-8 col-md-6">
@@ -97,16 +97,21 @@ function change () {
 	                            </div>
 	                        </div>
 	                        </td>
-	                        <%-- <td class="amount" style="text-align: center">
-	                        <input type="email" class="form-control" id="exampleInputEmail1" value="${map.amount}">
-	                       	 <input type="number" name="amount"  style="width:50px;" value="${map.amount}">
+	                        <td class="amount" style="text-align: center">
+	                        <%-- <input type="email" class="form-control" id="exampleInputEmail1" value="${map.amount}">
+	                       	 <input type="number" name="amount"  style="width:50px;" value="${map.amount}"> --%>
+	                       	 <strong>${map.amount}</strong>
 	                        </td>
 	                        <td class="price"><strong>${map.pprice}</strong></td>
 	                        <td class="total text-center">
 	                        	<strong>${map.pprice* map.amount}</strong></td>
-	                        <td class="col-sm-1 col-md-1">--%>
-                                              
-						<td>
+	                        <td class="col-sm-1 col-md-1">
+                            <td>
+	                        <button type="button" class="btn btn-danger" onclick="location.href='${ctx}/cart/delete?cartid=${map.cartid}'">
+	                          삭제
+	                        </button>
+	                        </td>              
+						<%-- <td>
 							<input type=hidden name="sell_price" value="1000">
 							<input type="text" name="amount" value="${map.amount}" size="3" onchange="change();"><br>
 							<input type="button" value=" + " onclick="add();">
@@ -120,10 +125,10 @@ function change () {
 	                        <button type="button" class="btn btn-danger" onclick="location.href='${ctx}/cart/delete?cartid=${map.cartid}'">
 	                          삭제
 	                        </button>
-	                        </td> 
+	                        </td>  --%>
 	                    </tr>
                 		</c:forEach>
-	   </form>
+	 <!--   </form> -->
                     <tr>
                         <td>   </td>
                         <td>   </td>
