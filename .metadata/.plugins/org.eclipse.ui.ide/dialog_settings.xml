@@ -67,6 +67,9 @@
 		<item value="org.springframework.ide.eclipse.security.feature:3.9.16.202103111701-RELEASE"/>
 		<item value="org.springframework.ide.eclipse.webflow.feature:3.9.16.202103111701-RELEASE"/>
 		<item value="org.springframework.ide.eclipse.xml.namespaces.feature:4.10.0.202103111225"/>
+		<item value="org.tigris.subversion.clientadapter.svnkit.feature:1.8.12.3"/>
+		<item value="org.tigris.subversion.subclipse.graph.feature:4.2.0.1"/>
+		<item value="org.tigris.subversion.subclipse:4.3.3.202012181204"/>
 	</list>
 	<section name="SaveAsDialogSettings">
 		<item key="DIALOG_X_ORIGIN" value="903"/>
