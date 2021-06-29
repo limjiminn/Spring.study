@@ -9,7 +9,7 @@
 		width: 130px;
 	}
 </style>
-<body onload="init();">
+<!-- <body onload="init();"> -->
 <!-- <script language="JavaScript">
 
 var sell_price;
@@ -135,12 +135,14 @@ function change () {
                         <td>   </td>
                         <td><h3>Total</h3></td>
                         <td class="text-right"><h3><strong>${map.sumMoney}</strong></h3></td>
+                        
                     </tr>
                     <tr>
                         <td>   </td>
                         <td>   </td>
                         <td>   </td>
                         <td>	</td>
+                        <td><button type="button" onclick="location.href='${ctx}/cart/pay'" style="width: 100">결제하기</button><td>
                     </tr>
                 	</c:otherwise>
                 			
