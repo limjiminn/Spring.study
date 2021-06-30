@@ -142,7 +142,7 @@ function change () {
                         <td>   </td>
                         <td>   </td>
                         <td>	</td>
-                        <td><button type="button" onclick="location.href='${ctx}/cart/pay'" style="width: 100">결제하기</button><td>
+                        <%-- <td><button type="button" onclick="location.href='${ctx}/cart/pay'" style="width: 100">결제하기</button><td> --%>
                     </tr>
                 	</c:otherwise>
                 			
