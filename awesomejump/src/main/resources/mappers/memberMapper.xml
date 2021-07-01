@@ -10,4 +10,8 @@
 		WHERE mem_email = #{mem_email}
 	</select>
   
+  	<insert id="insertMember" parameterType="shop.awesomejump.domain.MemberDTO">
+	 	INSERT INTO member(MEM_NO, MEM_PW, MEM_NICKNAME, MEM_EMAIL)
+	 	VALUES (mem_seq.nextval, #{mem_pw}, #{mem_nickname}, #{mem_email})
+	</insert>
 </mapper>

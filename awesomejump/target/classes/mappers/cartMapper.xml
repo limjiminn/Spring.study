@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.awesomejump.mapper.cartMapper">
+
+<!--장바구니 추가  -->
+	<insert id="cartAdd">
+		INSERT INTO CART(cart_no, mem_no, product_no, cart_amount)
+   		VALUES(cart_seq.nextval,#{mem_no},#{product_no},#{cart_amount})
+	</insert>
+<!--장바구니 목록  -->
+	<select id="cartList">
+	<!--이미지, 상품명, 상품색상,상품크기,상품재질,상품가격,상품수량,총금액 -->
+		SELECT cart_no, p.product_name, i.pro_image_path, c.mem_no
+		FROM member m, product p, pro_image i, product_option o, cart c
+		WHERE
+	</select>
+<!--장바구니 상품 수량 변경-->
+
+<!--장바구니 상품 부분삭제  -->
+
+<!--장바구니 상품 전체삭제  -->
+
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.awesomejump.mapper.MemberMapper">
+
+	<select id="selectMemberByEmail" resultType="shop.awesomejump.domain.MemberDTO">
+		SELECT *
+		FROM member
+		WHERE mem_email = #{mem_email}
+	</select>
+  
+  	<insert id="insertMember" parameterType="shop.awesomejump.domain.MemberDTO">
+	 	INSERT INTO member(MEM_NO, MEM_PW, MEM_NICKNAME, MEM_EMAIL)
+	 	VALUES (#{MEM_NO}, #{MEM_PW}, #{MEM_NICKNAME}, #{MEM_EMAIL})
+	</insert>
+</mapper>
