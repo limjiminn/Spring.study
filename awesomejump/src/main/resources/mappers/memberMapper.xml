@@ -14,4 +14,16 @@
 	 	INSERT INTO member(MEM_NO, MEM_PW, MEM_NICKNAME, MEM_EMAIL)
 	 	VALUES (mem_seq.nextval, #{mem_pw}, #{mem_nickname}, #{mem_email})
 	</insert>
+	
+	<select id="confirmEmail" resultType="shop.awesomejump.domain.MemberDTO">
+		SELECT *
+		FROM member
+		WHERE mem_email = #{userEmail}
+	</select>
+	
+	<select id="confirmNickname" resultType="shop.awesomejump.domain.MemberDTO">
+		SELECT *
+		FROM member
+		WHERE mem_nickname = #{userNickName}
+	</select>
 </mapper>

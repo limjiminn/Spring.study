@@ -46,9 +46,9 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>upload</name>
+			<name>Upload</name>
 			<type>2</type>
-			<location>D:/upload</location>
+			<location>C:/Upload</location>
 		</link>
 	</linkedResources>
 </projectDescription>

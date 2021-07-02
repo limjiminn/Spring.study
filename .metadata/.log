@@ -7769,3 +7769,845 @@ java.lang.NullPointerException
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-01 16:09:43.914
 !MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.iiTjwnEi => OK
+!SESSION 2021-07-02 08:56:25.241 -----------------------------------------------
+eclipse.buildId=4.10.0.202103111225
+java.version=15.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY org.eclipse.jface 2 0 2021-07-02 08:56:48.273
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-07-02 08:56:48.273
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6731b6bd,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@768f2398,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-07-02 08:56:48.273
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1f4fa465,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.EditPropertiesCommand,Show Properties,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1e65c4d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.mylyn.tasks.core 4 0 2021-07-02 08:56:51.116
+!MESSAGE Unexpected error while loading repository template extensions
+!SUBENTRY 1 org.eclipse.mylyn.tasks.core 4 0 2021-07-02 08:56:51.116
+!MESSAGE Could not load repository template extension contributed by 'org.eclipse.mylyn.bugzilla.ide' with connectorKind 'bugzilla'
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 4 0 2021-07-02 08:57:11.545
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at java.base/java.util.Objects.requireNonNull(Objects.java:208)
+	at java.base/java.util.ImmutableCollections$MapN.<init>(ImmutableCollections.java:1019)
+	at java.base/java.util.Map.of(Map.java:1327)
+	at org.eclipse.m2e.editor.lemminx.InitializationOptionsProvider.toLemMinXOptions(InitializationOptionsProvider.java:26)
+	at org.eclipse.m2e.editor.lemminx.InitializationOptionsProvider.get(InitializationOptionsProvider.java:22)
+	at org.eclipse.m2e.editor.lemminx.InitializationOptionsProvider.get(InitializationOptionsProvider.java:1)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLExtensionRegistry.getInitiatizationOptions(XMLExtensionRegistry.java:135)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.getInitializationOptions(XMLLanguageServer.java:158)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$5(LanguageServerWrapper.java:352)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1146)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1769)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1756)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1016)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1665)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1598)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+
+!ENTRY org.eclipse.egit.ui 2 0 2021-07-02 08:57:28.765
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\jiaez'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.team.core 4 0 2021-07-02 08:57:29.939
+!MESSAGE Could not instantiate provider org.tigris.subversion.subclipse.core.svnnature for project test.
+!STACK 1
+org.eclipse.team.core.TeamException: Could not instantiate provider org.tigris.subversion.subclipse.core.svnnature for project test.
+	at org.eclipse.team.core.RepositoryProvider.mapNewProvider(RepositoryProvider.java:200)
+	at org.eclipse.team.core.RepositoryProvider.mapExistingProvider(RepositoryProvider.java:267)
+	at org.eclipse.team.core.RepositoryProvider.getProvider(RepositoryProvider.java:542)
+	at org.eclipse.team.internal.core.TeamHookDispatcher.getProvider(TeamHookDispatcher.java:96)
+	at org.eclipse.team.internal.core.TeamHookDispatcher.getRuleFactory(TeamHookDispatcher.java:102)
+	at org.eclipse.core.internal.resources.Rules.factoryFor(Rules.java:101)
+	at org.eclipse.core.internal.resources.Rules.refreshRule(Rules.java:178)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1552)
+	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:166)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:42)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.team.core 4 0 2021-07-02 08:57:29.940
+!MESSAGE Could not instantiate provider org.tigris.subversion.subclipse.core.svnnature for project test.
+
+!ENTRY org.eclipse.ui 4 4 2021-07-02 12:55:43.142
+!MESSAGE Plug-in 'org.eclipse.pde.ui' contributed an invalid Menu Extension (Path: 'org.eclipse.ui.projectConfigure' is invalid): org.eclipse.pde.ui.ConvertedProjectWizard
+
+!ENTRY org.eclipse.ui 4 4 2021-07-02 12:55:43.144
+!MESSAGE Plug-in 'org.eclipse.ajdt.ui' contributed an invalid Menu Extension (Path: 'org.eclipse.ui.projectConfigure' is invalid): addajnatureaction
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 12:55:58.365
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 12:55:58.366
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@155ab4b[org.springframework.tooling.boot.ls:1.25.0.202103111026(id=555)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 12:55:58.372
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 12:55:58.517
+!MESSAGE Instantiating ReusableClasspathListenerHandler
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 12:56:06.803
+!MESSAGE Boot LS startup time from start to initialized: 8378ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 12:56:07.600
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.nCKbDEJYisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 12:56:07.605
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 12:56:07.607
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 12:56:07.608
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 12:56:07.609
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 12:56:07.609
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.nCKbDEJY => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 12:56:07.619
+!MESSAGE classpath=69 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 12:56:07.626
+!MESSAGE buffering callback sts4.classpath.nCKbDEJY project false 69
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 12:56:07.627
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 12:56:07.630
+!MESSAGE classpath=66 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 12:56:07.636
+!MESSAGE buffering callback sts4.classpath.nCKbDEJY test false 66
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 12:56:07.637
+!MESSAGE executing callback sts4.classpath.nCKbDEJY 2 batched events
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 12:56:08.670
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 12:56:08.694
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 12:56:09.210
+!MESSAGE executing callback sts4.classpath.nCKbDEJY SUCCESS [done]
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2021-07-02 12:57:12.166
+!MESSAGE SVN: '0x00000230: Get Repository Folder Children' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2021-07-02 12:57:12.166
+!MESSAGE Get repository folder children operation failed.
+!STACK 0
+org.eclipse.team.svn.core.connector.SVNConnectorException: svn: E210003: Unknown host sixsenseproject
+	at org.polarion.team.svn.connector.svnkit.SVNKitService.handleClientException(SVNKitService.java:59)
+	at org.polarion.team.svn.connector.svnkit.SVNKitConnector.listEntries(SVNKitConnector.java:1758)
+	at org.eclipse.team.svn.core.extension.factory.ThreadNameModifier.listEntries(ThreadNameModifier.java:324)
+	at org.eclipse.team.svn.core.utility.SVNUtility.list(SVNUtility.java:440)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryContainer.getChildren(SVNRepositoryContainer.java:79)
+	at org.eclipse.team.svn.core.operation.remote.GetRemoteFolderChildrenOperation.runImpl(GetRemoteFolderChildrenOperation.java:76)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.apache.subversion.javahl.ClientException: svn: E210003: Unknown host sixsenseproject
+	at org.apache.subversion.javahl.ClientException.fromException(ClientException.java:117)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.getClientException(SVNClientImpl.java:1539)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.list(SVNClientImpl.java:189)
+	at org.polarion.team.svn.connector.svnkit.SVNKitConnector.listEntries(SVNKitConnector.java:1745)
+	... 14 more
+Caused by: org.tmatesoft.svn.core.SVNException: svn: E210003: Unknown host sixsenseproject
+	at org.tmatesoft.svn.core.internal.wc.SVNErrorManager.error(SVNErrorManager.java:91)
+	at org.tmatesoft.svn.core.internal.wc.SVNErrorManager.error(SVNErrorManager.java:75)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNPlainConnector.open(SVNPlainConnector.java:59)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNConnection.open(SVNConnection.java:77)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryImpl.openConnection(SVNRepositoryImpl.java:1273)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryImpl.getLatestRevision(SVNRepositoryImpl.java:172)
+	at org.tmatesoft.svn.core.internal.wc2.ng.SvnNgRepositoryAccess.getRevisionNumber(SvnNgRepositoryAccess.java:119)
+	at org.tmatesoft.svn.core.internal.wc2.SvnRepositoryAccess.getLocations(SvnRepositoryAccess.java:195)
+	at org.tmatesoft.svn.core.internal.wc2.ng.SvnNgRepositoryAccess.createRepositoryFor(SvnNgRepositoryAccess.java:46)
+	at org.tmatesoft.svn.core.internal.wc2.remote.SvnRemoteList.run(SvnRemoteList.java:36)
+	at org.tmatesoft.svn.core.internal.wc2.remote.SvnRemoteList.run(SvnRemoteList.java:1)
+	at org.tmatesoft.svn.core.internal.wc2.SvnOperationRunner.run(SvnOperationRunner.java:21)
+	at org.tmatesoft.svn.core.wc2.SvnOperationFactory.run(SvnOperationFactory.java:1235)
+	at org.tmatesoft.svn.core.wc2.SvnOperation.run(SvnOperation.java:294)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.list(SVNClientImpl.java:187)
+	... 15 more
+Caused by: java.net.UnknownHostException: sixsenseproject
+	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:800)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1507)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1366)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1300)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1250)
+	at org.tmatesoft.svn.core.internal.util.SVNSocketFactory.createAddres(SVNSocketFactory.java:205)
+	at org.tmatesoft.svn.core.internal.util.SVNSocketFactory.createPlainSocket(SVNSocketFactory.java:66)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNPlainConnector.open(SVNPlainConnector.java:53)
+	... 27 more
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2021-07-02 12:57:12.167
+!MESSAGE SVN: '0x00400107: Get Repository Resource Revision' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2021-07-02 12:57:12.167
+!MESSAGE Get repository resource revision operation failed.
+!STACK 0
+org.eclipse.team.svn.core.connector.SVNConnectorException: svn: E210003: Unknown host sixsenseproject
+	at org.polarion.team.svn.connector.svnkit.SVNKitService.handleClientException(SVNKitService.java:59)
+	at org.polarion.team.svn.connector.svnkit.SVNKitConnector.getInfo(SVNKitConnector.java:1400)
+	at org.eclipse.team.svn.core.extension.factory.ThreadNameModifier.getInfo(ThreadNameModifier.java:684)
+	at org.eclipse.team.svn.core.utility.SVNUtility.info(SVNUtility.java:473)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryContainer.getRevisionImpl(SVNRepositoryContainer.java:109)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryResource.getRevision(SVNRepositoryResource.java:97)
+	at org.eclipse.team.svn.ui.operation.GetRemoteResourceRevisionOperation.runImpl(GetRemoteResourceRevisionOperation.java:40)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.apache.subversion.javahl.ClientException: svn: E210003: Unknown host sixsenseproject
+	at org.apache.subversion.javahl.ClientException.fromException(ClientException.java:117)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.getClientException(SVNClientImpl.java:1539)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.info(SVNClientImpl.java:1753)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.info2(SVNClientImpl.java:1729)
+	at org.polarion.team.svn.connector.svnkit.SVNKitConnector.getInfo(SVNKitConnector.java:1395)
+	... 15 more
+Caused by: org.tmatesoft.svn.core.SVNException: svn: E210003: Unknown host sixsenseproject
+	at org.tmatesoft.svn.core.internal.wc.SVNErrorManager.error(SVNErrorManager.java:91)
+	at org.tmatesoft.svn.core.internal.wc.SVNErrorManager.error(SVNErrorManager.java:75)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNPlainConnector.open(SVNPlainConnector.java:59)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNConnection.open(SVNConnection.java:77)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryImpl.openConnection(SVNRepositoryImpl.java:1273)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryImpl.getLatestRevision(SVNRepositoryImpl.java:172)
+	at org.tmatesoft.svn.core.internal.wc2.ng.SvnNgRepositoryAccess.getRevisionNumber(SvnNgRepositoryAccess.java:119)
+	at org.tmatesoft.svn.core.internal.wc2.SvnRepositoryAccess.getLocations(SvnRepositoryAccess.java:195)
+	at org.tmatesoft.svn.core.internal.wc2.ng.SvnNgRepositoryAccess.createRepositoryFor(SvnNgRepositoryAccess.java:46)
+	at org.tmatesoft.svn.core.internal.wc2.remote.SvnRemoteGetInfo.run(SvnRemoteGetInfo.java:47)
+	at org.tmatesoft.svn.core.internal.wc2.remote.SvnRemoteGetInfo.run(SvnRemoteGetInfo.java:1)
+	at org.tmatesoft.svn.core.internal.wc2.SvnOperationRunner.run(SvnOperationRunner.java:21)
+	at org.tmatesoft.svn.core.wc2.SvnOperationFactory.run(SvnOperationFactory.java:1235)
+	at org.tmatesoft.svn.core.wc2.SvnOperation.run(SvnOperation.java:294)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.info(SVNClientImpl.java:1751)
+	... 17 more
+Caused by: java.net.UnknownHostException: sixsenseproject
+	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:800)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1507)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1366)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1300)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1250)
+	at org.tmatesoft.svn.core.internal.util.SVNSocketFactory.createAddres(SVNSocketFactory.java:205)
+	at org.tmatesoft.svn.core.internal.util.SVNSocketFactory.createPlainSocket(SVNSocketFactory.java:66)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNPlainConnector.open(SVNPlainConnector.java:53)
+	... 29 more
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2021-07-02 12:57:13.780
+!MESSAGE SVN: '0x00000230: Get Repository Folder Children' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2021-07-02 12:57:13.780
+!MESSAGE Get repository folder children operation failed.
+!STACK 0
+org.eclipse.team.svn.core.connector.SVNConnectorException: svn: E210003: Unknown host sixsenseproject
+	at org.polarion.team.svn.connector.svnkit.SVNKitService.handleClientException(SVNKitService.java:59)
+	at org.polarion.team.svn.connector.svnkit.SVNKitConnector.listEntries(SVNKitConnector.java:1758)
+	at org.eclipse.team.svn.core.extension.factory.ThreadNameModifier.listEntries(ThreadNameModifier.java:324)
+	at org.eclipse.team.svn.core.utility.SVNUtility.list(SVNUtility.java:440)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryContainer.getChildren(SVNRepositoryContainer.java:79)
+	at org.eclipse.team.svn.core.operation.remote.GetRemoteFolderChildrenOperation.runImpl(GetRemoteFolderChildrenOperation.java:76)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.apache.subversion.javahl.ClientException: svn: E210003: Unknown host sixsenseproject
+	at org.apache.subversion.javahl.ClientException.fromException(ClientException.java:117)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.getClientException(SVNClientImpl.java:1539)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.list(SVNClientImpl.java:189)
+	at org.polarion.team.svn.connector.svnkit.SVNKitConnector.listEntries(SVNKitConnector.java:1745)
+	... 14 more
+Caused by: org.tmatesoft.svn.core.SVNException: svn: E210003: Unknown host sixsenseproject
+	at org.tmatesoft.svn.core.internal.wc.SVNErrorManager.error(SVNErrorManager.java:91)
+	at org.tmatesoft.svn.core.internal.wc.SVNErrorManager.error(SVNErrorManager.java:75)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNPlainConnector.open(SVNPlainConnector.java:59)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNConnection.open(SVNConnection.java:77)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryImpl.openConnection(SVNRepositoryImpl.java:1273)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryImpl.getLatestRevision(SVNRepositoryImpl.java:172)
+	at org.tmatesoft.svn.core.internal.wc2.ng.SvnNgRepositoryAccess.getRevisionNumber(SvnNgRepositoryAccess.java:119)
+	at org.tmatesoft.svn.core.internal.wc2.SvnRepositoryAccess.getLocations(SvnRepositoryAccess.java:195)
+	at org.tmatesoft.svn.core.internal.wc2.ng.SvnNgRepositoryAccess.createRepositoryFor(SvnNgRepositoryAccess.java:46)
+	at org.tmatesoft.svn.core.internal.wc2.remote.SvnRemoteList.run(SvnRemoteList.java:36)
+	at org.tmatesoft.svn.core.internal.wc2.remote.SvnRemoteList.run(SvnRemoteList.java:1)
+	at org.tmatesoft.svn.core.internal.wc2.SvnOperationRunner.run(SvnOperationRunner.java:21)
+	at org.tmatesoft.svn.core.wc2.SvnOperationFactory.run(SvnOperationFactory.java:1235)
+	at org.tmatesoft.svn.core.wc2.SvnOperation.run(SvnOperation.java:294)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.list(SVNClientImpl.java:187)
+	... 15 more
+Caused by: java.net.UnknownHostException: sixsenseproject
+	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:800)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1507)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1366)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1300)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1250)
+	at org.tmatesoft.svn.core.internal.util.SVNSocketFactory.createAddres(SVNSocketFactory.java:205)
+	at org.tmatesoft.svn.core.internal.util.SVNSocketFactory.createPlainSocket(SVNSocketFactory.java:66)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNPlainConnector.open(SVNPlainConnector.java:53)
+	... 27 more
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2021-07-02 12:57:58.031
+!MESSAGE SVN: '0x00000230: Get Repository Folder Children' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2021-07-02 12:57:58.031
+!MESSAGE Get repository folder children operation failed.
+!STACK 0
+org.eclipse.team.svn.core.connector.SVNConnectorException: svn: E210005: No repository found in 'svn://sixsenseproject.shop'
+	at org.polarion.team.svn.connector.svnkit.SVNKitService.handleClientException(SVNKitService.java:59)
+	at org.polarion.team.svn.connector.svnkit.SVNKitConnector.listEntries(SVNKitConnector.java:1758)
+	at org.eclipse.team.svn.core.extension.factory.ThreadNameModifier.listEntries(ThreadNameModifier.java:324)
+	at org.eclipse.team.svn.core.utility.SVNUtility.list(SVNUtility.java:440)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryContainer.getChildren(SVNRepositoryContainer.java:79)
+	at org.eclipse.team.svn.core.operation.remote.GetRemoteFolderChildrenOperation.runImpl(GetRemoteFolderChildrenOperation.java:76)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.apache.subversion.javahl.ClientException: svn: E210005: No repository found in 'svn://sixsenseproject.shop'
+	at org.apache.subversion.javahl.ClientException.fromException(ClientException.java:117)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.getClientException(SVNClientImpl.java:1539)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.list(SVNClientImpl.java:189)
+	at org.polarion.team.svn.connector.svnkit.SVNKitConnector.listEntries(SVNKitConnector.java:1745)
+	... 14 more
+Caused by: org.tmatesoft.svn.core.SVNException: svn: E210005: No repository found in 'svn://sixsenseproject.shop'
+	at org.tmatesoft.svn.core.internal.wc.SVNErrorManager.error(SVNErrorManager.java:70)
+	at org.tmatesoft.svn.core.internal.wc.SVNErrorManager.error(SVNErrorManager.java:57)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNReader.handleFailureStatus(SVNReader.java:269)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNReader.parse(SVNReader.java:248)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNConnection.read(SVNConnection.java:276)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNConnection.authenticate(SVNConnection.java:174)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryImpl.authenticate(SVNRepositoryImpl.java:1296)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryImpl.openConnection(SVNRepositoryImpl.java:1274)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryImpl.getLatestRevision(SVNRepositoryImpl.java:172)
+	at org.tmatesoft.svn.core.internal.wc2.ng.SvnNgRepositoryAccess.getRevisionNumber(SvnNgRepositoryAccess.java:119)
+	at org.tmatesoft.svn.core.internal.wc2.SvnRepositoryAccess.getLocations(SvnRepositoryAccess.java:195)
+	at org.tmatesoft.svn.core.internal.wc2.ng.SvnNgRepositoryAccess.createRepositoryFor(SvnNgRepositoryAccess.java:46)
+	at org.tmatesoft.svn.core.internal.wc2.remote.SvnRemoteList.run(SvnRemoteList.java:36)
+	at org.tmatesoft.svn.core.internal.wc2.remote.SvnRemoteList.run(SvnRemoteList.java:1)
+	at org.tmatesoft.svn.core.internal.wc2.SvnOperationRunner.run(SvnOperationRunner.java:21)
+	at org.tmatesoft.svn.core.wc2.SvnOperationFactory.run(SvnOperationFactory.java:1235)
+	at org.tmatesoft.svn.core.wc2.SvnOperation.run(SvnOperation.java:294)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.list(SVNClientImpl.java:187)
+	... 15 more
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2021-07-02 12:57:58.093
+!MESSAGE SVN: '0x00400107: Get Repository Resource Revision' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2021-07-02 12:57:58.093
+!MESSAGE Get repository resource revision operation failed.
+!STACK 0
+org.eclipse.team.svn.core.connector.SVNConnectorException: svn: E210005: No repository found in 'svn://sixsenseproject.shop'
+	at org.polarion.team.svn.connector.svnkit.SVNKitService.handleClientException(SVNKitService.java:59)
+	at org.polarion.team.svn.connector.svnkit.SVNKitConnector.getInfo(SVNKitConnector.java:1400)
+	at org.eclipse.team.svn.core.extension.factory.ThreadNameModifier.getInfo(ThreadNameModifier.java:684)
+	at org.eclipse.team.svn.core.utility.SVNUtility.info(SVNUtility.java:473)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryContainer.getRevisionImpl(SVNRepositoryContainer.java:109)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryResource.getRevision(SVNRepositoryResource.java:97)
+	at org.eclipse.team.svn.ui.operation.GetRemoteResourceRevisionOperation.runImpl(GetRemoteResourceRevisionOperation.java:40)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.apache.subversion.javahl.ClientException: svn: E210005: No repository found in 'svn://sixsenseproject.shop'
+	at org.apache.subversion.javahl.ClientException.fromException(ClientException.java:117)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.getClientException(SVNClientImpl.java:1539)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.info(SVNClientImpl.java:1753)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.info2(SVNClientImpl.java:1729)
+	at org.polarion.team.svn.connector.svnkit.SVNKitConnector.getInfo(SVNKitConnector.java:1395)
+	... 15 more
+Caused by: org.tmatesoft.svn.core.SVNException: svn: E210005: No repository found in 'svn://sixsenseproject.shop'
+	at org.tmatesoft.svn.core.internal.wc.SVNErrorManager.error(SVNErrorManager.java:70)
+	at org.tmatesoft.svn.core.internal.wc.SVNErrorManager.error(SVNErrorManager.java:57)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNReader.handleFailureStatus(SVNReader.java:269)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNReader.parse(SVNReader.java:248)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNConnection.read(SVNConnection.java:276)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNConnection.authenticate(SVNConnection.java:174)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryImpl.authenticate(SVNRepositoryImpl.java:1296)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryImpl.openConnection(SVNRepositoryImpl.java:1274)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryImpl.getLatestRevision(SVNRepositoryImpl.java:172)
+	at org.tmatesoft.svn.core.internal.wc2.ng.SvnNgRepositoryAccess.getRevisionNumber(SvnNgRepositoryAccess.java:119)
+	at org.tmatesoft.svn.core.internal.wc2.SvnRepositoryAccess.getLocations(SvnRepositoryAccess.java:195)
+	at org.tmatesoft.svn.core.internal.wc2.ng.SvnNgRepositoryAccess.createRepositoryFor(SvnNgRepositoryAccess.java:46)
+	at org.tmatesoft.svn.core.internal.wc2.remote.SvnRemoteGetInfo.run(SvnRemoteGetInfo.java:47)
+	at org.tmatesoft.svn.core.internal.wc2.remote.SvnRemoteGetInfo.run(SvnRemoteGetInfo.java:1)
+	at org.tmatesoft.svn.core.internal.wc2.SvnOperationRunner.run(SvnOperationRunner.java:21)
+	at org.tmatesoft.svn.core.wc2.SvnOperationFactory.run(SvnOperationFactory.java:1235)
+	at org.tmatesoft.svn.core.wc2.SvnOperation.run(SvnOperation.java:294)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.info(SVNClientImpl.java:1751)
+	... 17 more
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2021-07-02 12:57:59.705
+!MESSAGE SVN: '0x00000230: Get Repository Folder Children' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2021-07-02 12:57:59.705
+!MESSAGE Get repository folder children operation failed.
+!STACK 0
+org.eclipse.team.svn.core.connector.SVNConnectorException: svn: E210005: No repository found in 'svn://sixsenseproject.shop'
+	at org.polarion.team.svn.connector.svnkit.SVNKitService.handleClientException(SVNKitService.java:59)
+	at org.polarion.team.svn.connector.svnkit.SVNKitConnector.listEntries(SVNKitConnector.java:1758)
+	at org.eclipse.team.svn.core.extension.factory.ThreadNameModifier.listEntries(ThreadNameModifier.java:324)
+	at org.eclipse.team.svn.core.utility.SVNUtility.list(SVNUtility.java:440)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryContainer.getChildren(SVNRepositoryContainer.java:79)
+	at org.eclipse.team.svn.core.operation.remote.GetRemoteFolderChildrenOperation.runImpl(GetRemoteFolderChildrenOperation.java:76)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.apache.subversion.javahl.ClientException: svn: E210005: No repository found in 'svn://sixsenseproject.shop'
+	at org.apache.subversion.javahl.ClientException.fromException(ClientException.java:117)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.getClientException(SVNClientImpl.java:1539)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.list(SVNClientImpl.java:189)
+	at org.polarion.team.svn.connector.svnkit.SVNKitConnector.listEntries(SVNKitConnector.java:1745)
+	... 14 more
+Caused by: org.tmatesoft.svn.core.SVNException: svn: E210005: No repository found in 'svn://sixsenseproject.shop'
+	at org.tmatesoft.svn.core.internal.wc.SVNErrorManager.error(SVNErrorManager.java:70)
+	at org.tmatesoft.svn.core.internal.wc.SVNErrorManager.error(SVNErrorManager.java:57)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNReader.handleFailureStatus(SVNReader.java:269)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNReader.parse(SVNReader.java:248)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNConnection.read(SVNConnection.java:276)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNConnection.authenticate(SVNConnection.java:174)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryImpl.authenticate(SVNRepositoryImpl.java:1296)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryImpl.openConnection(SVNRepositoryImpl.java:1274)
+	at org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryImpl.getLatestRevision(SVNRepositoryImpl.java:172)
+	at org.tmatesoft.svn.core.internal.wc2.ng.SvnNgRepositoryAccess.getRevisionNumber(SvnNgRepositoryAccess.java:119)
+	at org.tmatesoft.svn.core.internal.wc2.SvnRepositoryAccess.getLocations(SvnRepositoryAccess.java:195)
+	at org.tmatesoft.svn.core.internal.wc2.ng.SvnNgRepositoryAccess.createRepositoryFor(SvnNgRepositoryAccess.java:46)
+	at org.tmatesoft.svn.core.internal.wc2.remote.SvnRemoteList.run(SvnRemoteList.java:36)
+	at org.tmatesoft.svn.core.internal.wc2.remote.SvnRemoteList.run(SvnRemoteList.java:1)
+	at org.tmatesoft.svn.core.internal.wc2.SvnOperationRunner.run(SvnOperationRunner.java:21)
+	at org.tmatesoft.svn.core.wc2.SvnOperationFactory.run(SvnOperationFactory.java:1235)
+	at org.tmatesoft.svn.core.wc2.SvnOperation.run(SvnOperation.java:294)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.list(SVNClientImpl.java:187)
+	... 15 more
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 13:00:34.687
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 13:00:34.689
+!MESSAGE classpath=51 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 13:00:34.695
+!MESSAGE buffering callback sts4.classpath.nCKbDEJY awesomejump false 51
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 13:00:34.697
+!MESSAGE executing callback sts4.classpath.nCKbDEJY 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 13:00:34.746
+!MESSAGE executing callback sts4.classpath.nCKbDEJY SUCCESS [done]
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:01:08.408
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:01:08.453
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 13:01:10.807
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 13:01:11.012
+!MESSAGE classpath=97 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 13:01:11.025
+!MESSAGE buffering callback sts4.classpath.nCKbDEJY awesomejump false 97
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 13:01:11.026
+!MESSAGE executing callback sts4.classpath.nCKbDEJY 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 13:01:35.146
+!MESSAGE executing callback sts4.classpath.nCKbDEJY FAILED
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 4 0 2021-07-02 13:01:35.147
+!MESSAGE 
+!STACK 0
+java.lang.UnsupportedOperationException: No language server has registered to handle command 'sts4.classpath.nCKbDEJY'
+	at org.springframework.tooling.ls.eclipse.commons.LSP4ECommandExecutor.executeClientCommand(LSP4ECommandExecutor.java:42)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.flush(SendClasspathNotificationsJob.java:178)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.run(SendClasspathNotificationsJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 13:01:38.512
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 13:01:38.519
+!MESSAGE classpath=97 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 13:01:38.531
+!MESSAGE buffering callback sts4.classpath.nCKbDEJY awesomejump false 97
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 13:01:38.532
+!MESSAGE executing callback sts4.classpath.nCKbDEJY 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-02 13:01:38.536
+!MESSAGE executing callback sts4.classpath.nCKbDEJY FAILED
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 4 0 2021-07-02 13:01:38.537
+!MESSAGE 
+!STACK 0
+java.lang.UnsupportedOperationException: No language server has registered to handle command 'sts4.classpath.nCKbDEJY'
+	at org.springframework.tooling.ls.eclipse.commons.LSP4ECommandExecutor.executeClientCommand(LSP4ECommandExecutor.java:42)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.flush(SendClasspathNotificationsJob.java:178)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.run(SendClasspathNotificationsJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:01:38.998
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:01:39.059
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:06:22.150
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:06:22.155
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:06:36.546
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:06:36.587
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:06:52.716
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:06:52.720
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:07:15.992
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:07:16.039
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:07:35.967
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:07:35.998
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:08:07.795
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:08:07.835
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:08:46.515
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:08:46.519
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:09:21.757
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:09:21.761
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:16:35.019
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:16:35.023
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:17:22.040
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:17:22.046
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:18:07.903
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:18:07.907
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:19:26.470
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:19:26.474
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:20:36.768
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:20:36.773
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:20:53.467
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:20:53.492
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:21:27.038
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:21:27.044
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:21:50.227
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:21:50.231
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:25:53.772
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:25:53.775
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:26:02.950
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:26:02.955
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2021-07-02 13:26:28.401
+!MESSAGE SVN: '0x00000114: Commit' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2021-07-02 13:26:28.401
+!MESSAGE Some of selected resources were not committed.
+!STACK 0
+org.eclipse.team.svn.core.connector.SVNConnectorException: svn: E160028: Commit failed (details follow):
+	at org.eclipse.team.svn.core.operation.SVNProgressMonitor.progress(SVNProgressMonitor.java:50)
+	at org.polarion.team.svn.connector.svnkit.SVNKitService$ProgressMonitorWrapper.notify(SVNKitService.java:139)
+	at org.eclipse.team.svn.core.utility.SVNNotificationComposite.notify(SVNNotificationComposite.java:51)
+	at org.polarion.team.svn.connector.svnkit.ConversionUtility$Notify2Wrapper.onNotify(ConversionUtility.java:926)
+	at org.tmatesoft.svn.core.javahl17.JavaHLEventHandler.handleEvent(JavaHLEventHandler.java:64)
+	at org.tmatesoft.svn.core.internal.wc2.SvnOperationRunner.handleEvent(SvnOperationRunner.java:67)
+	at org.tmatesoft.svn.core.internal.wc2.ng.SvnNgCommit.doRun(SvnNgCommit.java:284)
+	at org.tmatesoft.svn.core.internal.wc2.ng.SvnNgCommit.run(SvnNgCommit.java:145)
+	at org.tmatesoft.svn.core.internal.wc2.ng.SvnNgCommit.run(SvnNgCommit.java:1)
+	at org.tmatesoft.svn.core.internal.wc2.ng.SvnNgOperationRunner.run(SvnNgOperationRunner.java:20)
+	at org.tmatesoft.svn.core.internal.wc2.SvnOperationRunner.run(SvnOperationRunner.java:21)
+	at org.tmatesoft.svn.core.wc2.SvnOperationFactory.run(SvnOperationFactory.java:1235)
+	at org.tmatesoft.svn.core.wc2.SvnOperation.run(SvnOperation.java:294)
+	at org.tmatesoft.svn.core.wc2.SvnCommit.run(SvnCommit.java:198)
+	at org.tmatesoft.svn.core.javahl17.SVNClientImpl.commit(SVNClientImpl.java:502)
+	at org.polarion.team.svn.connector.svnkit.SVNKitConnector.commit(SVNKitConnector.java:494)
+	at org.eclipse.team.svn.core.extension.factory.ThreadNameModifier.commit(ThreadNameModifier.java:114)
+	at org.eclipse.team.svn.core.operation.local.CommitOperation$2.run(CommitOperation.java:130)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doSubTask(ProgressMonitorUtility.java:118)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.protectStep(AbstractActionOperation.java:156)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.protectStep(AbstractActionOperation.java:151)
+	at org.eclipse.team.svn.core.operation.local.CommitOperation.performCommit(CommitOperation.java:127)
+	at org.eclipse.team.svn.core.operation.local.CommitOperation.runImpl(CommitOperation.java:98)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.WorkspaceModifyCancellableOperationWrapper.execute(WorkspaceModifyCancellableOperationWrapper.java:58)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.lambda$0(WorkspaceModifyOperation.java:110)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2317)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:131)
+	at org.eclipse.team.svn.ui.utility.SVNTeamOperationWrapper.run(SVNTeamOperationWrapper.java:35)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext.run(JobRunnableContext.java:155)
+	at org.eclipse.team.internal.ui.actions.JobRunnableContext$ResourceJob.runInWorkspace(JobRunnableContext.java:83)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:42)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:26:29.277
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:26:29.283
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:29:10.708
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:29:10.737
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:30:20.184
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:30:20.187
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:30:26.077
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:30:26.081
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:30:49.327
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 13:30:49.332
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 1 2021-07-02 13:54:37.543
+!MESSAGE Problems occurred refreshing resources
+!SUBENTRY 1 org.eclipse.core.resources 4 1 2021-07-02 13:54:37.543
+!MESSAGE Problem occurred in auto-refresh native code: 127.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 14:37:10.310
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 14:37:10.314
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 14:38:13.307
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 14:38:13.310
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 14:38:48.956
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 14:38:48.959
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 14:39:14.753
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 14:39:14.756
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 14:39:28.031
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 14:39:28.035
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 14:39:54.081
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 14:39:54.084
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 14:58:36.214
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 14:58:36.447
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 15:34:12.266
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 15:34:12.271
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 15:34:37.520
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 15:34:37.523
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 15:35:00.361
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 15:35:00.363
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 15:35:28.962
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 15:35:28.965
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 15:41:52.396
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-02 15:41:52.403
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.jface 2 0 2021-07-02 15:41:52.455
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-07-02 15:41:52.455
+!MESSAGE A conflict occurred for CTRL+SHIFT+C:
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.eclipse.tm4e.languageconfiguration.togglelinecommentcommand,Toggle Line Comment,
+		,
+		Category(org.eclipse.tm4e.languageconfiguration.category,TM4E Language Configuration,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4626b40f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.springframework.tooling.boot.ls.ToggleComment,Toggle Comment,
+		,
+		Category(org.springframework.ide.eclipse.commands,Spring Generic Text Editor,Spring Language Server Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@484c720c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
