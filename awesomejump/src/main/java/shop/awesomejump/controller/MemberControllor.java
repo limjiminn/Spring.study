@@ -1,8 +1,5 @@
 package shop.awesomejump.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,6 +7,7 @@ import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import oracle.net.aso.i;
 import shop.awesomejump.domain.MemberDTO;
 import shop.awesomejump.persistence.IMemberDAO;
 
@@ -26,15 +25,21 @@ public class MemberControllor {
 	@Autowired
 	private IMemberDAO member;
 
+	@Autowired
+	private PasswordEncoder pwdEncoder;
+	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String join(MemberDTO mDto, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		// System.out.println(mDto.toString());
+		mDto.setMem_pw(pwdEncoder.encode(mDto.getMem_pw()));
+		mDto.setMem_register_path("일반");
+		
 		int result = 0;
 		result = member.insertMember(mDto);
-
+		
 		if (result > 0) {
-			System.out.println("회원가입끗");
+			System.out.println("회원가입완료");
 		}
 		return "/awesomejump/register";
 	}
@@ -80,12 +85,35 @@ public class MemberControllor {
 	}
 
 	@PostMapping("/loginAdd")
-	public String postloginAdd(String email, String nickName, Model model) throws Exception {
+	public String postloginAdd(String email, String nickName, String social, Model model) throws Exception {
 		
-		model.addAttribute("email",email);
-		model.addAttribute("nickName", nickName);
+		int checkEmail = member.confirmEmail(email);
+		int checkNickName = member.confirmNickname(nickName);
 		
-		return "awesomejump/loginAdd";
+		if(checkEmail == 1) {
+			return "awesomejump/index";
+		}else if(checkEmail == -1 && checkNickName == 1) {
+			model.addAttribute("email",email);
+			model.addAttribute("nickName", nickName);
+			
+			return "awesomejump/loginAdd";
+		}else {
+			MemberDTO mDto = new MemberDTO();
+			mDto.setMem_email(email);
+			mDto.setMem_nickname(nickName);
+			mDto.setMem_pw("social");
+			mDto.setMem_register_path(social);
+			
+			int result = 0;
+			result = member.insertMember(mDto);
+			
+			if (result > 0) {
+				System.out.println("회원가입완료");
+			}
+			
+			return "awesomejump/index";
+		}
+		
 	}
 
 	

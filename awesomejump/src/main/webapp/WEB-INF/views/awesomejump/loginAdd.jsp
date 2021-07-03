@@ -16,7 +16,7 @@
 	 
 	if(document.frm.email.value == "undefined"){
 		alert("개인정보 미동의시 로그인이 불가능 합니다");
-		location.href="/login";
+		location.href="/";
 	}
 	
 	var nickName = document.frm.nickName.value;

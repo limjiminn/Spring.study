@@ -98,6 +98,7 @@ function kakaoLogin() {
 					var input1 = document.createElement('input');
 					var input2 = document.createElement('input');
 					var input3 = document.createElement('input');
+					var input4 = document.createElement('input');
 					
 					input1.setAttribute("type","hidden");
 					input1.setAttribute("name","email");
@@ -108,10 +109,14 @@ function kakaoLogin() {
 					input3.setAttribute("type","hidden");
 					input3.setAttribute("name","_csrf");
 					input3.setAttribute("value",CSRFtoken);
+					input4.setAttribute("type","hidden");
+					input4.setAttribute("name","social");
+					input4.setAttribute("value","kakao");
 					
 					newForm.appendChild(input1);
 					newForm.appendChild(input2);
 					newForm.appendChild(input3);
+					newForm.appendChild(input4);
 					
 					document.body.appendChild(newForm);
 					
@@ -129,14 +134,14 @@ function kakaoLogin() {
 
 <!-- 네이버 소셜 로그인 -->
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
   
   <div id="naver_id_login" style="display: none;"></div>
   <script type="text/javascript">
-  	var naver_id_login = new naver_id_login("CAdAeq_W_hK2H895SPXh", "http://localhost:9090/naver_callback");
+  	var naver_id_login = new naver_id_login("CAdAeq_W_hK2H895SPXh", "https://sixsenseproject.shop/naver_callback");
   	var state = naver_id_login.getUniqState();
   	naver_id_login.setButton("white", 2,40);
-  	/* naver_id_login.setDomain("http://localhost:9090/airbnb/member/login"); */
+  	naver_id_login.setDomain("https://sixsenseproject.shop");
   	naver_id_login.setState(state);
   	//naver_id_login.setPopup();
   	naver_id_login.init_naver_id_login();

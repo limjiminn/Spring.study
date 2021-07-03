@@ -39,6 +39,7 @@
 		var input1 = document.createElement('input');
 		var input2 = document.createElement('input');
 		var input3 = document.createElement('input');
+		var input4 = document.createElement('input');
 		
 		input1.setAttribute("type","hidden");
 		input1.setAttribute("name","email");
@@ -49,10 +50,14 @@
 		input3.setAttribute("type","hidden");
 		input3.setAttribute("name","_csrf");
 		input3.setAttribute("value",CSRFtoken);
+		input4.setAttribute("type","hidden");
+		input4.setAttribute("name","social");
+		input4.setAttribute("value","google");
 		
 		newForm.appendChild(input1);
 		newForm.appendChild(input2);
 		newForm.appendChild(input3);
+		newForm.appendChild(input4);
 		
 		document.body.appendChild(newForm);
 		
