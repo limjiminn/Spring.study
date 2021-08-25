@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ogani.mapper.MemberMapper">
+	
+    <update id="updateLastLogin" parameterType="com.ogani.domain.CustomerDTO">
+      UPDATE customer
+      SET cust_lastlogin = SYSDATE
+      WHERE cust_id = #{cust_id}
+      <selectKey resultType="date" keyProperty="cust_lastlogin" order="AFTER">
+        SELECT SYSDATE FROM DUAL
+      </selectKey>
+    </update>
+  
+    <update id="updatePassword" parameterType="hashMap">
+      UPDATE customer
+      SET cust_password = #{cust_password}
+      WHERE cust_id = #{cust_id}
+        AND cust_authkey = #{cust_authkey}
+    </update>
+  
+    <select id="selectByEmail" resultType="com.ogani.domain.CustomerDTO">
+      SELECT *
+      FROM customer
+      WHERE cust_email = #{cust_email}
+    </select>
+  
+    <select id="selectByIdAndEmail" resultType="com.ogani.domain.CustomerDTO">
+      SELECT * 
+      FROM customer
+      WHERE cust_email = #{cust_email}
+        AND cust_id = #{cust_id}
+    </select>
+  
+  	<select id="selectMemberAuth" parameterType="com.ogani.domain.EmailConfirmDTO" resultType="int">
+ 	  SELECT COUNT(*)
+ 	  FROM customer
+ 	  WHERE cust_email = #{cust_email}
+ 	    AND cust_authkey = #{cust_authkey}
+  	</select>
+  	
+  	<update id="updateMemberAuth">
+  	  UPDATE customer
+  	  SET cust_authstatus = 1
+  	  WHERE cust_id = #{cust_id}
+  	</update>
+  
+  	<update id="updateEnabled" parameterType="hashMap">
+  		UPDATE customer
+  		SET cust_enabled = #{cust_enabled}
+  		WHERE cust_no = #{cust_no}
+  	</update>
+  
+	<select id="selectByNo" resultType="com.ogani.domain.CustomerDTO">
+		SELECT * 
+		FROM customer 
+		WHERE cust_no = #{cust_no}
+	</select>
+
+	<select id="selectById" resultType="com.ogani.domain.CustomerDTO">
+		SELECT * 
+		FROM customer 
+		WHERE cust_id = #{cust_id}
+	</select>
+	
+    <insert id="insertMember">
+      INSERT INTO customer(cust_no, cust_id, cust_password, cust_phone, cust_email, cust_authkey)
+      VALUES(seq_customer.NEXTVAL, #{cust_id}, #{cust_password}, #{cust_phone}, #{cust_email}, #{cust_authkey})
+    </insert>
+
+    <insert id="updateMember">
+      UPDATE customer
+      SET cust_email = #{cust_email}, 
+      	  cust_phone = #{cust_phone}, 
+      	  cust_mailing = #{cust_mailing}
+          <trim prefix="," suffixOverrides=",">
+            <if test="cust_password != '' and cust_password != null">
+          	  cust_password = #{cust_password}, 
+            </if>
+            <if test="cust_name != '' and cust_name != null">
+              cust_name = #{cust_name}, 
+            </if>
+            <if test="cust_address != '' and cust_address != null">
+          	  cust_address = #{cust_address}, 
+            </if>
+          </trim>
+      WHERE cust_no = #{cust_no}
+    </insert>
+  
+</mapper>

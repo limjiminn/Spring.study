@@ -126,9 +126,9 @@
 
       
       <Context docBase="D:\upload" path="/upload"/>
-      <Context docBase="awesomejump" path="/" reloadable="true" source="org.eclipse.jst.jee.server:awesomejump"/>
+      
 
-      </Host>
+      <Context docBase="awesomejump" path="/" reloadable="true" source="org.eclipse.jst.jee.server:awesomejump"/></Host>
     </Engine>
   </Service>
 </Server>

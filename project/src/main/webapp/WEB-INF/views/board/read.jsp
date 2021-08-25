@@ -326,6 +326,7 @@ $(document).ready(function() {
     var modalInputReplyText = modal.find("input[name='replytext']");
     
     var modalInputReplyer = modal.find("input[name='replyer']");
+    
     var modalInputReplyDate = modal.find("input[name='replyDate']");
     
     var modalModifyBtn = $("#modalModifyBtn");

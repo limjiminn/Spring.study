@@ -1,0 +1,92 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <s:csrfMetaTags/>
+  <title>AwesomeJump - feature</title>
+  
+  <link rel="icon" href="/resources/awesomejump/img/favicon.png">
+  <link rel="stylesheet" href="/resources/awesomejump/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/resources/awesomejump/css/animate.css">
+  <link rel="stylesheet" href="/resources/awesomejump/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/resources/awesomejump/css/all.css">
+  <link rel="stylesheet" href="/resources/awesomejump/css/flaticon.css">
+  <link rel="stylesheet" href="/resources/awesomejump/css/themify-icons.css">
+  <link rel="stylesheet" href="/resources/awesomejump/css/magnific-popup.css">
+  <link rel="stylesheet" href="/resources/awesomejump/css/slick.css">
+  <!-- style CSS -->
+  <link rel="stylesheet" href="/resources/awesomejump/css/style.css">
+
+  <script defer src="/resources/awesomejump/js/jquery-1.12.1.min.js"></script>
+  <script defer src="/resources/awesomejump/js/popper.min.js"></script>
+  <script defer src="/resources/awesomejump/js/bootstrap.min.js"></script>
+  <script defer src="/resources/awesomejump/js/jquery.magnific-popup.js"></script>
+  <script defer src="/resources/awesomejump/js/swiper.min.js"></script>
+  <script defer src="/resources/awesomejump/js/masonry.pkgd.js"></script>
+  <script defer src="/resources/awesomejump/js/owl.carousel.min.js"></script>
+  <script defer src="/resources/awesomejump/js/jquery.nice-select.min.js"></script>
+  <script defer src="/resources/awesomejump/js/slick.min.js"></script>
+  <script defer src="/resources/awesomejump/js/jquery.counterup.min.js"></script>
+  <script defer src="/resources/awesomejump/js/waypoints.min.js"></script>
+  <script defer src="/resources/awesomejump/js/contact.js"></script>
+  <script defer src="/resources/awesomejump/js/jquery.ajaxchimp.min.js"></script>
+  <script defer src="/resources/awesomejump/js/jquery.form.js"></script>
+  <script defer src="/resources/awesomejump/js/jquery.validate.min.js"></script>
+  <script defer src="/resources/awesomejump/js/mail-script.js"></script>
+  <!-- custom js -->
+  <script defer src="/resources/awesomejump/js/custom.js"></script>
+  <!-- memberBar -->
+  <%@ include file="/WEB-INF/templates/awesomejump/membersNavbar.jsp" %>
+  <link rel="stylesheet" href="/resources/awesomejump/css/swiper.min.css">
+  <script src="/resources/awesomejump/js/swiper.min.js"></script>
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+</head>
+<body>
+  
+  <jsp:include page="/WEB-INF/templates/awesomejump/header.jsp"/>
+<div class="container">
+	<div>
+		<div style="float: left;">
+			<h1>포인트</h1>
+		</div>
+		<div style="text-align: end;">
+			<h3>보유포인트</h3>
+			<h3>${mem_point}</h3>
+		</div>
+	</div>
+	
+	<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">NO</th>
+      <th scope="col">구매상품</th>
+      <th scope="col">구분</th>
+      <th scope="col">이용금액</th>
+      <th scope="col">포인트</th>
+      <th scope="col">거래일자</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>테이블</td>
+      <td>적립/사용</td>
+      <td>30000원</td>
+      <td>+300p</td>
+      <td>2021/07/10</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+  <jsp:include page="/WEB-INF/templates/awesomejump/footer.jsp"/>
+
+</body>
+</html>

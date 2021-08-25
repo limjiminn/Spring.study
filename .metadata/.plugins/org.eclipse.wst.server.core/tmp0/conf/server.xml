@@ -126,7 +126,7 @@
 
       
       <Context docBase="D:\upload" path="/upload"/>
-      <Context docBase="C:\Users\jiaez\Documents\workspace-spring-tool-suite-4-4.10.0.RELEASE\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\awesomejump" path="" reloadable="true" source="org.eclipse.jst.jee.server:awesomejump"/>
+      
 
       </Host>
     </Engine>
