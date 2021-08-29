@@ -16,7 +16,9 @@ public class PageDTO {
 		this.total = total;
 		//ceil : 올림
 		this.endPage = (int) (Math.ceil(cri.getPageNum() / 10.0)) * 10;
-		
+		// 1페이지의 경우 : Math.ceil(0.1)*10 = 10
+		// 10페이지의 경우 : Math.ceil(1)*10 = 10
+		// 11페이지의 경우 : Math.ceil(1.1)*10 = 20;
 		this.startPage = this.endPage -9;
 		
 		int realEnd = (int) (Math.ceil((total * 1.0)/ cri.getAmount()));
