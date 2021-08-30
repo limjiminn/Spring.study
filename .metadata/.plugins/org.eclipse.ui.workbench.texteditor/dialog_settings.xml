@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="order_box"/>
+		<item key="selection" value="message"/>
 		<list key="findhistory">
+			<item value="message"/>
 			<item value="order_box"/>
 			<item value="padding-left:15px;"/>
 			<item value="padding-left"/>
@@ -22,7 +23,6 @@
 			<item value="arr"/>
 			<item value="썸네일"/>
 			<item value="?"/>
-			<item value="alert"/>
 		</list>
 		<list key="replacehistory">
 			<item value="href=&quot;/"/>

@@ -506,7 +506,7 @@
 		var buyerAddr     = $("input[name='addressList2']").val() + "，"
 		    	          + $("input[name='addressList3']").val() + ($("input[name='addressList4']").val().length > 0 ? "，" : "")
 					      + $("input[name='addressList4']").val();
-		//var productName =$("#productName").val();
+		
 		var productAmount = $("#ototalPrice").val();
 		
 		var IMP = window.IMP; // 생략해도 괜찮습니다.
