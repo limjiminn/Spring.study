@@ -448,12 +448,7 @@
 			alert("주소를 입력해주세요");
 			$("#newAddress_address").focus();
 			return false;
-		} /*  else if ($("#newAddress_detailAddress").val() == "") {
-			alert("상세주소를 입력해주세요");
-			$("#newAddress_detailAddress").focus();
-			return false;
-		}  */
-		
+		} 
 		
 
 		document.cookie = "safeCookie1=foo; SameSite=Lax";
